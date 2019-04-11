@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#504549</color>
+    <color name="bgBottomNavigation">#fe485a</color>
+
+    <color name="white">#ffffff</color>
+    <color name="white2">#C4A7A7</color>
+    <color name="track_color">#F5F8F8</color>
+
+    <color name="feed_bg">#d3d6db</color>
+    <color name="feed_item_bg">#ffffff</color>
+    <color name="feed_item_border">#c2c3c8</color>
+    <color name="link">#0a80d1</color>
+    <color name="timestamp">#a0a3a7</color>
+    <color name="ButtonTextColor">#504549</color>
+
+
+
+</resources>
