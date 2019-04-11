@@ -210,7 +210,7 @@ public class AddNewPostActivity extends AppCompatActivity {
             String imageID = UUID.randomUUID().toString();
             final StorageReference ref = storageReference.child("images/" + imageID);
             postDataClass.setImageURL(filePath.toString());
-
+int x;
             //new comment
 //            ref.putFile(filePath)
 //                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
