@@ -211,6 +211,7 @@ public class AddNewPostActivity extends AppCompatActivity {
             final StorageReference ref = storageReference.child("images/" + imageID);
             postDataClass.setImageURL(filePath.toString());
 
+            //new comment
 //            ref.putFile(filePath)
 //                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
 //                        @Override
