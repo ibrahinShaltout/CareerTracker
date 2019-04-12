@@ -62,18 +62,6 @@ public class TracksFragment extends Fragment {
 //        tracks_recyclerView.requestFocus();
         tracks_recyclerView.setAdapter(trackAdapter);
 
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
-        tracks.add(new TrackDataClass());
         trackAdapter.notifyDataSetChanged();
 
 
