@@ -51,9 +51,10 @@ public class SignUpIndividualActivity extends AppCompatActivity {
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputEmail = (EditText) findViewById(R.id.email);
         inputFullName = (EditText) findViewById(R.id.full_name);
-        inputPhoneNumber = (EditText) findViewById(R.id.phonenumber);
+        inputPhoneNumber = (EditText) findViewById(R.id.phoneNumber);
         inputPassword = (EditText) findViewById(R.id.password);
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+     progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +62,7 @@ public class SignUpIndividualActivity extends AppCompatActivity {
                 final String fullName = inputFullName.getText().toString().trim();
                 final String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
+
                 final String phoneNumber = inputPhoneNumber.getText().toString().trim();
 
 //                if (TextUtils.isEmpty(firstName)) {
@@ -105,8 +107,8 @@ public class SignUpIndividualActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
 
                 //create user
-                auth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(SignUpIndividualActivity.this, new OnCompleteListener<AuthResult>() {
+   auth.createUserWithEmailAndPassword(email, password)
+           .addOnCompleteListener(SignUpIndividualActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Toast.makeText(SignUpIndividualActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();

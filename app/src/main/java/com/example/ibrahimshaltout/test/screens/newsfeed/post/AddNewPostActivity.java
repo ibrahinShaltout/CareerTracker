@@ -56,6 +56,7 @@ public class AddNewPostActivity extends AppCompatActivity {
     private Button btnAddPost;
 
 
+
     private int spinnerItemSelcected;
 
     private ImageView PostImageView;
