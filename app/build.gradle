@@ -64,7 +64,7 @@ dependencies {
 
     implementation 'com.borjabravo:readmoretextview:2.1.0'
 
-//    implementation 'com.github.TheHasnatBD:SweetToast:1.0.2'
+    implementation 'com.github.TheHasnatBD:SweetToast:1.0.2'
 
 
 }
