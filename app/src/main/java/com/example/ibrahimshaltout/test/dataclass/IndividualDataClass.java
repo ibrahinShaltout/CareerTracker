@@ -5,8 +5,7 @@ import java.util.List;
 public class IndividualDataClass {
 
 
-    public String fristName;
-    public String lastName;
+    public String fullName;
     public String email;
     public String phone;
     public String qualificationLevel;
@@ -26,6 +25,14 @@ public class IndividualDataClass {
     public String inputDep;
     public List <String> inputskills;
     public List <String> inputinterest;
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
     public List<String> getInputskills() {
         return inputskills;
@@ -57,9 +64,8 @@ public class IndividualDataClass {
     public IndividualDataClass() {
     }
 
-    public IndividualDataClass(String fristName, String lastName, String email, String phone) {
-        this.fristName = fristName;
-        this.lastName = lastName;
+    public IndividualDataClass(String fullName, String email, String phone) {
+        this.fullName = fullName;
         this.email = email;
         this.phone = phone;
     }
@@ -186,11 +192,5 @@ public class IndividualDataClass {
         this.endYearDate = endYearDate;
     }
 
-    public String getFristName() {
-        return fristName;
-    }
 
-    public void setFristName(String fristName) {
-        this.fristName = fristName;
-    }
 }

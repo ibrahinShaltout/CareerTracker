@@ -151,7 +151,7 @@ public class AddNewPostActivity extends AppCompatActivity {
                                 String strDate = dateFormat.format(date);
 
                                 IndividualDataClass individualDataClass = dataSnapshot.getValue(IndividualDataClass.class);
-                                postDataClass.setPostName(individualDataClass.fristName);
+                                postDataClass.setPostName(individualDataClass.fullName);
                                 postDataClass.setPostData(post);
                                 postDataClass.setTimeAndDate(strDate);
                                 postDataClass.setUser_ID(individualId);
@@ -212,6 +212,7 @@ public class AddNewPostActivity extends AppCompatActivity {
             postDataClass.setImageURL(filePath.toString());
 int x;
 x=3;
+
             //new comment
 //            ref.putFile(filePath)
 //                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

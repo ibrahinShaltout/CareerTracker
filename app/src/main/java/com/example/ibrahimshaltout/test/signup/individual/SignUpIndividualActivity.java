@@ -30,7 +30,7 @@ import java.util.List;
 
 public class SignUpIndividualActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword, inputFirstName, inputLastName, inputPhoneNumber;
+    private EditText inputEmail, inputPassword, inputFullName, inputPhoneNumber;
     private Button btnSignIn, btnSignUp;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
@@ -41,17 +41,16 @@ public class SignUpIndividualActivity extends AppCompatActivity {
     private List inputInterestsList = new ArrayList<String>(Arrays.asList(InterestsList));
     private List inputExperienceList = new ArrayList<String>(Arrays.asList(experienceList));
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+     super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_individual);
 
         auth = FirebaseAuth.getInstance();
         btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputEmail = (EditText) findViewById(R.id.email);
-        inputFirstName = (EditText) findViewById(R.id.firstname);
-        inputLastName = (EditText) findViewById(R.id.lastname);
+        inputFullName = (EditText) findViewById(R.id.full_name);
         inputPhoneNumber = (EditText) findViewById(R.id.phonenumber);
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -59,8 +58,7 @@ public class SignUpIndividualActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String firstName = inputFirstName.getText().toString().trim();
-                final String lastName = inputLastName.getText().toString().trim();
+                final String fullName = inputFullName.getText().toString().trim();
                 final String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
                 final String phoneNumber = inputPhoneNumber.getText().toString().trim();
@@ -117,7 +115,7 @@ public class SignUpIndividualActivity extends AppCompatActivity {
                                     Toast.makeText(SignUpIndividualActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    IndividualDataClass individualDataClass = new IndividualDataClass(firstName, lastName, email, phoneNumber);
+                                    IndividualDataClass individualDataClass = new IndividualDataClass(fullName, email, phoneNumber);
                                     individualDataClass.setQualificationLevel("null");
                                     individualDataClass.setInputSchool("null");
                                     individualDataClass.setInputSchoolType("null");

@@ -36,7 +36,7 @@
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/firstname"
+                    android:id="@+id/full_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawablePadding="15dp"

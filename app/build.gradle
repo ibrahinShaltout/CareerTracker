@@ -63,6 +63,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
     implementation 'com.borjabravo:readmoretextview:2.1.0'
+
 }
 
 
