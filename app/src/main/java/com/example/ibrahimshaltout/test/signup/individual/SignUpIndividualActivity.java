@@ -40,7 +40,7 @@ public class SignUpIndividualActivity extends AppCompatActivity {
     private List inputSkillsList = new ArrayList<String>(Arrays.asList(skillsList));
     private List inputInterestsList = new ArrayList<String>(Arrays.asList(InterestsList));
     private List inputExperienceList = new ArrayList<String>(Arrays.asList(experienceList));
-
+String v;
  @Override
  protected void onCreate(Bundle savedInstanceState) {
      super.onCreate(savedInstanceState);
