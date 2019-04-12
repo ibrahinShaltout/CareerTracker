@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -34,20 +35,26 @@ public class SignUpIndividualActivity extends AppCompatActivity {
     private Button btnSignIn, btnSignUp;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
+    private FirebaseUser user;
+    DatabaseReference userDatabaseReference;
+
     private String[] skillsList = {""};
     private String[] InterestsList = {""};
     private String[] experienceList = {""};
     private List inputSkillsList = new ArrayList<String>(Arrays.asList(skillsList));
     private List inputInterestsList = new ArrayList<String>(Arrays.asList(InterestsList));
     private List inputExperienceList = new ArrayList<String>(Arrays.asList(experienceList));
-String v;
  @Override
  protected void onCreate(Bundle savedInstanceState) {
      super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_individual);
+     userDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
 
-        auth = FirebaseAuth.getInstance();
-        btnSignIn = (Button) findViewById(R.id.sign_in_button);
+
+     auth = FirebaseAuth.getInstance();
+     user = auth.getCurrentUser();
+
+     btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputEmail = (EditText) findViewById(R.id.email);
         inputFullName = (EditText) findViewById(R.id.full_name);
@@ -62,23 +69,16 @@ String v;
                 final String fullName = inputFullName.getText().toString().trim();
                 final String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
+              final   String verified="false";
 
                 final String phoneNumber = inputPhoneNumber.getText().toString().trim();
-
-//                if (TextUtils.isEmpty(firstName)) {
-//                    inputFirstName.setError("You need to enter first name ");
+//
+//                if (TextUtils.isEmpty(fullName)) {
+//                    inputFullName.setError("You need to enter first name ");
 //                    return;
 //                } else {
-//                    inputFirstName.setError(null);
+//                    inputFullName.setError(null);
 //                }
-//
-//                if (TextUtils.isEmpty(lastName)) {
-//                    inputLastName.setError("You need to enter last name ");
-//                    return;
-//                } else {
-//                    inputLastName.setError(null);
-//                }
-//
 //                if (TextUtils.isEmpty(email)) {
 //                    inputEmail.setError("You need to enter an Email");
 //                    return;
@@ -105,8 +105,7 @@ String v;
 //                }
 
                 progressBar.setVisibility(View.VISIBLE);
-
-                //create user
+ //create user
    auth.createUserWithEmailAndPassword(email, password)
            .addOnCompleteListener(SignUpIndividualActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -117,32 +116,33 @@ String v;
                                     Toast.makeText(SignUpIndividualActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    IndividualDataClass individualDataClass = new IndividualDataClass(fullName, email, phoneNumber);
-                                    individualDataClass.setQualificationLevel("null");
-                                    individualDataClass.setInputSchool("null");
-                                    individualDataClass.setInputSchoolType("null");
-                                    individualDataClass.setInputUniversity("null");
-                                    individualDataClass.setInputcollege("null");
-                                    individualDataClass.setInputSpecialization("null");
-                                    individualDataClass.setInputGrade("null");
-                                    individualDataClass.setFieldof_diploma("null");
-                                    individualDataClass.setFieldof_masters("null");
-                                    individualDataClass.setFieldof_doctorate("null");
-                                    individualDataClass.setInputinterest(inputInterestsList);
-                                    individualDataClass.setInputskills(inputSkillsList);
-                                    individualDataClass.setExperience(inputExperienceList);
-                                    individualDataClass.setInputCompany("null");
-                                    individualDataClass.setInputPosition("null");
-                                    individualDataClass.setInputDep("null");
-
+                                    IndividualDataClass individualDataClass = new IndividualDataClass(fullName, email, phoneNumber,verified);
+//                                    individualDataClass.setQualificationLevel("null");
+//                                    individualDataClass.setSchoolName("null");
+//                                    individualDataClass.setSchoolType("null");
+//                                    individualDataClass.setUniversityName("null");
+//                                    individualDataClass.setCollegeName("null");
+//                                    individualDataClass.setDepSpecialization("null");
+//                                    individualDataClass.setGrade("null");
+//                                    individualDataClass.setDiplomaField("null");
+//                                    individualDataClass.setMasterField("null");
+//                                    individualDataClass.setDoctorateField("null");
+//                                    individualDataClass.setInterestsList(inputInterestsList);
+//                                    individualDataClass.setSkillsList(inputSkillsList);
+//                                    individualDataClass.setExperience(inputExperienceList);
+//                                    individualDataClass.setCompanyName("null");
+//                                    individualDataClass.setJobTitle("null");
+//                                    individualDataClass.setDepartment("null");
                                     FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance()
                                             .getCurrentUser().getUid())
                                             .setValue(individualDataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                sendVerificationEmail();
-                                                Toast.makeText(SignUpIndividualActivity.this, "registration_success", Toast.LENGTH_LONG).show();
+                                                user = auth.getCurrentUser();
+                                                if (user != null) {
+                                                    user.sendEmailVerification();}
+                                                    Toast.makeText(SignUpIndividualActivity.this, "registration_success", Toast.LENGTH_LONG).show();
                                             }
                                         }
                                     });
