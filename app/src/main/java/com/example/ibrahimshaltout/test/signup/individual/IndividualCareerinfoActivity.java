@@ -1,12 +1,14 @@
 package com.example.ibrahimshaltout.test.signup.individual;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
@@ -15,9 +17,15 @@ import android.widget.Toast;
 
 import com.example.ibrahimshaltout.test.MainActivity;
 import com.example.ibrahimshaltout.test.R;
+import com.example.ibrahimshaltout.test.dataclass.CollegeDataClass;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
+import com.example.ibrahimshaltout.test.dataclass.UniversityDataClass;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
@@ -29,11 +37,9 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
 
     private static final int PICKFILE_RESULT_CODE = 1;
     MultiAutoCompleteTextView inputskills, inputinterest, inputExperience;
-    private EditText inputSchool, inputSchoolType, inputUniversity, inputSpecialization,
-            inputGrade, inputfieldof_diploma,
-            inputfieldof_masters, inputfieldof_doctorate,
-            inputcollege, inputstartYear, inputendYear, inputCompany,
-            inputPosition, inputDep, inputCV;
+    AutoCompleteTextView school_type_name, university_name, college_name, specialization_name, grade_name, company_name, job_title, department;
+    private EditText inputSchool, inputfieldof_diploma, inputfieldof_masters, inputfieldof_doctorate,
+            inputstartYear, inputendYear, inputCV;
 
     TextInputLayout inputSchoolLayout, inputSchoolTypeLayout, inputUniversityLayout, inputSpecializationLayout,
             inputGradeLayout, inputfieldof_diplomaLayout, inputfieldof_mastersLayout, inputfieldof_doctorateLayout,
@@ -43,11 +49,19 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
     private Button btnNext, btnCv;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
+    DatabaseReference db;
+    DatabaseReference databaseReference;
+
     private int spinnerItemSelcected2;
     MaterialBetterSpinner materialDesignSpinner2;
     ArrayAdapter<String> arrayAdapter2;
     private StorageReference documentAttach;
 
+    ArrayList clgNameDataSnapShot = new ArrayList<>();
+    ArrayList uniNameDataSnapShot = new ArrayList<>();
+
+
+    String[] gradeArray = {"Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"};
     private String[] qualificationList = {"Preparatory School", "High School", "Undergraduate", "Fresh graduate", "Diploma ", "Masters", "Doctorate ", "Employee "};
     String[] skillsArray = {"Dwight D. Eisenhower", "John F. Kennedy", "Lyndon B. Johnson", "Richard Nixon", "Gerald Ford", "Jimmy Carter",
             "Ronald Reagan", "George H. W. Bush", "Bill Clinton", "George W. Bush", "Barack Obama"};
@@ -60,46 +74,40 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual_careerinfo);
+        auth = FirebaseAuth.getInstance();
+        final String currentUser = auth.getCurrentUser().getUid();
 
         auth = FirebaseAuth.getInstance();
-        btnNext = (Button) findViewById(R.id.individualNext1);
+        btnNext = (Button) findViewById(R.id.individual_next1);
         inputSchool = (EditText) findViewById(R.id.School_Name);
-        inputSchoolType = (EditText) findViewById(R.id.School_type_Name);
-        inputUniversity = (EditText) findViewById(R.id.university_Name);
-        inputSpecialization = (EditText) findViewById(R.id.Specialization_name);
-        inputGrade = (EditText) findViewById(R.id.grade_name);
-        inputfieldof_diploma = (EditText) findViewById(R.id.FieldDiploma);
-        inputfieldof_masters = (EditText) findViewById(R.id.FieldMasters);
-        inputfieldof_doctorate = (EditText) findViewById(R.id.FieldDoctorate);
-        inputcollege = (EditText) findViewById(R.id.CollegeName);
-        inputstartYear = (EditText) findViewById(R.id.start_Year);
-        inputendYear = (EditText) findViewById(R.id.end_Year);
-        inputCompany = (EditText) findViewById(R.id.Company_name);
-        inputPosition = (EditText) findViewById(R.id.Job_Title);
-        inputDep = (EditText) findViewById(R.id.Department);
+        inputfieldof_diploma = (EditText) findViewById(R.id.field_diploma);
+        inputfieldof_masters = (EditText) findViewById(R.id.field_masters);
+        inputfieldof_doctorate = (EditText) findViewById(R.id.field_doctorate);
+        inputstartYear = (EditText) findViewById(R.id.start_year);
+        inputendYear = (EditText) findViewById(R.id.end_year);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        inputSchoolLayout = (TextInputLayout) findViewById(R.id.LayoutSchool_Name);
-        inputSchoolTypeLayout = (TextInputLayout) findViewById(R.id.LayoutSchool_type_Name);
-        inputUniversityLayout = (TextInputLayout) findViewById(R.id.Layoutuniversity_Name);
-        inputSpecializationLayout = (TextInputLayout) findViewById(R.id.LayoutSpecialization_name);
-        inputGradeLayout = (TextInputLayout) findViewById(R.id.Layoutgrade_name);
-        inputfieldof_diplomaLayout = (TextInputLayout) findViewById(R.id.LayoutFieldDiploma);
-        inputfieldof_mastersLayout = (TextInputLayout) findViewById(R.id.LayoutFieldMasters);
-        inputfieldof_doctorateLayout = (TextInputLayout) findViewById(R.id.LayoutFieldDoctorate);
-        inputcollegeLayout = (TextInputLayout) findViewById(R.id.LayoutCollegeName);
-        inputstartYearLayout = (TextInputLayout) findViewById(R.id.Layoutstart_Year);
-        inputendYearLayout = (TextInputLayout) findViewById(R.id.Layoutend_Year);
+        inputSchoolLayout = (TextInputLayout) findViewById(R.id.layout_school_name);
+        inputSchoolTypeLayout = (TextInputLayout) findViewById(R.id.layoutSchool_type_name);
+        inputUniversityLayout = (TextInputLayout) findViewById(R.id.layout_university_name);
+        inputSpecializationLayout = (TextInputLayout) findViewById(R.id.layoutSpecialization_name);
+        inputGradeLayout = (TextInputLayout) findViewById(R.id.layoutGrade_name);
+        inputfieldof_diplomaLayout = (TextInputLayout) findViewById(R.id.layoutField_diploma);
+        inputfieldof_mastersLayout = (TextInputLayout) findViewById(R.id.layoutField_masters);
+        inputfieldof_doctorateLayout = (TextInputLayout) findViewById(R.id.layoutField_doctorate);
+        inputcollegeLayout = (TextInputLayout) findViewById(R.id.layout_college_name);
+        inputstartYearLayout = (TextInputLayout) findViewById(R.id.layoutStart_year);
+        inputendYearLayout = (TextInputLayout) findViewById(R.id.layoutEnd_year);
         inputCompanyLayout = (TextInputLayout) findViewById(R.id.LayoutCompany_name);
-        inputPositionLayout = (TextInputLayout) findViewById(R.id.LayoutJob_Title);
-        inputDepLayout = (TextInputLayout) findViewById(R.id.LayoutDepartment);
-        inputskillsLayout = (TextInputLayout) findViewById(R.id.LayoutSkills_Talents);
-        inputinterestLayout = (TextInputLayout) findViewById(R.id.LayoutInterests);
-        inputExperienceLayout = (TextInputLayout) findViewById(R.id.Layoutexperience);
+        inputPositionLayout = (TextInputLayout) findViewById(R.id.layoutJob_title);
+        inputDepLayout = (TextInputLayout) findViewById(R.id.layout_department);
+        inputskillsLayout = (TextInputLayout) findViewById(R.id.LayoutSkills_talents);
+        inputinterestLayout = (TextInputLayout) findViewById(R.id.layout_interests);
+        inputExperienceLayout = (TextInputLayout) findViewById(R.id.Layout_experience);
 
 
         ArrayAdapter<String> skillsadapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, skillsArray);
-        inputskills = (MultiAutoCompleteTextView) findViewById(R.id.Skills_Talents);
+        inputskills = (MultiAutoCompleteTextView) findViewById(R.id.skills_talents);
         inputskills.setThreshold(1);
         inputskills.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         inputskills.setAdapter(skillsadapter);
@@ -108,11 +116,76 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
         inputExperience.setThreshold(1);
         inputExperience.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         inputExperience.setAdapter(experienceadapter);
+
         ArrayAdapter<String> Interestsadapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, interestsArray);
-        inputinterest = (MultiAutoCompleteTextView) findViewById(R.id.Interests);
+        inputinterest = (MultiAutoCompleteTextView) findViewById(R.id.interests);
         inputinterest.setThreshold(1);
         inputinterest.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         inputinterest.setAdapter(Interestsadapter);
+
+        ArrayAdapter<String> schoolNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, interestsArray);
+        school_type_name = (AutoCompleteTextView) findViewById(R.id.school_type_name);
+        school_type_name.setThreshold(1);
+        school_type_name.setAdapter(schoolNameAdapter);
+
+        ArrayAdapter<String> uniNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, uniNameDataSnapShot);
+        university_name = (AutoCompleteTextView) findViewById(R.id.university_name);
+        university_name.setThreshold(1);
+        university_name.setAdapter(uniNameAdapter);
+
+        ArrayAdapter<String> collegeNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, clgNameDataSnapShot);
+        college_name = (AutoCompleteTextView) findViewById(R.id.college_name);
+        college_name.setThreshold(1);
+        college_name.setAdapter(collegeNameAdapter);
+
+        ArrayAdapter<String> specAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, interestsArray);
+        specialization_name = (AutoCompleteTextView) findViewById(R.id.specialization_name);
+        specialization_name.setThreshold(1);
+        specialization_name.setAdapter(specAdapter);
+
+        ArrayAdapter<String> gradeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, gradeArray);
+        grade_name = (AutoCompleteTextView) findViewById(R.id.grade_name);
+        grade_name.setThreshold(1);
+        grade_name.setAdapter(gradeAdapter);
+
+        ArrayAdapter<String> companyNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, interestsArray);
+        company_name = (AutoCompleteTextView) findViewById(R.id.company_name);
+        company_name.setThreshold(1);
+        company_name.setAdapter(companyNameAdapter);
+
+        ArrayAdapter<String> jobTitleAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, interestsArray);
+        job_title = (AutoCompleteTextView) findViewById(R.id.job_title);
+        job_title.setThreshold(1);
+        job_title.setAdapter(jobTitleAdapter);
+
+        ArrayAdapter<String> ClgFldAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, interestsArray);
+        department = (AutoCompleteTextView) findViewById(R.id.department);
+        department.setThreshold(1);
+        department.setAdapter(ClgFldAdapter);
+
+        db = FirebaseDatabase.getInstance().getReference();
+        db.child("Universities").child("Colleges").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                fetchCollageData(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        db.child("Universities").child("List_Of_Universities").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                fetchUniversityData(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         inputSchoolLayout.setVisibility(View.GONE);
@@ -135,7 +208,7 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
         inputDepLayout.setVisibility(View.GONE);
 
         arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, qualificationList);
-        materialDesignSpinner2 = (MaterialBetterSpinner) findViewById(R.id.Levelofqualification);
+        materialDesignSpinner2 = (MaterialBetterSpinner) findViewById(R.id.qualification_level);
         materialDesignSpinner2.setAdapter(arrayAdapter2);
         materialDesignSpinner2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -296,39 +369,39 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(currentUser);
+
                 String listSkillString = inputskills.getText().toString();
                 final String SkillstrArray[] = listSkillString.split(",");
-                List listSkill=new ArrayList<String>(Arrays.asList(SkillstrArray));
+                List listSkill = new ArrayList<String>(Arrays.asList(SkillstrArray));
 
                 String listInterestsString = inputinterest.getText().toString();
                 final String InterestsstrArray[] = listInterestsString.split(",");
-                List listInterests=new ArrayList<String>(Arrays.asList(InterestsstrArray));
+                List listInterests = new ArrayList<String>(Arrays.asList(InterestsstrArray));
 
                 String listExperienceString = inputExperience.getText().toString();
                 final String experiencestrArray[] = listExperienceString.split(",");
-                List listExperience=new ArrayList<String>(Arrays.asList(experiencestrArray));
-//                String listInterestsString = inputinterest.getText().toString();
-//                final String locales[] = listInterestsString.split(",");
-//                List listInterests=new ArrayList<String>(Arrays.asList(locales));
-                //   final String skills = inputskills.getText().toString();
-                //   final String intresets = inputinterest.getText().toString().trim();
+                List listExperience = new ArrayList<String>(Arrays.asList(experiencestrArray));
+
                 final String schoolName = inputSchool.getText().toString().trim();
-                final String SchoolType = inputSchoolType.getText().toString().trim();
-                final String universityName = inputUniversity.getText().toString().trim();
-                final String specialization = inputSpecialization.getText().toString().trim();
-                final String grade = inputGrade.getText().toString().trim();
-                final String field_Of_diploma = inputfieldof_diploma.getText().toString().trim();
-                final String field_Of_masters = inputfieldof_masters.getText().toString().trim();
-                final String field_Of_doctorate = inputfieldof_doctorate.getText().toString().trim();
-                final String collegeName = inputcollege.getText().toString().trim();
+                final String universityName = university_name.getText().toString().trim();
+                final String specialization = specialization_name.getText().toString().trim();
+                final String grade = grade_name.getText().toString().trim();
+                final String fieldOfDiploma = inputfieldof_diploma.getText().toString().trim();
+                final String fieldOfMasters = inputfieldof_masters.getText().toString().trim();
+                final String fieldOfDoctorate = inputfieldof_doctorate.getText().toString().trim();
+                final String collegeName = college_name.getText().toString().trim();
                 final String startYear = inputstartYear.getText().toString().trim();
                 final String endYear = inputendYear.getText().toString().trim();
-                final String companyName = inputCompany.getText().toString().trim();
-                final String position = inputPosition.getText().toString().trim();
-                final String Dep = inputDep.getText().toString().trim();
+                final String companyName = company_name.getText().toString().trim();
+                final String jobTitle = job_title.getText().toString().trim();
+                final String department = IndividualCareerinfoActivity.this.department.getText().toString().trim();
 
-                String individualId=auth.getUid();
-                Toast.makeText(getApplicationContext(), individualId, Toast.LENGTH_SHORT).show();
+                final String SchoolType = school_type_name.getText().toString().trim();
+
+                String currentUser = auth.getCurrentUser().getUid();
+
+                Toast.makeText(getApplicationContext(), currentUser, Toast.LENGTH_SHORT).show();
 //                if (TextUtils.isEmpty(schoolname)) {
 //                    Toast.makeText(getApplicationContext(), "Enter School Name!", Toast.LENGTH_SHORT).show();
 //                    return;
@@ -354,11 +427,11 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
 //                    Toast.makeText(getApplicationContext(), "Enter Company Name!", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
-//                if (TextUtils.isEmpty(position)) {
-//                    Toast.makeText(getApplicationContext(), "Enter position!", Toast.LENGTH_SHORT).show();
+//                if (TextUtils.isEmpty(jobTitle)) {
+//                    Toast.makeText(getApplicationContext(), "Enter jobTitle!", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
-//                if (TextUtils.isEmpty(Dep)) {
+//                if (TextUtils.isEmpty(department)) {
 //                    Toast.makeText(getApplicationContext(), "Enter Department!", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
@@ -368,70 +441,79 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
 //                }
 //                progressBar.setVisibility(View.VISIBLE);
                 IndividualDataClass individualDataClass = new IndividualDataClass();
-                String theLevelOfQualification= signUpAs();
-                individualDataClass.setQualificationLevel(theLevelOfQualification);
-                individualDataClass.setInputSchool(schoolName);
-                individualDataClass.setInputSchoolType(SchoolType);
-                individualDataClass.setInputUniversity(universityName);
-                individualDataClass.setInputSpecialization(specialization);
-                individualDataClass.setInputGrade(grade);
-                individualDataClass.setFieldof_diploma(field_Of_diploma);
-                individualDataClass.setFieldof_masters(field_Of_masters);
-                individualDataClass.setFieldof_doctorate(field_Of_doctorate);
-                individualDataClass.setInputcollege(collegeName);
+                String TheLevelOfQualification = signUpAs();
+                individualDataClass.setQualificationLevel(TheLevelOfQualification);
+                individualDataClass.setSchoolName(schoolName);
+                individualDataClass.setSchoolType(SchoolType);
+                individualDataClass.setUniversityName(universityName);
+                individualDataClass.setDepSpecialization(specialization);
+                individualDataClass.setGrade(grade);
+                individualDataClass.setDiplomaField(fieldOfDiploma);
+                individualDataClass.setMasterField(fieldOfMasters);
+                individualDataClass.setDoctorateField(fieldOfDoctorate);
+                individualDataClass.setCollegeName(collegeName);
                 individualDataClass.setStartYearDate(startYear);
                 individualDataClass.setEndYearDate(endYear);
-                individualDataClass.setInputCompany(companyName);
-                individualDataClass.setInputPosition(position);
-                individualDataClass.setInputDep(Dep);
-                individualDataClass.setInputinterest(listInterests);
-                individualDataClass.setInputskills(listSkill);
+                individualDataClass.setCompanyName(companyName);
+                individualDataClass.setJobTitle(jobTitle);
+                individualDataClass.setDepartment(department);
+                individualDataClass.setInterestsList(listInterests);
+                individualDataClass.setSkillsList(listSkill);
                 individualDataClass.setExperience(listExperience);
 
+                databaseReference.child("qualificationLevel").setValue(individualDataClass.qualificationLevel);
+                databaseReference.child("schoolName").setValue(individualDataClass.schoolName);
+                databaseReference.child("schoolType").setValue(individualDataClass.schoolType);
+                databaseReference.child("universityName").setValue(individualDataClass.universityName);
+                databaseReference.child("collegeName").setValue(individualDataClass.collegeName);
+                databaseReference.child("depSpecialization").setValue(individualDataClass.depSpecialization);
+                databaseReference.child("grade").setValue(individualDataClass.grade);
+                databaseReference.child("diplomaField").setValue(individualDataClass.diplomaField);
+                databaseReference.child("masterField").setValue(individualDataClass.masterField);
+                databaseReference.child("doctorateField").setValue(individualDataClass.doctorateField);
+                databaseReference.child("startYearDate").setValue(individualDataClass.startYearDate);
+                databaseReference.child("endYearDate").setValue(individualDataClass.endYearDate);
+                databaseReference.child("skillsList").setValue(individualDataClass.skillsList);
+                databaseReference.child("interestsList").setValue(individualDataClass.interestsList);
+                databaseReference.child("experience").setValue(individualDataClass.experience);
+                databaseReference.child("companyName").setValue(individualDataClass.companyName);
+                databaseReference.child("jobTitle").setValue(individualDataClass.jobTitle);
+                databaseReference.child("department").setValue(individualDataClass.department);
 
-
-
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("qualificationLevel").setValue(individualDataClass.qualificationLevel);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputSchool").setValue(individualDataClass.inputSchool);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputSchoolType").setValue(individualDataClass.inputSchoolType);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputUniversity").setValue(individualDataClass.inputUniversity);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputcollege").setValue(individualDataClass.inputcollege);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputSpecialization").setValue(individualDataClass.inputSpecialization);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputGrade").setValue(individualDataClass.inputGrade);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("fieldof_diploma").setValue(individualDataClass.fieldof_diploma);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("fieldof_masters").setValue(individualDataClass.fieldof_masters);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("fieldof_doctorate").setValue(individualDataClass.fieldof_doctorate);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("startYearDate").setValue(individualDataClass.startYearDate);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("endYearDate").setValue(individualDataClass.endYearDate);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputskills").setValue(individualDataClass.inputskills);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputinterest").setValue(individualDataClass.inputinterest);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("experience").setValue(individualDataClass.experience);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputCompany").setValue(individualDataClass.inputCompany);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputPosition").setValue(individualDataClass.inputPosition);
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputDep").setValue(individualDataClass.inputDep);
-//                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputCV").setValue(individualDataClass.inputCV);
-//                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("inputlevel").setValue(individualDataClass.inputlevel);
-
-
-
-                Intent intent = new Intent (IndividualCareerinfoActivity.this, MainActivity.class );
+                Intent intent = new Intent(IndividualCareerinfoActivity.this, MainActivity.class);
                 startActivity(intent);
-
-            }});
+            }
+        });
     }
 
+    private void fetchUniversityData(DataSnapshot dataSnapshot) {
+        UniversityDataClass universityDataClass = null;
+        Iterable<DataSnapshot> list = dataSnapshot.getChildren();
+        for (DataSnapshot x : list) {
+            universityDataClass = x.getValue(UniversityDataClass.class);
+            uniNameDataSnapShot.add(universityDataClass.getUniversityName());
+        }
+    }
 
     private String signUpAs() {
-        String theLevel="null";
-        for (int i=0;i<qualificationList.length;i++)
-        {
+        String theLevel = "null";
+        for (int i = 0; i < qualificationList.length; i++) {
             if (spinnerItemSelcected2 == i) {
-                theLevel=qualificationList[i];
+                theLevel = qualificationList[i];
             }
         }
-        return(theLevel);
+        return (theLevel);
     }
 
+    private void fetchCollageData(DataSnapshot dataSnapshot) {
+        CollegeDataClass collegeDataClass = null;
+        Iterable<DataSnapshot> list = dataSnapshot.getChildren();
+        for (DataSnapshot x : list) {
+            collegeDataClass = x.getValue(CollegeDataClass.class);
+            clgNameDataSnapShot.add(collegeDataClass.getCollegeFieldName());
+        }
+
+    }
 }
 
 

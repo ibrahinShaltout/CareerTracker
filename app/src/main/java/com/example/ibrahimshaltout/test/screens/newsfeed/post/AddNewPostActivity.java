@@ -107,10 +107,10 @@ public class AddNewPostActivity extends AppCompatActivity {
 
 
 //        ArrayAdapter<String> skillsadapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, skillsArray);
-//        inputskills = (MultiAutoCompleteTextView) findViewById(R.id.Skills_Talents);
-//        inputskills.setThreshold(1);
-//        inputskills.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-//        inputskills.setAdapter(skillsadapter);
+//        skillsList = (MultiAutoCompleteTextView) findViewById(R.id.Skills_Talents);
+//        skillsList.setThreshold(1);
+//        skillsList.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+//        skillsList.setAdapter(skillsadapter);
 
         materialBetterSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -66,13 +66,10 @@ public class YourLocation extends AppCompatActivity {
 //    String value_lng = null;
     //////////////////////////////////////////////////////////
 
-
     private Button b;
     private TextView t;
     private LocationManager locationManager;
     private LocationListener listener;
-
-
 
     CountriesListClass countriesListClass = new CountriesListClass();
     List countries = countriesListClass.Countries();
@@ -108,9 +105,7 @@ public class YourLocation extends AppCompatActivity {
                 List listLocation = new ArrayList<String>(Arrays.asList(locationList));
                 FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("locationList").setValue(listLocation);
 
-//                Intent intent = new Intent (YourLocation.this, IndividualInfoActivity1.class );
                 Intent intent = new Intent(YourLocation.this, IndividuaGeneralinfoActivity.class);
-
                 startActivity(intent);
                 finish();
 
@@ -129,26 +124,18 @@ public class YourLocation extends AppCompatActivity {
 
         t = (TextView) findViewById(R.id.textView);
         b = (Button) findViewById(R.id.button);
-
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-
-
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
                 t.append("\n " + location.getLongitude() + " " + location.getLatitude());
             }
-
             @Override
             public void onStatusChanged(String s, int i, Bundle bundle) {
-
             }
-
             @Override
             public void onProviderEnabled(String s) {
-
             }
-
             @Override
             public void onProviderDisabled(String s) {
 

@@ -6,25 +6,26 @@ public class IndividualDataClass {
 
 
     public String fullName;
+    public  String verified;
     public String email;
     public String phone;
     public String qualificationLevel;
-    public String inputSchool;
-    public String inputSchoolType;
-    public String inputUniversity;
-    public String inputcollege;
-    public String inputSpecialization ;
-    public String inputGrade ;
-    public String fieldof_diploma;
-    public String fieldof_masters;
-    public String fieldof_doctorate;
+    public String schoolName;
+    public String schoolType;
+    public String universityName;
+    public String collegeName;
+    public String depSpecialization;
+    public String grade;
+    public String diplomaField;
+    public String masterField;
+    public String doctorateField;
     public String startYearDate ;
     public String endYearDate ;
-    public String inputCompany;
-    public String inputPosition;
-    public String inputDep;
-    public List <String> inputskills;
-    public List <String> inputinterest;
+    public String companyName;
+    public String jobTitle;
+    public String department;
+    public List <String> skillsList;
+    public List <String> interestsList;
 
     public String getFullName() {
         return fullName;
@@ -34,20 +35,20 @@ public class IndividualDataClass {
         this.fullName = fullName;
     }
 
-    public List<String> getInputskills() {
-        return inputskills;
+    public List<String> getSkillsList() {
+        return skillsList;
     }
 
-    public void setInputskills(List<String> inputskills) {
-        this.inputskills = inputskills;
+    public void setSkillsList(List<String> skillsList) {
+        this.skillsList = skillsList;
     }
 
-    public List<String> getInputinterest() {
-        return inputinterest;
+    public List<String> getInterestsList() {
+        return interestsList;
     }
 
-    public void setInputinterest(List<String> inputinterest) {
-        this.inputinterest = inputinterest;
+    public void setInterestsList(List<String> interestsList) {
+        this.interestsList = interestsList;
     }
 
     public List<String> getExperience() {
@@ -64,10 +65,11 @@ public class IndividualDataClass {
     public IndividualDataClass() {
     }
 
-    public IndividualDataClass(String fullName, String email, String phone) {
+    public IndividualDataClass(String fullName, String email, String phone,String verified) {
         this.fullName = fullName;
         this.email = email;
         this.phone = phone;
+        this.verified=verified;
     }
 
     public String getQualificationLevel() {
@@ -78,101 +80,101 @@ public class IndividualDataClass {
         this.qualificationLevel = qualificationLevel;
     }
 
-    public String getInputSchool() {
-        return inputSchool;
+    public String getSchoolName() {
+        return schoolName;
     }
 
-    public void setInputSchool(String inputSchool) {
-        this.inputSchool = inputSchool;
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
     }
 
-    public String getInputcollege() {
-        return inputcollege;
+    public String getCollegeName() {
+        return collegeName;
     }
 
-    public void setInputcollege(String inputcollege) {
-        this.inputcollege = inputcollege;
-    }
-
-
-
-
-    public void setInputCompany(String inputCompany) {
-        this.inputCompany = inputCompany;
-    }
-
-    public String getInputPosition() {
-        return inputPosition;
-    }
-
-    public void setInputPosition(String inputPosition) {
-        this.inputPosition = inputPosition;
-    }
-
-    public String getInputDep() {
-        return inputDep;
-    }
-
-    public void setInputDep(String inputDep) {
-        this.inputDep = inputDep;
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
     }
 
 
 
-    public String getInputSchoolType() {
-        return inputSchoolType;
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public void setInputSchoolType(String inputSchoolType) {
-        this.inputSchoolType = inputSchoolType;
+    public String getJobTitle() {
+        return jobTitle;
     }
 
-    public String getInputUniversity() {
-        return inputUniversity;
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
-    public void setInputUniversity(String inputUniversity) {
-        this.inputUniversity = inputUniversity;
+    public String getDepartment() {
+        return department;
     }
 
-    public String getInputSpecialization() {
-        return inputSpecialization;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
-    public void setInputSpecialization(String inputSpecialization) {
-        this.inputSpecialization = inputSpecialization;
+
+
+    public String getSchoolType() {
+        return schoolType;
     }
 
-    public String getInputGrade() {
-        return inputGrade;
+    public void setSchoolType(String schoolType) {
+        this.schoolType = schoolType;
     }
 
-    public void setInputGrade(String inputGrade) {
-        this.inputGrade = inputGrade;
+    public String getUniversityName() {
+        return universityName;
     }
 
-    public String getFieldof_diploma() {
-        return fieldof_diploma;
+    public void setUniversityName(String universityName) {
+        this.universityName = universityName;
     }
 
-    public void setFieldof_diploma(String fieldof_diploma) {
-        this.fieldof_diploma = fieldof_diploma;
+    public String getDepSpecialization() {
+        return depSpecialization;
     }
 
-    public String getFieldof_masters() {
-        return fieldof_masters;
+    public void setDepSpecialization(String depSpecialization) {
+        this.depSpecialization = depSpecialization;
     }
 
-    public void setFieldof_masters(String fieldof_masters) {
-        this.fieldof_masters = fieldof_masters;
+    public String getGrade() {
+        return grade;
     }
 
-    public String getFieldof_doctorate() {
-        return fieldof_doctorate;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
-    public void setFieldof_doctorate(String fieldof_doctorate) {
-        this.fieldof_doctorate = fieldof_doctorate;
+    public String getDiplomaField() {
+        return diplomaField;
+    }
+
+    public void setDiplomaField(String diplomaField) {
+        this.diplomaField = diplomaField;
+    }
+
+    public String getMasterField() {
+        return masterField;
+    }
+
+    public void setMasterField(String masterField) {
+        this.masterField = masterField;
+    }
+
+    public String getDoctorateField() {
+        return doctorateField;
+    }
+
+    public void setDoctorateField(String doctorateField) {
+        this.doctorateField = doctorateField;
     }
 
 
