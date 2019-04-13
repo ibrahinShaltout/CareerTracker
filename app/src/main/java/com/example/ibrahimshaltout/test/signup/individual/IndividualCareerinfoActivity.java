@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.ibrahimshaltout.test.MainActivity;
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.CollegeDataClass;
+import com.example.ibrahimshaltout.test.dataclass.CorporateDataClass;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
 import com.example.ibrahimshaltout.test.dataclass.UniversityDataClass;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +26,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
@@ -59,6 +61,10 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
 
     ArrayList clgNameDataSnapShot = new ArrayList<>();
     ArrayList uniNameDataSnapShot = new ArrayList<>();
+    ArrayList<String> uniDepDataSnapShot = new ArrayList<>();
+    ArrayList corporateNameDataSnapShot = new ArrayList<>();
+    ArrayList uniNameID = new ArrayList<>();
+
 
 
     String[] gradeArray = {"Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"};
@@ -132,13 +138,26 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
         university_name = (AutoCompleteTextView) findViewById(R.id.university_name);
         university_name.setThreshold(1);
         university_name.setAdapter(uniNameAdapter);
+//        university_name.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                String currentUni= String.valueOf(parent.getId());
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+
 
         ArrayAdapter<String> collegeNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, clgNameDataSnapShot);
         college_name = (AutoCompleteTextView) findViewById(R.id.college_name);
         college_name.setThreshold(1);
         college_name.setAdapter(collegeNameAdapter);
 
-        ArrayAdapter<String> specAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, interestsArray);
+        ArrayAdapter<String> specAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, uniDepDataSnapShot);
         specialization_name = (AutoCompleteTextView) findViewById(R.id.specialization_name);
         specialization_name.setThreshold(1);
         specialization_name.setAdapter(specAdapter);
@@ -148,7 +167,7 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
         grade_name.setThreshold(1);
         grade_name.setAdapter(gradeAdapter);
 
-        ArrayAdapter<String> companyNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, interestsArray);
+        ArrayAdapter<String> companyNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, corporateNameDataSnapShot);
         company_name = (AutoCompleteTextView) findViewById(R.id.company_name);
         company_name.setThreshold(1);
         company_name.setAdapter(companyNameAdapter);
@@ -180,12 +199,35 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 fetchUniversityData(dataSnapshot);
             }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        db.child("Universities").child("List_Of_Universities").child("-LcM-o413NPEtHnxoexo").child("uniDepField").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                fetchDepData(dataSnapshot);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        db.child("Corporates").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                fetchCorporateNameData(dataSnapshot);
+
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
+
 
 
         inputSchoolLayout.setVisibility(View.GONE);
@@ -492,6 +534,20 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
         for (DataSnapshot x : list) {
             universityDataClass = x.getValue(UniversityDataClass.class);
             uniNameDataSnapShot.add(universityDataClass.getUniversityName());
+//            uniNameID.add(universityDataClass.getUniversityID());
+        }
+    }
+    private void fetchDepData(DataSnapshot dataSnapshot) {
+        GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {};
+        ArrayList<String> yourStringArray = dataSnapshot.getValue(t);
+        uniDepDataSnapShot.addAll(yourStringArray);
+    }
+    private void fetchCorporateNameData(DataSnapshot dataSnapshot) {
+        CorporateDataClass corporateDataClass = null;
+        Iterable<DataSnapshot> list = dataSnapshot.getChildren();
+        for (DataSnapshot x : list) {
+            corporateDataClass = x.getValue(CorporateDataClass.class);
+            corporateNameDataSnapShot.add(corporateDataClass.getCorporateName());
         }
     }
 
