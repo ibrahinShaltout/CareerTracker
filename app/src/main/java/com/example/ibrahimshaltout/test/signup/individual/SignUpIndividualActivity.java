@@ -37,7 +37,6 @@ public class SignUpIndividualActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser user;
     DatabaseReference userDatabaseReference;
-
     private String[] skillsList = {""};
     private String[] InterestsList = {""};
     private String[] experienceList = {""};

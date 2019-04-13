@@ -45,13 +45,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".signup.individual.IndividuaGeneralinfoActivity" />
-        <activity android:name=".signup.individual.IndividualCareerinfoActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- Firebase Notifications -->
+        <activity android:name=".signup.individual.IndividualCareerinfoActivity" /> <!-- Firebase Notifications -->
         <service android:name=".screens.notification.firebase_notification.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

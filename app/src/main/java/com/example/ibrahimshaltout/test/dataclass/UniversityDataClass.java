@@ -4,19 +4,28 @@ import java.util.ArrayList;
 
 public class UniversityDataClass {
 
-    String universityName ;
-    String  universityWebsite;
-    String   universityPhone;
+    String universityName;
+    String universityWebsite;
+    String universityPhone;
     String universityType;
-    String universityHeadquarters ;
+    String universityHeadquarters;
     String universityOverview;
-    String universityFieldOverview ;
-    String    universityBranches ;
-    String UniversityBio ;
+    String universityFieldOverview;
+    String universityBranches;
+    String UniversityBio;
     String universityFoundation;
     String universityLocation;
-    ArrayList <String> uniDepField;
+    ArrayList<String> uniDepField;
     String universityCollegeField;
+    String universityID;
+
+    public String getUniversityID() {
+        return universityID;
+    }
+
+    public void setUniversityID(String universityID) {
+        this.universityID = universityID;
+    }
 
     public String getUniversityCollegeField() {
         return universityCollegeField;
