@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TabHost;
 
 import com.example.ibrahimshaltout.test.R;
-import com.example.ibrahimshaltout.test.screens.newsfeed.track.TrackDataClass;
+import com.example.ibrahimshaltout.test.dataclass.TrackDataClass;
 import com.example.ibrahimshaltout.test.screens.tracks.add_new_track.AddNewTrackActivity;
 
 
@@ -62,6 +62,7 @@ public class TracksFragment extends Fragment {
 //        tracks_recyclerView.requestFocus();
         tracks_recyclerView.setAdapter(trackAdapter);
 
+        tracks.add(new TrackDataClass());
         trackAdapter.notifyDataSetChanged();
 
 

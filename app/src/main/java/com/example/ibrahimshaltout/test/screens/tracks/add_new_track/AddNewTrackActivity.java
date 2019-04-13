@@ -7,14 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.ibrahimshaltout.test.R;
-import com.example.ibrahimshaltout.test.screens.newsfeed.post.PostAdapter;
-import com.example.ibrahimshaltout.test.screens.newsfeed.post.PostDataClass;
-import com.example.ibrahimshaltout.test.screens.newsfeed.track.TrackAdapterRecommendation;
-import com.example.ibrahimshaltout.test.screens.newsfeed.track.TrackDataClass;
+import com.example.ibrahimshaltout.test.dataclass.TrackDataClass;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

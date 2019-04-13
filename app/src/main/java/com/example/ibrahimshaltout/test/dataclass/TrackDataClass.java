@@ -1,4 +1,4 @@
-package com.example.ibrahimshaltout.test.screens.newsfeed.track;
+package com.example.ibrahimshaltout.test.dataclass;
 
 public class TrackDataClass {
 

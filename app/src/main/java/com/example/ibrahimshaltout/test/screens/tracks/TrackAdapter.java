@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ibrahimshaltout.test.R;
-import com.example.ibrahimshaltout.test.screens.newsfeed.track.TrackDataClass;
+import com.example.ibrahimshaltout.test.dataclass.TrackDataClass;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,8 @@ public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.TracksViewHo
         View itemView = LayoutInflater.from(trackContext)
                 .inflate(R.layout.your_track_item, viewGroup, false);
 
-        return new TrackAdapter.TracksViewHolder(itemView);    }
+        return new TrackAdapter.TracksViewHolder(itemView);
+    }
 
     @Override
     public void onBindViewHolder(@NonNull TracksViewHolder newsFeedViewHolder, int i) {

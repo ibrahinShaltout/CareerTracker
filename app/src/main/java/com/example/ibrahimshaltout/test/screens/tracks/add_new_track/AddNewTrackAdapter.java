@@ -1,6 +1,5 @@
 package com.example.ibrahimshaltout.test.screens.tracks.add_new_track;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -9,11 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ibrahimshaltout.test.R;
-import com.example.ibrahimshaltout.test.screens.newsfeed.track.TrackDataClass;
+import com.example.ibrahimshaltout.test.dataclass.TrackDataClass;
 import com.example.ibrahimshaltout.test.screens.tracks.TrackProfileActivity;
 
 import java.util.ArrayList;

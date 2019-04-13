@@ -42,38 +42,66 @@
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
+                android:padding="2dp"
                 android:background="@drawable/android_photo" />
+
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/track_color"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@color/feed_bg">
+                >
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Android Developer"
+                    android:textSize="15dp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Android Developer job description "
-                    android:textSize="10dp" />
+                    android:text="Android is a mobile operating system developed by Google. It is based on a modified version of the Linux kernel and other open source software, and is designed primarily for touchscreen mobile devices such as smartphones and tablets. In addition, "
+                    android:textSize="13dp"
+                    android:padding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Android Developer job description "
-                    android:textSize="10dp"/>
+                    android:text="  In addition, Google has further developed Android TV for televisions, Android Auto for cars, and Wear OS for wrist watches, each with a specialized user interface. Variants of Android are also used on game consoles, digital cameras, PCs and other electronics. "
+                    android:textSize="13dp"
+                    android:padding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Android Developer job description "
-                    android:textSize="10dp"/>
+                    android:text="https://www.android.com/"
+                    android:textSize="10dp"
+                    android:textStyle="bold"
+                    android:padding="10dp"/>
             </LinearLayout>
 
+            </android.support.v7.widget.CardView>
+
+
             <Button
+                android:id="@+id/track_More_Details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="5dp"
                 android:background="@color/colorPrimary"
                 android:text="More Details"
                 android:textColor="@color/white"
@@ -81,4 +109,10 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&#xA;                    android:layout_width=&quot;wrap_content&quot;" />
 </FrameLayout>

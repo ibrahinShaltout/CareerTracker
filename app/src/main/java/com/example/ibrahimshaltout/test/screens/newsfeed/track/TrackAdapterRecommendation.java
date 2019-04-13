@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ibrahimshaltout.test.R;
+import com.example.ibrahimshaltout.test.dataclass.TrackDataClass;
 
 import java.util.ArrayList;
 
