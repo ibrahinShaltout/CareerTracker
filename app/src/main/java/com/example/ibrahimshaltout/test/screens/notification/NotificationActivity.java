@@ -133,6 +133,7 @@ public class NotificationActivity extends AppCompatActivity {
         notifications.add(new Notification());
         notifications.add(new Notification());
         notifications.add(new Notification());
+
         notificationAdapter.notifyDataSetChanged();
 
     }

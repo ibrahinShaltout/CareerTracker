@@ -197,23 +197,23 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
         db.child("Universities").child("List_Of_Universities").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                fetchUniversityData(dataSnapshot);
+//                fetchUniversityData(dataSnapshot);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-        db.child("Universities").child("List_Of_Universities").child("-LcM-o413NPEtHnxoexo").child("uniDepField").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                fetchDepData(dataSnapshot);
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        db.child("Universities").child("List_Of_Universities").child("-LcM-o413NPEtHnxoexo").child("uniDepField").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                fetchDepData(dataSnapshot);
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
         db.child("Corporates").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -534,7 +534,6 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
         for (DataSnapshot x : list) {
             universityDataClass = x.getValue(UniversityDataClass.class);
             uniNameDataSnapShot.add(universityDataClass.getUniversityName());
-//            uniNameID.add(universityDataClass.getUniversityID());
         }
     }
     private void fetchDepData(DataSnapshot dataSnapshot) {
