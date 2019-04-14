@@ -2,6 +2,7 @@ package com.example.ibrahimshaltout.test.screens.tracks;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,6 +35,13 @@ public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathsViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull PathsViewHolder pathsViewHolder, int i) {
+
+        pathsViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 
