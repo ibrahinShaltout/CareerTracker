@@ -407,12 +407,12 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/track_Start"
+                android:id="@+id/choose_path"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="@color/colorPrimary"
-                android:text="Start Track"
+                android:text="Choose Path"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
         </LinearLayout>

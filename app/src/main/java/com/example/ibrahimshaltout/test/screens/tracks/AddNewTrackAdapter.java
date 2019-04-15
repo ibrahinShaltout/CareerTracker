@@ -1,4 +1,4 @@
-package com.example.ibrahimshaltout.test.screens.tracks.add_new_track;
+package com.example.ibrahimshaltout.test.screens.tracks;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.TrackDataClass;
-import com.example.ibrahimshaltout.test.screens.tracks.TrackProfileActivity;
 
 import java.util.ArrayList;
 
