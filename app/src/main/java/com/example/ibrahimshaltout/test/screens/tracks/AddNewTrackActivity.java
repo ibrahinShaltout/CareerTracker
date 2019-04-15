@@ -1,4 +1,4 @@
-package com.example.ibrahimshaltout.test.screens.tracks.add_new_track;
+package com.example.ibrahimshaltout.test.screens.tracks;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;

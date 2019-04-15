@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".screens.tracks.ChoosePathActivity"></activity>
+        <activity android:name=".screens.messages.ChatActivity"></activity>
+        <activity android:name=".screens.tracks.CurrentTrackProfileActivity" />
+        <activity android:name=".screens.tracks.PathProfileActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".screens.tracks.ChoosePathActivity" />
         <activity android:name=".screens.tracks.TrackProfileDetailsActivity">
 
             <!-- <intent-filter> -->
@@ -25,14 +35,14 @@
         </activity>
         <activity android:name=".screens.tracks.TrackProfileActivity">
 
-             <!--<intent-filter>-->
-             <!--<action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-             <!--<category android:name="android.intent.category.LAUNCHER" />-->
-             <!--</intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".screens.tracks.add_new_track.AddNewTrackActivity" />
+        <activity android:name=".screens.tracks.AddNewTrackActivity" />
         <activity android:name=".screens.newsfeed.post.AddNewPostActivity" />
         <activity android:name=".screens.notification.NotificationActivity" />
         <activity android:name=".screens.messages.MessageActivity" />
@@ -43,13 +53,11 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".login.ResetPasswordActivity" />
         <activity android:name=".signup.SignupAsActivity" />
@@ -64,11 +72,13 @@
         </activity>
         <activity android:name=".signup.individual.IndividuaGeneralinfoActivity" />
         <activity android:name=".signup.individual.IndividualCareerinfoActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity> <!-- Firebase Notifications -->
         <service android:name=".screens.notification.firebase_notification.MyFirebaseMessagingService">
             <intent-filter>

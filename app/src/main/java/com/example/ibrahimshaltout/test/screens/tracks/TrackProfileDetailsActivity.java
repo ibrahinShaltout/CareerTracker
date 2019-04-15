@@ -10,7 +10,6 @@ import android.widget.Button;
 
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.PathDataClass;
-import com.example.ibrahimshaltout.test.screens.tracks.add_new_track.AddNewTrackActivity;
 
 import java.util.ArrayList;
 
@@ -41,7 +40,7 @@ public class TrackProfileDetailsActivity extends AppCompatActivity {
 
         pathAdapter.notifyDataSetChanged();
 
-        track_Start =(Button)findViewById(R.id.track_Start);
+        track_Start =(Button)findViewById(R.id.choose_path);
         track_Start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -8,15 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.ibrahimshaltout.test.R;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessagesViewHolder> {
 
 
     private Context trackContext;
-    private ArrayList<Message> messageList;
+    private List<Message> messageList;
 
-    public MessageAdapter(Context mContext, ArrayList<Message> messageList) {
-        this.trackContext = mContext;
+    public MessageAdapter( List<Message> messageList) {
         this.messageList = messageList;
     }
 
@@ -24,7 +24,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Messages
     @NonNull
     @Override
     public MessagesViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View itemView = LayoutInflater.from(trackContext)
+        View itemView = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.messege_item, viewGroup, false);
 
         return new MessagesViewHolder(itemView);    }

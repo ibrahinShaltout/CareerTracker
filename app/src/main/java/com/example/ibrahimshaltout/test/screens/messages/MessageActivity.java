@@ -55,7 +55,7 @@ public class MessageActivity extends AppCompatActivity {
 
 
         Message_recyclerView = findViewById(R.id.recycler_view_message_screen);
-        messageAdapter = new MessageAdapter(this, messages);
+        messageAdapter = new MessageAdapter( messages);
         RecyclerView.LayoutManager trackLayoutManager = new LinearLayoutManager(this);
         Message_recyclerView.setLayoutManager(trackLayoutManager);
         Message_recyclerView.setNestedScrollingEnabled(true);
