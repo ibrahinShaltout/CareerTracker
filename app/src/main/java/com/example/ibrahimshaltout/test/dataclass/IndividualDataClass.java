@@ -26,6 +26,15 @@ public class IndividualDataClass {
     public String department;
     public List <String> skillsList;
     public List <String> interestsList;
+    public String imageURL;
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
     public String getFullName() {
         return fullName;

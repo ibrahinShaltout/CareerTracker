@@ -43,24 +43,25 @@ public class SignUpIndividualActivity extends AppCompatActivity {
     private List inputSkillsList = new ArrayList<String>(Arrays.asList(skillsList));
     private List inputInterestsList = new ArrayList<String>(Arrays.asList(InterestsList));
     private List inputExperienceList = new ArrayList<String>(Arrays.asList(experienceList));
- @Override
- protected void onCreate(Bundle savedInstanceState) {
-     super.onCreate(savedInstanceState);
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_individual);
-     userDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+        userDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
 
 
-     auth = FirebaseAuth.getInstance();
-     user = auth.getCurrentUser();
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
-     btnSignIn = (Button) findViewById(R.id.sign_in_button);
+        btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputEmail = (EditText) findViewById(R.id.email);
         inputFullName = (EditText) findViewById(R.id.full_name);
         inputPhoneNumber = (EditText) findViewById(R.id.phoneNumber);
         inputPassword = (EditText) findViewById(R.id.password);
 
-     progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +69,7 @@ public class SignUpIndividualActivity extends AppCompatActivity {
                 final String fullName = inputFullName.getText().toString().trim();
                 final String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
-              final   String verified="false";
+                final String verified = "false";
 
                 final String phoneNumber = inputPhoneNumber.getText().toString().trim();
 //
@@ -104,9 +105,9 @@ public class SignUpIndividualActivity extends AppCompatActivity {
 //                }
 
                 progressBar.setVisibility(View.VISIBLE);
- //create user
-   auth.createUserWithEmailAndPassword(email, password)
-           .addOnCompleteListener(SignUpIndividualActivity.this, new OnCompleteListener<AuthResult>() {
+                //create user
+                auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(SignUpIndividualActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Toast.makeText(SignUpIndividualActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
@@ -115,7 +116,7 @@ public class SignUpIndividualActivity extends AppCompatActivity {
                                     Toast.makeText(SignUpIndividualActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    IndividualDataClass individualDataClass = new IndividualDataClass(fullName, email, phoneNumber,verified);
+                                    IndividualDataClass individualDataClass = new IndividualDataClass(fullName, email, phoneNumber, verified);
 //                                    individualDataClass.setQualificationLevel("null");
 //                                    individualDataClass.setSchoolName("null");
 //                                    individualDataClass.setSchoolType("null");
@@ -140,8 +141,9 @@ public class SignUpIndividualActivity extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 user = auth.getCurrentUser();
                                                 if (user != null) {
-                                                    user.sendEmailVerification();}
-                                                    Toast.makeText(SignUpIndividualActivity.this, "registration_success", Toast.LENGTH_LONG).show();
+                                                    user.sendEmailVerification();
+                                                }
+                                                Toast.makeText(SignUpIndividualActivity.this, "registration_success", Toast.LENGTH_LONG).show();
                                             }
                                         }
                                     });
@@ -161,8 +163,7 @@ public class SignUpIndividualActivity extends AppCompatActivity {
         progressBar.setVisibility(View.GONE);
     }
 
-    public void sendVerificationEmail()
-    {
+    public void sendVerificationEmail() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         user.sendEmailVerification()

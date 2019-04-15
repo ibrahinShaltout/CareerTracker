@@ -83,10 +83,10 @@ public class MainActivity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.nav_view);
 
         navHeader = navigationView.getHeaderView(0);
-        txtName = (TextView) navHeader.findViewById(R.id.name);
+        txtName = (TextView) navHeader.findViewById(R.id.profile_name);
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
-        imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
+        imgProfile = (ImageView) navHeader.findViewById(R.id.profile_image);
 
         // initializing bottom_navigation_menu top_bar_menu
         setUpNavigationView();

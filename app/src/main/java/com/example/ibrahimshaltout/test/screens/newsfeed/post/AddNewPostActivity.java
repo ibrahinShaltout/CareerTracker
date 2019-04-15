@@ -56,7 +56,6 @@ public class AddNewPostActivity extends AppCompatActivity {
     private Button btnAddPost;
 
 
-
     private int spinnerItemSelcected;
 
     private ImageView PostImageView;
@@ -211,35 +210,6 @@ public class AddNewPostActivity extends AppCompatActivity {
             String imageID = UUID.randomUUID().toString();
             final StorageReference ref = storageReference.child("images/" + imageID);
             postDataClass.setImageURL(filePath.toString());
-int x;
-x=3;
-
-            //new comment
-//            ref.putFile(filePath)
-//                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                            Log.d("ImageUrl", taskSnapshot.getUploadSessionUri().toString());
-//                            progressDialog.dismiss();
-//                            Toast.makeText(AddNewPostActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
-//                        }
-//                    })
-//                    .addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            progressDialog.dismiss();
-//                            Toast.makeText(AddNewPostActivity.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
-//                        }
-//                    })
-//                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-//                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot
-//                                    .getTotalByteCount());
-//                            progressDialog.setMessage("Uploaded " + (int) progress + "%");
-//                        }
-//                    });
-
             UploadTask uploadTask = ref.putFile(filePath);
             Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                 @Override
@@ -262,7 +232,7 @@ x=3;
                         postDataClass.setImageURL(downloadUri.toString());
 
                     } else {
-                        Toast.makeText(AddNewPostActivity.this, "Failed " , Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddNewPostActivity.this, "Failed ", Toast.LENGTH_SHORT).show();
                         // Handle failures
                         // ...
                     }
