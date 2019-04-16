@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context=".screens.tracks.ChoosePathActivity">
+    tools:context=".tracks.ChoosePathActivity">
 
     <include
         android:id="@+id/track_profile_Screen1"

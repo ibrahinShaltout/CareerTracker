@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".screens.search.SearchActivity">
+    tools:context=".search.SearchActivity">
 
     <include
         android:id="@+id/search_appbar"

@@ -15,9 +15,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.ibrahimshaltout.test.screens.Profile.UserProfileActivity;
-import com.example.ibrahimshaltout.test.screens.messages.ChatActivity;
-import com.example.ibrahimshaltout.test.screens.messages.Friends;
+import com.example.ibrahimshaltout.test.Profile.UserProfileActivity;
+import com.example.ibrahimshaltout.test.messages.ChatActivity;
+import com.example.ibrahimshaltout.test.messages.Friends;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;

@@ -161,7 +161,6 @@ public class SignUpIndividualActivity extends AppCompatActivity {
                                     userDatabaseReference.child("user_mobile").setValue(phoneNumber);
                                     userDatabaseReference.child("user_email").setValue(email);
                                     userDatabaseReference.child("user_nickname").setValue("");
-                                    userDatabaseReference.child("user_gender").setValue("");
                                     userDatabaseReference.child("user_profession").setValue("");
                                     userDatabaseReference.child("created_at").setValue(ServerValue.TIMESTAMP);
                                     userDatabaseReference.child("user_status").setValue("Hi, I'm new uMe user");

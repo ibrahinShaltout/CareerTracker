@@ -123,10 +123,7 @@ public class VerifyEmail extends AppCompatActivity {
 //    }
 
     public void sendVerificationEmail() {
-
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         user.sendEmailVerification()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -134,9 +131,7 @@ public class VerifyEmail extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // email sent
                             Toast.makeText(VerifyEmail.this, "Your Email is sent", Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(VerifyEmail.this,YourLocation.class);
-//                            startActivity(intent);
-//                            finish();
+//
                         } else {
                             // email not sent, so display message and restart the activity or do whatever you wish to do
                             //restart this activity

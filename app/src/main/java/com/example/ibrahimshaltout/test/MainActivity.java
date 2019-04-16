@@ -17,7 +17,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -29,14 +28,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.ibrahimshaltout.test.screens.menu.MenuFragment;
-import com.example.ibrahimshaltout.test.screens.messages.MessageActivity;
-import com.example.ibrahimshaltout.test.screens.notification.NotificationActivity;
-import com.example.ibrahimshaltout.test.screens.search.SearchFragment;
-import com.example.ibrahimshaltout.test.screens.tracks.TracksFragment;
-import com.example.ibrahimshaltout.test.screens.people.PeopleFragment;
-import com.example.ibrahimshaltout.test.screens.Profile.UserProfileActivity;
-import com.example.ibrahimshaltout.test.screens.newsfeed.NewsFeedFragment;
+
+import com.example.ibrahimshaltout.test.messages.MessageActivity;
+import com.example.ibrahimshaltout.test.notification.NotificationActivity;
+import com.example.ibrahimshaltout.test.search.SearchFragment;
+import com.example.ibrahimshaltout.test.tracks.TracksFragment;
+import com.example.ibrahimshaltout.test.people.PeopleFragment;
+import com.example.ibrahimshaltout.test.Profile.UserProfileActivity;
+import com.example.ibrahimshaltout.test.newsfeed.NewsFeedFragment;
 import com.example.ibrahimshaltout.test.login.LoginActivity;
 import com.example.ibrahimshaltout.test.menu_bar.AboutUs;
 import com.google.firebase.auth.FirebaseAuth;
@@ -271,10 +270,6 @@ public class MainActivity extends AppCompatActivity {
                 PeopleFragment peopleFragment = new PeopleFragment();
                 return peopleFragment;
 
-            case 4:
-                // settings fragment
-                MenuFragment settingsFragment = new MenuFragment();
-                return settingsFragment;
             default:
                 return new NewsFeedFragment();
         }

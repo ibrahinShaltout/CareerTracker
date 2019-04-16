@@ -2,6 +2,7 @@ package com.example.ibrahimshaltout.test.login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -14,9 +15,14 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.ibrahimshaltout.test.IntroActivity;
 import com.example.ibrahimshaltout.test.MainActivity;
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.signup.SignupAsActivity;
+import com.example.ibrahimshaltout.test.signup.VerifyEmail;
+import com.example.ibrahimshaltout.test.signup.YourLocation;
+import com.example.ibrahimshaltout.test.signup.individual.IndividuaGeneralinfoActivity;
+import com.example.ibrahimshaltout.test.signup.individual.IndividualCareerinfoActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -57,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         user = auth.getCurrentUser();
 
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
 
@@ -77,11 +83,10 @@ public class LoginActivity extends AppCompatActivity {
         inputPasswordLayout = (TextInputLayout) findViewById(R.id.textinputlayoutPassword);
 
 
-
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,SignupAsActivity.class));
+                startActivity(new Intent(LoginActivity.this, SignupAsActivity.class));
             }
         });
 
@@ -121,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 //authenticate user
                 auth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (!task.isSuccessful()) {
@@ -154,8 +159,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * checking email verified or NOT
      */
-    public void checkIfEmailVerified()
-    {
+    public void checkIfEmailVerified() {
         user = auth.getCurrentUser();
         boolean isVerified = false;
         if (user != null) {
@@ -165,11 +169,13 @@ public class LoginActivity extends AppCompatActivity {
             String UID = auth.getCurrentUser().getUid();
             userDatabaseReference.child(UID).child("verified").setValue("true");
 
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-            finish();
+            // saving in local cache through Shared Preferences
+
+                startActivity(new Intent(LoginActivity.this, IntroActivity.class));
+                finish();
+
         } else {
+            sendVerificationEmail();
             SweetToast.info(LoginActivity.this, "Email is not verified. Please verify first");
             auth.signOut();
         }
@@ -210,5 +216,29 @@ public class LoginActivity extends AppCompatActivity {
 //            //restart this activity
 
 //        }
+    }
+
+    public void sendVerificationEmail() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user.sendEmailVerification()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            // email sent
+                            Toast.makeText(LoginActivity.this, "Your Email is sent", Toast.LENGTH_SHORT).show();
+//
+                        } else {
+                            // email not sent, so display message and restart the activity or do whatever you wish to do
+                            //restart this activity
+                            Toast.makeText(LoginActivity.this, "Your Email is sent", Toast.LENGTH_SHORT).show();
+                            overridePendingTransition(0, 0);
+                            finish();
+                            overridePendingTransition(0, 0);
+                            startActivity(getIntent());
+
+                        }
+                    }
+                });
     }
 }

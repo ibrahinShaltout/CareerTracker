@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/L1"
-    tools:context=".screens.notification.NotificationActivity">
+    tools:context=".notification.NotificationActivity">
 
     <include
         android:id="@+id/notification_top_bar"

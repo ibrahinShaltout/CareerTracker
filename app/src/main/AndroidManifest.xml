@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,13 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".OtherProfileActivity"></activity>
-        <activity android:name=".screens.messages.StatusUpdateActivity" />
-        <activity android:name=".screens.search.SearchActivity" />
+        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".OtherProfileActivity" />
+        <activity android:name=".messages.StatusUpdateActivity" />
+        <activity android:name=".search.SearchActivity" />
         <activity android:name=".FriendsActivity" />
-        <activity android:name=".screens.messages.ChatActivity" />
-        <activity android:name=".screens.tracks.CurrentTrackProfileActivity" />
-        <activity android:name=".screens.tracks.PathProfileActivity">
+        <activity android:name=".messages.ChatActivity" />
+        <activity android:name=".tracks.CurrentTrackProfileActivity" />
+        <activity android:name=".tracks.PathProfileActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -29,15 +31,15 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".screens.tracks.ChoosePathActivity" />
-        <activity android:name=".screens.tracks.TrackProfileDetailsActivity">
+        <activity android:name=".tracks.ChoosePathActivity" />
+        <activity android:name=".tracks.TrackProfileDetailsActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".screens.tracks.TrackProfileActivity">
+        <activity android:name=".tracks.TrackProfileActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -46,11 +48,11 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".screens.tracks.AddNewTrackActivity" />
-        <activity android:name=".screens.newsfeed.post.AddNewPostActivity" />
-        <activity android:name=".screens.notification.NotificationActivity" />
-        <activity android:name=".screens.messages.MessageActivity" />
-        <activity android:name=".screens.Profile.UserProfileActivity" />
+        <activity android:name=".tracks.AddNewTrackActivity" />
+        <activity android:name=".newsfeed.post.AddNewPostActivity" />
+        <activity android:name=".notification.NotificationActivity" />
+        <activity android:name=".messages.MessageActivity" />
+        <activity android:name=".Profile.UserProfileActivity" />
         <activity android:name=".menu_bar.PrivacyPolicy" />
         <activity android:name=".menu_bar.AboutUs" />
         <activity
@@ -92,12 +94,16 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity> <!-- Firebase Notifications -->
-        <service android:name=".screens.notification.firebase_notification.MyFirebaseMessagingService">
+        <!-- Cropping image library -->
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <service android:name=".notification.firebase_notification.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".screens.notification.firebase_notification.MyFirebaseInstanceIDService">
+        <service android:name=".notification.firebase_notification.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
