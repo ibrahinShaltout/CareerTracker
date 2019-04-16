@@ -11,6 +11,34 @@ public class PostDataClass {
     private String post_ID;
     private int number_of_likes;
 
+    private String comment;
+    private String writerID;
+    private String writerName;
+
+    public String getWriterName() {
+        return writerName;
+    }
+
+    public void setWriterName(String writerName) {
+        this.writerName = writerName;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getWriterID() {
+        return writerID;
+    }
+
+    public void setWriterID(String writerID) {
+        this.writerID = writerID;
+    }
+
     public String getPost_ID() {
         return post_ID;
     }

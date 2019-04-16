@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".screens.messages.ChatActivity"></activity>
+        <activity android:name=".screens.newsfeed.post.CommentActivity"></activity>
+        <activity android:name=".screens.messages.ChatActivity" />
         <activity android:name=".screens.tracks.CurrentTrackProfileActivity" />
         <activity android:name=".screens.tracks.PathProfileActivity">
 

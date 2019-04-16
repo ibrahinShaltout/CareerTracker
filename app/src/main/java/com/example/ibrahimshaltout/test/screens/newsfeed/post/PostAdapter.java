@@ -1,15 +1,16 @@
 package com.example.ibrahimshaltout.test.screens.newsfeed.post;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ibrahimshaltout.test.R;
@@ -53,10 +54,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
         if (item.getTimeAndDate() != null) {
             newsFeedViewHolder.dateAndTime.setText(item.getTimeAndDate());
         }
-
         newsFeedViewHolder.number_of_like.setText(item.getNumber_of_likes()+"");
-
-
         newsFeedViewHolder.thumbs_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +75,22 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
         //Loading image from Glide library.
 
         Glide.with(trackContext).load(item.getImageURL()).into(newsFeedViewHolder.imageView);
-//
+        newsFeedViewHolder.post_comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(trackContext, CommentActivity.class);
+                intent.putExtra("name",item.getPostName());
+                intent.putExtra("decs",item.getPostData());
+                intent.putExtra("timeAndDate",item.getTimeAndDate());
+                intent.putExtra("postID",item.getPost_ID());
+
+                intent.putExtra("numOfLikes",item.getNumber_of_likes()+"");
+                trackContext.startActivity(intent);
+
+
+            }
+        });
+
     }
     @Override
     public int getItemCount() {
@@ -111,7 +124,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
         public ImageView imageView;
         public TextView number_of_like;
         public ImageButton thumbs_up;
-
+        public Button post_comment;
 
         NewsFeedPostViewHolder(View view) {
             super(view);
@@ -121,6 +134,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
             imageView = (ImageView) view.findViewById(R.id.post_image);
             number_of_like = (TextView) view.findViewById(R.id.Number_Of_Likes);
             thumbs_up= (ImageButton)view.findViewById(R.id.thumbs_up);
+            post_comment=view.findViewById(R.id.post_comment);
 
         }
     }

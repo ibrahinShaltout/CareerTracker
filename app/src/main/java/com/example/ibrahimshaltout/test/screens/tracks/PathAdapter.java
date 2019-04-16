@@ -44,7 +44,6 @@ public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathsViewHolde
                 pathContext.startActivity(intent);
             }
         });
-
     }
 
     @Override
