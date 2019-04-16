@@ -13,6 +13,7 @@ import com.example.ibrahimshaltout.test.R;
 import com.google.firebase.messaging.RemoteMessage;
 
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
+
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
@@ -23,7 +24,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         String NOTIFICATION_CHANNEL_ID = "uMe_Channel_1";
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "CareerTrack Notifications", NotificationManager.IMPORTANCE_HIGH);
+            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "uMe Notifications", NotificationManager.IMPORTANCE_HIGH);
 
             // Configure the notification channel.
             notificationChannel.setDescription("Channel description");

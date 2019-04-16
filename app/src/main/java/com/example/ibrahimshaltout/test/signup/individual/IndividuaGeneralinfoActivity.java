@@ -45,8 +45,8 @@ public class IndividuaGeneralinfoActivity extends AppCompatActivity {
         radioGroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
 
         continuegeneral = (Button) findViewById(R.id.countinue_generalIndividualInfo);
-        EditText as12 = (EditText) findViewById(R.id.City);
-        final EditText dateEditText = findViewById(R.id.date);
+
+        final EditText dateEditText = findViewById(R.id.birthdate);
 
 
         dateEditText.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,7 @@ public class IndividuaGeneralinfoActivity extends AppCompatActivity {
                 databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(currentUser);
 
                 databaseReference.child("BirthDate").setValue(birthDate);
-                databaseReference.child("Gender").setValue(radioValue);
+                databaseReference.child("user_gender").setValue(radioValue);
 
                 Intent intent = new Intent(IndividuaGeneralinfoActivity.this, IndividualCareerinfoActivity.class);
                 startActivity(intent);

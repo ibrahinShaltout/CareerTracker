@@ -1,14 +1,22 @@
 package com.example.ibrahimshaltout.test;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,19 +28,26 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.ibrahimshaltout.test.screens.menu.MenuFragment;
-import com.example.ibrahimshaltout.test.screens.messages.MessageActivity;
-import com.example.ibrahimshaltout.test.screens.notification.NotificationActivity;
-import com.example.ibrahimshaltout.test.screens.search.SearchFragment;
-import com.example.ibrahimshaltout.test.screens.tracks.TracksFragment;
-import com.example.ibrahimshaltout.test.screens.people.PeopleFragment;
-import com.example.ibrahimshaltout.test.screens.Profile.UserProfileActivity;
-import com.example.ibrahimshaltout.test.screens.newsfeed.NewsFeedFragment;
+
+import com.example.ibrahimshaltout.test.messages.MessageActivity;
+import com.example.ibrahimshaltout.test.notification.NotificationActivity;
+import com.example.ibrahimshaltout.test.search.SearchFragment;
+import com.example.ibrahimshaltout.test.tracks.TracksFragment;
+import com.example.ibrahimshaltout.test.people.PeopleFragment;
+import com.example.ibrahimshaltout.test.Profile.UserProfileActivity;
+import com.example.ibrahimshaltout.test.newsfeed.NewsFeedFragment;
 import com.example.ibrahimshaltout.test.login.LoginActivity;
 import com.example.ibrahimshaltout.test.menu_bar.AboutUs;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final int TIME_LIMIT = 1500;
+    private static long backPressed;
 
     Toolbar toolbarTop;
     private Button profile;
@@ -62,6 +77,14 @@ public class MainActivity extends AppCompatActivity {
     private Handler mHandler;
 
 
+    //Firebase
+    private FirebaseAuth auth;
+    private DatabaseReference userDatabaseReference;
+    public FirebaseUser currentUser;
+
+    private ConnectivityReceiver connectivityReceiver;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,11 +94,19 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbarTop);
         toolbarTop.setTitle("");
 
+        auth = FirebaseAuth.getInstance();
+        currentUser = auth.getCurrentUser();
+        if (currentUser != null){
+            String user_uID = auth.getCurrentUser().getUid();
+
+            userDatabaseReference = FirebaseDatabase.getInstance().getReference()
+                    .child("Users").child(user_uID);
+        }
+
         loadFragment(new NewsFeedFragment());
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
 
         mHandler = new Handler();
 
@@ -86,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         txtName = (TextView) navHeader.findViewById(R.id.profile_name);
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
-        imgProfile = (ImageView) navHeader.findViewById(R.id.profile_image);
+
 
         // initializing bottom_navigation_menu top_bar_menu
         setUpNavigationView();
@@ -95,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
             CURRENT_TAG = TAG_HOME;
             loadHomeFragment();
         }
+
+
     }
 
     @Override
@@ -123,7 +156,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+            = new BottomNavigationView.OnNavigationItemSelectedListener()
+    {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment;
@@ -236,10 +270,6 @@ public class MainActivity extends AppCompatActivity {
                 PeopleFragment peopleFragment = new PeopleFragment();
                 return peopleFragment;
 
-            case 4:
-                // settings fragment
-                MenuFragment settingsFragment = new MenuFragment();
-                return settingsFragment;
             default:
                 return new NewsFeedFragment();
         }
@@ -310,28 +340,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawers();
-            return;
-        }
-
-        // This code loads home fragment when back key is pressed
-        // when user is in other fragment than home
-        if (shouldLoadHomeFragOnBackPress) {
-            // checking if user is on other bottom_navigation_menu top_bar_menu
-            // rather than home
-            if (navItemIndex != 0) {
-                navItemIndex = 0;
-                CURRENT_TAG = TAG_HOME;
-                loadHomeFragment();
-                return;
-            }
-        }
-        super.onBackPressed();
-    }
-
     public void signOut() {
         FirebaseAuth.getInstance().signOut();
         moveToLoginActivity();
@@ -342,5 +350,99 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        currentUser = auth.getCurrentUser();
+        //checking logging, if not login redirect to Login ACTIVITY
+        if (currentUser == null){
+            logOutUser(); // Return to Login activity
+        }
+        if (currentUser != null){
+            userDatabaseReference.child("active_now").setValue("true");
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Register Connectivity Broadcast receiver
+        connectivityReceiver = new ConnectivityReceiver();
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(connectivityReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+//         Unregister Connectivity Broadcast receiver
+        unregisterReceiver(connectivityReceiver);
+        // google kore aro jana lagbe, bug aache ekhane
+        if (currentUser != null){
+            userDatabaseReference.child("active_now").setValue(ServerValue.TIMESTAMP);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // from onStop
+        if (currentUser != null){
+            userDatabaseReference.child("active_now").setValue(ServerValue.TIMESTAMP);
+        }
+    }
+
+    private void logOutUser() {
+        Intent loginIntent =  new Intent(MainActivity.this, LoginActivity.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginIntent);
+        finish();
+    }
+
+    // Broadcast receiver for network checking
+    public class ConnectivityReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isConnected()){
+
+            } else {
+                Snackbar snackbar = Snackbar
+                        .make(navHeader, "No internet connection! ", Snackbar.LENGTH_LONG)
+                        .setAction("Go settings", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent=new Intent(Settings.ACTION_WIRELESS_SETTINGS);
+                                startActivity(intent);
+                            }
+                        });
+                // Changing action button text color
+                snackbar.setActionTextColor(Color.BLACK);
+                // Changing message text color
+                View view = snackbar.getView();
+                view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
+                TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
+                textView.setTextColor(Color.WHITE);
+                snackbar.show();
+            }
+        }
+    }
+
+    // This method is used to detect back button
+    @Override
+    public void onBackPressed() {
+        if(TIME_LIMIT + backPressed > System.currentTimeMillis()){
+            super.onBackPressed();
+            //Toast.makeText(getApplicationContext(), "Exited", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        backPressed = System.currentTimeMillis();
+    } //End Back button press for exit...
+
+
 }
 

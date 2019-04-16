@@ -22,11 +22,17 @@ import xyz.hasnat.sweettoast.SweetToast;
 
 public class VerifyEmail extends AppCompatActivity {
 
-    private Button btnResendEmail,btnSkipVerify,btnDoneVerify;
-    private FirebaseAuth auth;
+    private Button btnResendEmail, btnSkipVerify, btnDoneVerify;
+
     private EditText Email;
-    private FirebaseUser user;
+
     private DatabaseReference userDatabaseReference;
+
+
+
+    //Firebase Auth
+    private FirebaseAuth auth;
+    private FirebaseUser user;
 
 
     @Override
@@ -34,20 +40,21 @@ public class VerifyEmail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_email);
         userDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
-        IndividualDataClass individualDataClass =new IndividualDataClass();
+        IndividualDataClass individualDataClass = new IndividualDataClass();
 
         btnResendEmail = (Button) findViewById(R.id.Resend_Email_button);
         btnSkipVerify = (Button) findViewById(R.id.Skip_Email_button);
-        btnDoneVerify=(Button) findViewById(R.id.email_verified_button);
+        btnDoneVerify = (Button) findViewById(R.id.email_verified_button);
 
         Email = (EditText) findViewById(R.id.email_verify);
-        String a= auth.getCurrentUser().getEmail();
+        String a = auth.getCurrentUser().getEmail();
         Email.setText(a);
 
-        Toast.makeText(VerifyEmail.this,a,Toast.LENGTH_LONG).show();
+        Toast.makeText(VerifyEmail.this, a, Toast.LENGTH_LONG).show();
 
         btnDoneVerify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +66,7 @@ public class VerifyEmail extends AppCompatActivity {
         btnResendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                user.sendEmailVerification();
+                sendVerificationEmail();
             }
         });
 
@@ -73,13 +80,14 @@ public class VerifyEmail extends AppCompatActivity {
             }
         });
     }
+
     private void checkVerifiedEmail() {
         user = auth.getCurrentUser();
         boolean isVerified = false;
         if (user != null) {
             isVerified = user.isEmailVerified();
         }
-        if (isVerified){
+        if (isVerified) {
             String UID = auth.getCurrentUser().getUid();
             userDatabaseReference.child(UID).child("verified").setValue("true");
 
@@ -114,13 +122,8 @@ public class VerifyEmail extends AppCompatActivity {
 //        }
 //    }
 
-    public void sendVerificationEmail()
-    {
-
-
-
+    public void sendVerificationEmail() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
         user.sendEmailVerification()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -128,9 +131,7 @@ public class VerifyEmail extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // email sent
                             Toast.makeText(VerifyEmail.this, "Your Email is sent", Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(VerifyEmail.this,YourLocation.class);
-//                            startActivity(intent);
-//                            finish();
+//
                         } else {
                             // email not sent, so display message and restart the activity or do whatever you wish to do
                             //restart this activity
