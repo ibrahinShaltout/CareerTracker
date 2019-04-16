@@ -14,7 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".screens.messages.ChatActivity"></activity>
+        <activity android:name=".OtherProfileActivity"></activity>
+        <activity android:name=".screens.messages.StatusUpdateActivity" />
+        <activity android:name=".screens.search.SearchActivity" />
+        <activity android:name=".FriendsActivity" />
+        <activity android:name=".screens.messages.ChatActivity" />
         <activity android:name=".screens.tracks.CurrentTrackProfileActivity" />
         <activity android:name=".screens.tracks.PathProfileActivity">
 
@@ -62,7 +66,15 @@
         <activity android:name=".login.ResetPasswordActivity" />
         <activity android:name=".signup.SignupAsActivity" />
         <activity android:name=".signup.individual.SignUpIndividualActivity" />
-        <activity android:name=".signup.VerifyEmail" />
+        <activity android:name=".signup.VerifyEmail">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
         <activity android:name=".signup.YourLocation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,27 +1,22 @@
 package com.example.ibrahimshaltout.test.screens.Profile;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
-import com.example.ibrahimshaltout.test.screens.newsfeed.post.AddNewPostActivity;
-import com.google.android.gms.tasks.Continuation;
+import com.example.ibrahimshaltout.test.screens.SettingsFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,28 +25,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.security.Key;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.Calendar;
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserProfileActivity extends AppCompatActivity {
-    private static final int PICK_IMAGE_REQUEST = 71;
-    private Uri filePath;
-    IndividualDataClass individualDataClass=new IndividualDataClass();
-    StorageReference storageReference;
-    DatabaseReference db;
+
     Toolbar toolbarTop;
     TextView profile_university, profile_college, profile_spec, profile_grade, profile_skill, profile_interest,
-            profile_mobile, profile_email, profile_name;
-    ImageButton profile_image_btn;
+    profile_mobile, profile_email, profile_name;
+    ImageButton edit_profile_btn;
     CircleImageView profile_image;
     String profileUniversityName;
     String profileCollegeName;
@@ -61,27 +50,21 @@ public class UserProfileActivity extends AppCompatActivity {
     String profileInterest;
     String profileMobile;
     String profileEmail;
-    String profileName;
+    String main_profileName;
     ArrayList<String> skillList = new ArrayList<>();
     ArrayList<String> interestList = new ArrayList<>();
+    String currentID;
 
+    private DatabaseReference db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        toolbarTop = findViewById(R.id.user_profile_top_bar);
-        setSupportActionBar(toolbarTop);
-        toolbarTop.setTitle(" ");
-        toolbarTop.setTitleMarginStart(80);
-        toolbarTop.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        profile_image_btn=(ImageButton) findViewById(R.id.profile_image_btn);
-        profile_image=(CircleImageView)findViewById(R.id.profile_image);
+
+
+
+        edit_profile_btn = (ImageButton) findViewById(R.id.edit_profile_btn);
         profile_university = findViewById(R.id.profile_university);
         profile_college = findViewById(R.id.profile_college);
         profile_spec = findViewById(R.id.profile_spec);
@@ -92,14 +75,20 @@ public class UserProfileActivity extends AppCompatActivity {
         profile_email = findViewById(R.id.profile_email);
         profile_name = findViewById(R.id.profile_name);
 
-        final String currentID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+//       setProfileData();
+
+    } // ending OnCreate
+
+
+
+
+
+
+    private void setProfileData() {
+
+        currentID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         db = FirebaseDatabase.getInstance().getReference();
-        storageReference = FirebaseStorage.getInstance().getReference();
-
-        Glide.with(this /* context */)
-                .load(individualDataClass.getImageURL())
-                .into(profile_image);
-
         db.child("Users").child(currentID).child("universityName").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -159,7 +148,9 @@ public class UserProfileActivity extends AppCompatActivity {
 //                GenericTypeIndicator<String> t = new GenericTypeIndicator<String>() {
 //                };
 //                profileSkill = dataSnapshot.getValue(t);
-                profile_skill.setText(profileSkill);
+                if (profileSkill != null) {
+                    profile_skill.setText(profileSkill);
+                }
             }
 
             @Override
@@ -208,82 +199,14 @@ public class UserProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<String> t = new GenericTypeIndicator<String>() {
                 };
-                profileName = dataSnapshot.getValue(t);
-                profile_name.setText(profileName);
+                main_profileName = dataSnapshot.getValue(t);
+                profile_name.setText(main_profileName);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-        profile_image_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                chooseImage();
-                uploadImage(currentID);
-            }
-        });
-
-    }
-
-    private void chooseImage() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null) {
-            filePath = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-//                profile_image.setImageBitmap(bitmap);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    private void uploadImage(String currentID) {
-
-        if (filePath != null) {
-            final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading...");
-            progressDialog.show();
-
-            String imageID = UUID.randomUUID().toString();
-            final StorageReference ref = storageReference.child("images/" + imageID);
-            individualDataClass.setImageURL(filePath.toString());
-            UploadTask uploadTask = ref.putFile(filePath);
-            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                @Override
-                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                    if (!task.isSuccessful()) {
-                        throw task.getException();
-                    }
-                    // Continue with the task to get the download URL
-                    return ref.getDownloadUrl();
-                }
-            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    progressDialog.dismiss();
-
-                    if (task.isSuccessful()) {
-                        Uri downloadUri = task.getResult();
-                        Toast.makeText(UserProfileActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
-                        individualDataClass.setImageURL(downloadUri.toString());
-
-                    } else {
-                        Toast.makeText(UserProfileActivity.this, "Failed " , Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
     }
 
     private void fetchSkillData(DataSnapshot dataSnapshot) {

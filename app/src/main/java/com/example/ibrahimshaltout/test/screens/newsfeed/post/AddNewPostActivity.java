@@ -151,7 +151,7 @@ public class AddNewPostActivity extends AppCompatActivity {
                                 String strDate = dateFormat.format(date);
 
                                 IndividualDataClass individualDataClass = dataSnapshot.getValue(IndividualDataClass.class);
-                                postDataClass.setPostName(individualDataClass.fullName);
+                                postDataClass.setPostName(individualDataClass.user_name);
                                 postDataClass.setPostData(post);
                                 postDataClass.setTimeAndDate(strDate);
                                 postDataClass.setUser_ID(individualId);

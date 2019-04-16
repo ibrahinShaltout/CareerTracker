@@ -1,10 +1,13 @@
 package com.example.ibrahimshaltout.test.screens.search;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +29,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class SearchFragment extends Fragment implements View.OnClickListener {
+
+
+    private Toolbar toolbar;
 
     TrackDataClass trackDataClass =new TrackDataClass();
     private FirebaseAuth auth;
@@ -56,6 +62,19 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.search_fragment, container, false);
         db = FirebaseDatabase.getInstance().getReference();
+
+        // appbar / toolbar
+        toolbar = view.findViewById(R.id.search_appbar);
+        toolbar.setTitle("what do you need to search for ?");
+
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SearchActivity.class));
+
+            }
+        });
+
         initViewsPosts(view);
         getPostsData();
 

@@ -39,6 +39,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
@@ -48,12 +49,11 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.security.auth.callback.Callback;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 import xyz.hasnat.sweettoast.SweetToast;
 
 public class ChatActivity extends AppCompatActivity {
+
 
     private String messageReceiverID;
     private String messageReceiverName;
@@ -84,7 +84,9 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);rootReference = FirebaseDatabase.getInstance().getReference();
+        setContentView(R.layout.activity_chat);
+
+        rootReference = FirebaseDatabase.getInstance().getReference();
 
         mAuth = FirebaseAuth.getInstance();
         messageSenderId = mAuth.getCurrentUser().getUid();
@@ -129,7 +131,7 @@ public class ChatActivity extends AppCompatActivity {
         fetchMessages();
 
         chatUserName.setText(messageReceiverName);
-        rootReference.child("users").child(messageReceiverID)
+        rootReference.child("Users").child(messageReceiverID)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -143,22 +145,22 @@ public class ChatActivity extends AppCompatActivity {
 //                        }
 
                         // show image on appbar
-//                        Picasso.get()
-//                                .load(thumb_image)
-//                                .networkPolicy(NetworkPolicy.OFFLINE) // for Offline
-//                                .placeholder(R.drawable.default_profile_image)
-//                                .into(chatUserImageView, new Callback() {
-//                                    @Override
-//                                    public void onSuccess() {
-//                                    }
-//                                    @Override
-//                                    public void onError(Exception e) {
-//                                        Picasso.get()
-//                                                .load(thumb_image)
-//                                                .placeholder(R.drawable.default_profile_image)
-//                                                .into(chatUserImageView);
-//                                    }
-//                                });
+                        Picasso.get()
+                                .load(thumb_image)
+                                .networkPolicy(NetworkPolicy.OFFLINE) // for Offline
+                                .placeholder(R.drawable.default_profile_image)
+                                .into(chatUserImageView, new Callback() {
+                                    @Override
+                                    public void onSuccess() {
+                                    }
+                                    @Override
+                                    public void onError(Exception e) {
+                                        Picasso.get()
+                                                .load(thumb_image)
+                                                .placeholder(R.drawable.default_profile_image)
+                                                .into(chatUserImageView);
+                                    }
+                                });
 
                         //active status
                         if (active_status.contains("true")){
@@ -217,6 +219,7 @@ public class ChatActivity extends AppCompatActivity {
         // Unregister Connectivity Broadcast receiver
         unregisterReceiver(connectivityReceiver);
     }
+
 
     @Override // for gallery picking
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -282,6 +285,7 @@ public class ChatActivity extends AppCompatActivity {
             });
         }
     }
+
     private void fetchMessages() {
         rootReference.child("messages").child(messageSenderId).child(messageReceiverID)
                 .addChildEventListener(new ChildEventListener() {
@@ -307,6 +311,8 @@ public class ChatActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 
     private void sendMessage() {
         String message = input_user_message.getText().toString();
@@ -343,6 +349,7 @@ public class ChatActivity extends AppCompatActivity {
         }
     }
 
+
     // Broadcast receiver for network checking
     public class ConnectivityReceiver extends BroadcastReceiver {
         @Override
@@ -373,4 +380,5 @@ public class ChatActivity extends AppCompatActivity {
             }
         }
     }
+
 }

@@ -22,11 +22,18 @@
         android:gravity="center"
         android:text="SearchBar" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_message_screen"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent"
+        tools:context=".screens.messages.ChatsFragment">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/chatList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
 </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton

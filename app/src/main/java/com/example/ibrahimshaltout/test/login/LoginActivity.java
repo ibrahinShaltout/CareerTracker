@@ -1,5 +1,6 @@
 package com.example.ibrahimshaltout.test.login;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
@@ -17,18 +18,33 @@ import com.example.ibrahimshaltout.test.MainActivity;
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.signup.SignupAsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+
+import xyz.hasnat.sweettoast.SweetToast;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "LoginActivity";
+
     private EditText inputEmail, inputPassword;
-    private FirebaseAuth auth;
     private ProgressBar progressBar;
     private Button btnSignup, btnLogin, btnReset;
     private TextInputLayout inputPasswordLayout;
+
+    //Firebase Auth
+    private FirebaseAuth auth;
+    private FirebaseUser user;
+
+    private DatabaseReference userDatabaseReference;
+
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -38,20 +54,28 @@ public class LoginActivity extends AppCompatActivity {
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
-
+        user = auth.getCurrentUser();
 
         if (auth.getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
             finish();
         }
 
+        userDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
+
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
         btnSignup = (Button) findViewById(R.id.btn_signup);
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
+
+        progressDialog = new ProgressDialog(this);
+
         inputPasswordLayout = (TextInputLayout) findViewById(R.id.textinputlayoutPassword);
+
 
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
             }
         });
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,15 +114,16 @@ public class LoginActivity extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
+                //progress bar
+                progressDialog.setMessage("Please wait...");
+                progressDialog.show();
+                progressDialog.setCanceledOnTouchOutside(false);
+
                 //authenticate user
                 auth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                progressBar.setVisibility(View.GONE);
                                 if (!task.isSuccessful()) {
                                     // there was an error
                                     if (password.length() < 6) {
@@ -106,38 +132,83 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    checkIfEmailVerified();
-
+                                    String userUID = auth.getCurrentUser().getUid();
+                                    String userDeiceToken = FirebaseInstanceId.getInstance().getToken();
+                                    userDatabaseReference.child(userUID).child("device_token").setValue(userDeiceToken)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    checkIfEmailVerified();
+                                                }
+                                            });
                                 }
+
+                                progressBar.setVisibility(View.GONE);
+                                progressDialog.dismiss();
                             }
                         });
             }
         });
     }
 
+    /**
+     * checking email verified or NOT
+     */
     public void checkIfEmailVerified()
     {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = auth.getCurrentUser();
+        boolean isVerified = false;
+        if (user != null) {
+            isVerified = user.isEmailVerified();
+        }
+        if (isVerified) {
+            String UID = auth.getCurrentUser().getUid();
+            userDatabaseReference.child(UID).child("verified").setValue("true");
 
-        if (user.isEmailVerified())
-        {
-            // user is verified, so you can finish this activity or send user to activity which you want.
-            finish();
-            Toast.makeText(LoginActivity.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
+        } else {
+            SweetToast.info(LoginActivity.this, "Email is not verified. Please verify first");
+            auth.signOut();
         }
-        else
-        {
-            // email is not verified, so just prompt the message to the user and restart this activity.
-            // NOTE: don't forget to log out the user.
-            Toast.makeText(LoginActivity.this, "Your Email is not verified", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(LoginActivity.this, verifyEmail.class);
+//         user = FirebaseAuth.getInstance().getCurrentUser();
+//
+//
+//        boolean isVerified = false;
+//
+//        if (user != null) {
+//            isVerified = user.isEmailVerified();
+//        }
+//        if (isVerified)
+//        {
+//
+//            String UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//            userDatabaseReference.child(UID).child("verified").setValue("true");
+////
+////            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+////            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+////            startActivity(intent);
+////            finish();
+////
+////            // user is verified, so you can finish this activity or send user to activity which you want.
+//
+//            Toast.makeText(LoginActivity.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //            startActivity(intent);
-            finish();
-            //restart this activity
+//            finish();
+//        }
+//        else
+//        {
+//            // email is not verified, so just prompt the message to the user and restart this activity.
+//            // NOTE: don't forget to log out the user.
+//            Toast.makeText(LoginActivity.this, "Your Email is not verified", Toast.LENGTH_SHORT).show();
+////            Intent intent = new Intent(LoginActivity.this, verifyEmail.class);
+////            startActivity(intent);
+//            finish();
+//            //restart this activity
 
-        }
+//        }
     }
 }
