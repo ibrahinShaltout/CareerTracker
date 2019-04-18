@@ -17,7 +17,7 @@ import com.example.ibrahimshaltout.test.R;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-
+import com.example.ibrahimshaltout.test.newsfeed.post.CommentActivity;
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostViewHolder>{
 
     private Context trackContext;

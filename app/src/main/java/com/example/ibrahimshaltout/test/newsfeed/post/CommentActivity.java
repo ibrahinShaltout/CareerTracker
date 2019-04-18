@@ -1,4 +1,4 @@
-package com.example.ibrahimshaltout.test.screens.newsfeed.post;
+package com.example.ibrahimshaltout.test.newsfeed.post;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,11 +14,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-
+import com.example.ibrahimshaltout.test.newsfeed.post.CommentAdapter;
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
-import com.example.ibrahimshaltout.test.screens.notification.Notification;
-import com.example.ibrahimshaltout.test.screens.notification.NotificationAdapter;
+import com.example.ibrahimshaltout.test.newsfeed.post.PostDataClass;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

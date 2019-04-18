@@ -1,4 +1,4 @@
-package com.example.ibrahimshaltout.test.screens.newsfeed.post;
+package com.example.ibrahimshaltout.test.newsfeed.post;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ibrahimshaltout.test.R;
+import com.example.ibrahimshaltout.test.newsfeed.post.PostDataClass;
 
 import java.util.ArrayList;
 
