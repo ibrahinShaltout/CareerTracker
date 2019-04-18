@@ -190,11 +190,6 @@ public class NewsFeedFragment extends Fragment implements View.OnClickListener {
 //        postRecyclerViewImageAdapter.notifyDataSetChanged();
 
     }
-    private void setTracksData(ArrayList<TrackDataClass> listOfTracks) {
-        trackDataClassess.addAll(listOfTracks);
-        trackAdapter.notifyDataSetChanged();
-    }
-
     @Override
     public void onClick(View v) {
 
@@ -216,6 +211,11 @@ public class NewsFeedFragment extends Fragment implements View.OnClickListener {
             listOfTracks.add(x.getValue(TrackDataClass.class));
         }
         setTracksData(listOfTracks);
+    }
+
+    private void setTracksData(ArrayList<TrackDataClass> listOfTracks) {
+        trackDataClassess.addAll(listOfTracks);
+        trackAdapter.notifyDataSetChanged();
     }
 
 

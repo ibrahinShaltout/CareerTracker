@@ -126,7 +126,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <Button
-                    android:id="@+id/post_comment"
+                    android:id="@+id/post_comment1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"

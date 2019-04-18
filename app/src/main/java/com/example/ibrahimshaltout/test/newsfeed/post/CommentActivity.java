@@ -1,4 +1,4 @@
-package com.example.ibrahimshaltout.test.screens.newsfeed.post;
+package com.example.ibrahimshaltout.test.newsfeed.post;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -17,8 +17,9 @@ import android.widget.TextView;
 
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
-import com.example.ibrahimshaltout.test.screens.notification.Notification;
-import com.example.ibrahimshaltout.test.screens.notification.NotificationAdapter;
+import com.example.ibrahimshaltout.test.newsfeed.post.PostDataClass;
+import com.example.ibrahimshaltout.test.notification.Notification;
+import com.example.ibrahimshaltout.test.notification.NotificationAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,6 +31,7 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.example.ibrahimshaltout.test.newsfeed.post.CommentAdapter;
 
 import java.util.ArrayList;
 
@@ -38,9 +40,9 @@ public class CommentActivity extends AppCompatActivity {
 
     final PostDataClass postDataClass = new PostDataClass();
     CommentAdapter commentAdapter;
-    ArrayList <PostDataClass> listOfComment=new ArrayList<>();
+    ArrayList<PostDataClass> listOfComment = new ArrayList<>();
 
-String userName;
+    String userName;
 
     FirebaseStorage storage;
     FirebaseDatabase database;
@@ -80,7 +82,7 @@ String userName;
         Number_Of_Likes_show = findViewById(R.id.Number_Of_Likes_show);
         add_comment = findViewById(R.id.add_comment);
         write_comment = findViewById(R.id.write_comment);
-        commentsListView=findViewById(R.id.commentsListView);
+        commentsListView = findViewById(R.id.commentsListView);
 
         Profile_name_show.setText(name);
         txtStatusMsgPost_show.setText(decs);
@@ -136,11 +138,12 @@ String userName;
             }
         });
     }
+
     private void parseCommentsData(DataSnapshot dataSnapshot) {
         PostDataClass postDataClass1 = null;
         Iterable<DataSnapshot> list = dataSnapshot.getChildren();
         for (DataSnapshot x : list) {
-            postDataClass1=x.getValue(PostDataClass.class);
+            postDataClass1 = x.getValue(PostDataClass.class);
             listOfComment.add(postDataClass1);
         }
         commentAdapter.notifyDataSetChanged();
