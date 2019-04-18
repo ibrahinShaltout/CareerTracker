@@ -192,18 +192,19 @@
                     android:layout_gravity="end"
                     android:src="@drawable/ic_add_comment"
                     />
+
                 <EditText
                     android:id="@+id/write_comment"
-                    android:hint="Write a Comment"
-                    android:layout_marginRight="50dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLines="2"
-                    android:focusable="true"
                     android:layout_marginLeft="2dp"
-                    android:textSize="12sp"
+                    android:layout_marginRight="50dp"
+                    android:background="#00000000"
+                    android:focusable="true"
+                    android:hint="Write a Comment"
+                    android:maxLines="2"
                     android:textColor="@color/black"
-                    android:background="#00000000"/>
+                    android:textSize="12sp" />
 
             </FrameLayout>
         </LinearLayout>

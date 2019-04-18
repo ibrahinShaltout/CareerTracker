@@ -8,6 +8,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btn_signUp">Signup</string>
+    <string name="test">With the mobile applicationthe users will be able to search for organizations jobs courses etc.
+        The result will be based on the criteria the user inputs. There are several search criteria and it will be
+        possible for the administrator of the system to manage the options for those criteria that have that
+The result of the search will be viewed in a list view depending on what criteria included in the search  The list
+        view will have one list item for each result matching the search criteria and show a small part of information
+        so the user can identify his target
+</string>
 
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="auth_failed">Authentication failed, check your email and password or sign up</string>

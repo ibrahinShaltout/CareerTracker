@@ -2,28 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_newsfeed"
-            android:title="@string/nav_home" />
+
         <item
             android:id="@+id/nav_photos"
-            android:icon="@drawable/ic_music"
-            android:title="@string/nav_photos" />
+            android:icon="@drawable/track_logo"
+            android:title="Your Tracks" />
         <item
             android:id="@+id/nav_movies"
-            android:icon="@drawable/ic_search_black_24dp"
-            android:title="@string/nav_movies" />
+            android:icon="@drawable/ic_saved"
+            android:title="Saved Items" />
 
         <item
             android:id="@+id/nav_notifications"
-            android:icon="@drawable/ic_people"
-            android:title="@string/nav_notifications" />
+            android:icon="@drawable/todolist"
+            android:title="To do List" />
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_help"
+            android:title="Help" />
 
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings"
             android:title="@string/nav_settings" />
+
     </group>
 
     <item android:title="Other">
