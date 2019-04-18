@@ -134,7 +134,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
             imageView = (ImageView) view.findViewById(R.id.post_image);
             number_of_like = (TextView) view.findViewById(R.id.Number_Of_Likes);
             thumbs_up= (ImageButton)view.findViewById(R.id.thumbs_up);
-            post_comment=view.findViewById(R.id.post_comment);
+            post_comment=(Button)view.findViewById(R.id.post_comment1);
 
         }
     }

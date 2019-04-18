@@ -22,6 +22,7 @@ import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
 import com.example.ibrahimshaltout.test.login.LoginActivity;
 import com.example.ibrahimshaltout.test.login.ResetPasswordActivity;
 import com.example.ibrahimshaltout.test.signup.VerifyEmail;
+import com.example.ibrahimshaltout.test.signup.YourLocation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -206,9 +207,9 @@ public class SignUpIndividualActivity extends AppCompatActivity {
                                                                                     public void run() {
                                                                                         SignUpIndividualActivity.this.runOnUiThread(new Runnable() {
                                                                                             public void run() {
-                                                                                                auth.signOut();
+//                                                                                                auth.signOut();
 
-                                                                                                Intent mainIntent = new Intent(SignUpIndividualActivity.this, LoginActivity.class);
+                                                                                                Intent mainIntent = new Intent(SignUpIndividualActivity.this, YourLocation.class);
                                                                                                 mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                                                                 startActivity(mainIntent);
                                                                                                 finish();

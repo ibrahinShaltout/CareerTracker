@@ -3,8 +3,10 @@ package com.example.ibrahimshaltout.test.signup.individual;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -21,6 +23,8 @@ import com.example.ibrahimshaltout.test.dataclass.CollegeDataClass;
 import com.example.ibrahimshaltout.test.dataclass.CorporateDataClass;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
 import com.example.ibrahimshaltout.test.dataclass.UniversityDataClass;
+import com.example.ibrahimshaltout.test.login.LoginActivity;
+import com.example.ibrahimshaltout.test.signup.YourLocation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +38,10 @@ import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import xyz.hasnat.sweettoast.SweetToast;
 
 public class IndividualCareerinfoActivity extends AppCompatActivity {
 
@@ -64,7 +72,6 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
     ArrayList<String> uniDepDataSnapShot = new ArrayList<>();
     ArrayList corporateNameDataSnapShot = new ArrayList<>();
     ArrayList uniNameID = new ArrayList<>();
-
 
 
     String[] gradeArray = {"Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5"};
@@ -199,6 +206,7 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                fetchUniversityData(dataSnapshot);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -227,7 +235,6 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
 
             }
         });
-
 
 
         inputSchoolLayout.setVisibility(View.GONE);
@@ -522,10 +529,41 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
                 databaseReference.child("jobTitle").setValue(individualDataClass.jobTitle);
                 databaseReference.child("department").setValue(individualDataClass.department);
 
-                Intent intent = new Intent(IndividualCareerinfoActivity.this, MainActivity.class);
-                startActivity(intent);
+
+                registerSuccessPopUp();
+
+                // LAUNCH activity after certain time period
+                new Timer().schedule(new TimerTask() {
+                    public void run() {
+                        IndividualCareerinfoActivity.this.runOnUiThread(new Runnable() {
+                            public void run() {
+
+                                auth.signOut();
+                                Intent intent = new Intent(IndividualCareerinfoActivity.this, LoginActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                                finish();
+//                                SweetToast.info(IndividualCareerinfoActivity.this, " verify Your Account and enter your Email & Password");
+
+                            }
+                        });
+                    }
+                }, 8000);
+
             }
         });
+    }
+
+    private void registerSuccessPopUp() {
+        // Custom Alert Dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(IndividualCareerinfoActivity.this);
+        View view = LayoutInflater.from(IndividualCareerinfoActivity.this).inflate(R.layout.register_data_success_popup, null);
+
+        //ImageButton imageButton = view.findViewById(R.id.successIcon);
+        //imageButton.setImageResource(R.drawable.logout);
+        builder.setCancelable(false);
+        builder.setView(view);
+        builder.show();
     }
 
     private void fetchUniversityData(DataSnapshot dataSnapshot) {
@@ -536,11 +574,14 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
             uniNameDataSnapShot.add(universityDataClass.getUniversityName());
         }
     }
+
     private void fetchDepData(DataSnapshot dataSnapshot) {
-        GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {};
+        GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {
+        };
         ArrayList<String> yourStringArray = dataSnapshot.getValue(t);
         uniDepDataSnapShot.addAll(yourStringArray);
     }
+
     private void fetchCorporateNameData(DataSnapshot dataSnapshot) {
         CorporateDataClass corporateDataClass = null;
         Iterable<DataSnapshot> list = dataSnapshot.getChildren();
