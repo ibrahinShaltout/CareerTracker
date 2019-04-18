@@ -14,13 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".OtherProfile.CorporateProfileActivity">
-
-        </activity>
-        <activity android:name=".OtherProfile.AcademyProfileActivity">
-
-        </activity>
-        <activity android:name=".OtherProfile.UniversityProfileActivity"></activity>
+        <activity android:name=".CorporateProfile.JobOfferActivity"></activity>
+        <activity android:name=".CorporateProfile.EventActivity" />
+        <activity android:name=".AcademyProfile.CourseActivity" />
+        <activity android:name=".CorporateProfile.CorporateProfileActivity" />
+        <activity android:name=".AcademyProfile.AcademyProfileActivity" />
+        <activity android:name=".UniversityProfile.UniversityProfileActivity" />
         <activity android:name=".IntroActivity" />
         <activity android:name=".OtherProfileActivity" />
         <activity android:name=".messages.StatusUpdateActivity" />
