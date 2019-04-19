@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/feed_bg"
     android:orientation="vertical"
-    tools:context=".OtherProfile.CorporateProfileActivity">
+    tools:context=".CorporateProfile.CorporateProfileActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/uni_profile_top_bar"

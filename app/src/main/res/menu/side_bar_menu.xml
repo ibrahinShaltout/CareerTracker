@@ -28,7 +28,6 @@
             android:title="@string/nav_settings" />
 
     </group>
-
     <item android:title="Other">
         <menu>
             <item
@@ -39,5 +38,4 @@
                 android:title="@string/action_logout" />
         </menu>
     </item>
-
 </menu>

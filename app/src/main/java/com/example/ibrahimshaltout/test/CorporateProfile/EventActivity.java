@@ -1,15 +1,15 @@
-package com.example.ibrahimshaltout.test.OtherProfile;
+package com.example.ibrahimshaltout.test.CorporateProfile;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.ibrahimshaltout.test.R;
 
-public class AcademyProfileActivity extends AppCompatActivity {
+public class EventActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_academy_profile);
+        setContentView(R.layout.activity_event);
     }
 }
