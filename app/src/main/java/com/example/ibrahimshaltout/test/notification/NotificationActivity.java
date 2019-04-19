@@ -50,8 +50,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NotificationActivity extends AppCompatActivity {
 
-
-
     private View view;
     private RecyclerView request_list;
     private Context context;

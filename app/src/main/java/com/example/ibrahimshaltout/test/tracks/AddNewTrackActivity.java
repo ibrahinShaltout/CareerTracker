@@ -73,7 +73,7 @@ public class AddNewTrackActivity extends AppCompatActivity {
         setTracksData(listOfTracks);
     }
     private void getTracksData() {
-        db.child("Tracks").addListenerForSingleValueEvent(new ValueEventListener() {
+        db.child("Tracks").child("Computer and Technology").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 parseTracksData(dataSnapshot);

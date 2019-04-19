@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ibrahimshaltout.test.R;
+import com.example.ibrahimshaltout.test.tracks.CurrentTrackProfileActivity;
+import com.example.ibrahimshaltout.test.tracks.TracksFragment;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -88,6 +90,17 @@ public class UserProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
+        toolbarTop = findViewById(R.id.user_profile_top_bar);
+        setSupportActionBar(toolbarTop);
+        toolbarTop.setTitleMarginStart(80);
+
+        // add back arrow to main_tool_bar
+        toolbarTop.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         String user_id = mAuth.getCurrentUser().getUid();
@@ -125,6 +138,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
             }
         });
+
 /** Change profile photo from GALLERY */
         editPhotoIcon.setOnClickListener(new View.OnClickListener() {
             @Override

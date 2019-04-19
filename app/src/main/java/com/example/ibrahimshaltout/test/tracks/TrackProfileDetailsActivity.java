@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,10 +16,10 @@ import java.util.ArrayList;
 
 public class TrackProfileDetailsActivity extends AppCompatActivity {
 
-   private RecyclerView RecyclerView_Paths;
-   private PathAdapter pathAdapter;
-   Button track_Start;
-
+    private RecyclerView RecyclerView_Paths;
+    private PathAdapter pathAdapter;
+    Button track_Start;
+    Toolbar toolbarTop;
     ArrayList<PathDataClass> pathDataClasses = new ArrayList<>();
 
     @Override
@@ -26,8 +27,21 @@ public class TrackProfileDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_profile_details);
 
-        RecyclerView_Paths =findViewById(R.id.RecyclerView_Paths);
-        pathAdapter = new PathAdapter(this,pathDataClasses);
+        toolbarTop = findViewById(R.id.track_profile_Screen_more_Details);
+        setSupportActionBar(toolbarTop);
+        toolbarTop.setTitleMarginStart(80);
+
+        // add back arrow to main_tool_bar
+        toolbarTop.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // back button pressed
+                finish();
+            }
+        });
+
+        RecyclerView_Paths = findViewById(R.id.RecyclerView_Paths);
+        pathAdapter = new PathAdapter(this, pathDataClasses);
         final RecyclerView.LayoutManager pathLayoutManager = new LinearLayoutManager(this);
         RecyclerView_Paths.setLayoutManager(pathLayoutManager);
         RecyclerView_Paths.setNestedScrollingEnabled(true);
@@ -40,7 +54,7 @@ public class TrackProfileDetailsActivity extends AppCompatActivity {
 
         pathAdapter.notifyDataSetChanged();
 
-        track_Start =(Button)findViewById(R.id.choose_path);
+        track_Start = (Button) findViewById(R.id.choose_path);
         track_Start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

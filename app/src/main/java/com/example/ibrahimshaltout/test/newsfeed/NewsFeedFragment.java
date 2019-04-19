@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.ibrahimshaltout.test.R;
+import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
 import com.example.ibrahimshaltout.test.newsfeed.post.AddNewPostActivity;
 import com.example.ibrahimshaltout.test.newsfeed.post.PostAdapter;
 import com.example.ibrahimshaltout.test.newsfeed.post.PostDataClass;
@@ -44,11 +45,15 @@ public class NewsFeedFragment extends Fragment implements View.OnClickListener {
     private TextView showHideView;
     private Toolbar toolbar;
 
+    IndividualDataClass individualDataClass = new IndividualDataClass();
     ArrayList<TrackDataClass> trackDataClassess = new ArrayList<>();
     ArrayList<PostDataClass> postDataClasses = new ArrayList<>();
     DatabaseReference db;
     // Creating List of ImageUploadInfo class.
     ArrayList<PostDataClass> postDataClassesImage = new ArrayList<>();
+
+
+
 
 
 
@@ -81,7 +86,7 @@ public class NewsFeedFragment extends Fragment implements View.OnClickListener {
     }
 
     private void getTracksData() {
-        db.child("Tracks").addListenerForSingleValueEvent(new ValueEventListener() {
+        db.child("Tracks").child("Computer and Technology").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 parseTracksData(dataSnapshot);

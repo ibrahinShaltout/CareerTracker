@@ -16,7 +16,7 @@
             android:orientation="vertical">
 
             <include
-                android:id="@+id/Path_profile_Screen"
+                android:id="@+id/Path_profile_Screen_toolbar"
                 layout="@layout/tool_bar_in_screen" />
 
 

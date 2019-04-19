@@ -3,6 +3,7 @@ package com.example.ibrahimshaltout.test.tracks;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -28,14 +29,26 @@ public class PathProfileActivity extends AppCompatActivity {
 
     Button start_Add_tarck;
 
-
+    Toolbar toolbarTop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_path_profile);
 
-        start_Add_tarck=(Button)findViewById(R.id.track_Start);
+        toolbarTop = findViewById(R.id.Path_profile_Screen_toolbar);
+        setSupportActionBar(toolbarTop);
+        toolbarTop.setTitleMarginStart(80);
+
+        // add back arrow to main_tool_bar
+        toolbarTop.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // back button pressed
+                finish();
+            }
+        });
+        start_Add_tarck = (Button) findViewById(R.id.track_Start);
 
 //        linearLayout1.setVisibility(View.GONE);
         linearLayout1 = (LinearLayout) findViewById(R.id.linear1);
@@ -100,7 +113,6 @@ public class PathProfileActivity extends AppCompatActivity {
 
             }
         });
-
 
 
     }

@@ -1,7 +1,9 @@
 package com.example.ibrahimshaltout.test.tracks;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,11 +26,27 @@ public class CurrentTrackProfileActivity extends AppCompatActivity {
     LinearLayout linearLayout3;
     TextView main_station_Three;
     private int show_hide3 = 0;
+
+    Toolbar toolbarTop;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_track_profile);
 
+
+        toolbarTop = findViewById(R.id.Current_Track_profile_Screen);
+        setSupportActionBar(toolbarTop);
+        toolbarTop.setTitleMarginStart(80);
+
+        // add back arrow to main_tool_bar
+        toolbarTop.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CurrentTrackProfileActivity.this, TracksFragment.class));
+                finish();
+            }
+        });
 
         note = (TextView) findViewById(R.id.note);
         note.setVisibility(View.VISIBLE);
@@ -40,7 +58,6 @@ public class CurrentTrackProfileActivity extends AppCompatActivity {
 
             }
         });
-
 
 
 //        linearLayout1.setVisibility(View.GONE);

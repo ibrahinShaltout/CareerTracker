@@ -409,23 +409,23 @@ public class MainActivity extends AppCompatActivity {
             if (networkInfo != null && networkInfo.isConnected()){
 
             } else {
-                Snackbar snackbar = Snackbar
-                        .make(navHeader, "No internet connection! ", Snackbar.LENGTH_LONG)
-                        .setAction("Go settings", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent=new Intent(Settings.ACTION_WIRELESS_SETTINGS);
-                                startActivity(intent);
-                            }
-                        });
-                // Changing action button text color
-                snackbar.setActionTextColor(Color.BLACK);
-                // Changing message text color
-                View view = snackbar.getView();
-                view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
-                TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
-                textView.setTextColor(Color.WHITE);
-                snackbar.show();
+//                Snackbar snackbar = Snackbar
+//                        .make(navigationView, "No internet connection! ", Snackbar.LENGTH_LONG)
+//                        .setAction("Go settings", new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                Intent intent=new Intent(Settings.ACTION_WIRELESS_SETTINGS);
+//                                startActivity(intent);
+//                            }
+//                        });
+//                // Changing action button text color
+//                snackbar.setActionTextColor(Color.BLACK);
+//                // Changing message text color
+//                View view = snackbar.getView();
+//                view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimary));
+//                TextView textView = view.findViewById(android.support.design.R.id.snackbar_text);
+//                textView.setTextColor(Color.WHITE);
+//                snackbar.show();
             }
         }
     }
@@ -442,7 +442,6 @@ public class MainActivity extends AppCompatActivity {
         }
         backPressed = System.currentTimeMillis();
     } //End Back button press for exit...
-
 
 }
 

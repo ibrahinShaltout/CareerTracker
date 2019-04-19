@@ -3,6 +3,7 @@ package com.example.ibrahimshaltout.test.dataclass;
 import android.widget.ScrollView;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 public class IndividualDataClass {
@@ -16,27 +17,69 @@ public class IndividualDataClass {
     private String user_status;
     private String user_thumb_image;
 
-    public String email;
-    public String phone;
-    public String qualificationLevel;
-    public String schoolName;
-    public String schoolType;
-    public String universityName;
-    public String collegeName;
-    public String depSpecialization;
+    public String user_email;
+    public String user_phone;
+    public String qualification_Level;
+    public String school_Name;
+    public String school_Type;
+    public String university_Name;
+    public String college_Name;
+    public String dep_Specialization;
     public String grade;
-    public String diplomaField;
-    public String masterField;
-    public String doctorateField;
-    public String startYearDate;
-    public String endYearDate;
-    public String companyName;
+    public String diploma_Field;
+    public String master_Field;
+    public String doctorate_Field;
+    public String start_Year_Date;
+    public String end_Year_Date;
+    public String endYear_Date;
+    public String company_Name;
     public String jobTitle;
     public String department;
-    public List<String> skillsList;
-    public List<String> interestsList;
-    public String imageURL;
+    public String image_URL;
+    public List<String> skills_List;
+    public List<String> interests_List;
+    public List<String> experience;
 
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
+    }
+
+    public String getSearch_name() {
+        return search_name;
+    }
+
+    public void setSearch_name(String search_name) {
+        this.search_name = search_name;
+    }
+
+    public Long getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Long created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUser_image() {
+        return user_image;
+    }
+
+    public void setUser_image(String user_image) {
+        this.user_image = user_image;
+    }
 
     public String getUser_status() {
         return user_status;
@@ -54,146 +97,132 @@ public class IndividualDataClass {
         this.user_thumb_image = user_thumb_image;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUser_email() {
+        return user_email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getEnd_Year_Date() {
+        return end_Year_Date;
     }
 
-    public String getPhone() {
-        return phone;
+    public void setEnd_Year_Date(String end_Year_Date) {
+        this.end_Year_Date = end_Year_Date;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
     }
 
-    public String getCompanyName() {
-        return companyName;
-    }
-    public String getVerified() {
-        return verified;
+    public String getUser_phone() {
+        return user_phone;
     }
 
-    public void setVerified(String verified) {
-        this.verified = verified;
+    public void setUser_phone(String user_phone) {
+        this.user_phone = user_phone;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getQualification_Level() {
+        return qualification_Level;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setQualification_Level(String qualification_Level) {
+        this.qualification_Level = qualification_Level;
     }
 
-    public String getUser_image() {
-        return user_image;
+    public String getSchool_Name() {
+        return school_Name;
     }
 
-    public void setUser_image(String user_image) {
-        this.user_image = user_image;
+    public void setSchool_Name(String school_Name) {
+        this.school_Name = school_Name;
     }
 
-    public Long getCreated_at() {
-        return created_at;
+    public String getSchool_Type() {
+        return school_Type;
     }
 
-    public void setCreated_at(Long created_at) {
-        this.created_at = created_at;
+    public void setSchool_Type(String school_Type) {
+        this.school_Type = school_Type;
     }
 
-    public String getSearch_name() {
-        return search_name;
+    public String getUniversity_Name() {
+        return university_Name;
     }
 
-    public void setSearch_name(String search_name) {
-        this.search_name = search_name;
+    public void setUniversity_Name(String university_Name) {
+        this.university_Name = university_Name;
     }
 
-
-    public String getImageURL() {
-        return imageURL;
+    public String getCollege_Name() {
+        return college_Name;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setCollege_Name(String college_Name) {
+        this.college_Name = college_Name;
     }
 
-    public String getFullName() {
-        return user_name;
+    public String getDep_Specialization() {
+        return dep_Specialization;
     }
 
-    public void setFullName(String fullName) {
-        this.user_name = fullName;
+    public void setDep_Specialization(String dep_Specialization) {
+        this.dep_Specialization = dep_Specialization;
     }
 
-    public List<String> getSkillsList() {
-        return skillsList;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setSkillsList(List<String> skillsList) {
-        this.skillsList = skillsList;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
-    public List<String> getInterestsList() {
-        return interestsList;
+    public String getDiploma_Field() {
+        return diploma_Field;
     }
 
-    public void setInterestsList(List<String> interestsList) {
-        this.interestsList = interestsList;
+    public void setDiploma_Field(String diploma_Field) {
+        this.diploma_Field = diploma_Field;
     }
 
-    public List<String> getExperience() {
-        return experience;
+    public String getMaster_Field() {
+        return master_Field;
     }
 
-    public void setExperience(List<String> experience) {
-        this.experience = experience;
+    public void setMaster_Field(String master_Field) {
+        this.master_Field = master_Field;
     }
 
-    public List<String> experience;
-
-
-    public IndividualDataClass() {
+    public String getDoctorate_Field() {
+        return doctorate_Field;
     }
 
-    public IndividualDataClass(String fullName, String email, String phone, String verified) {
-        this.user_name = fullName;
-        this.email = email;
-        this.phone = phone;
-        this.verified = verified;
+    public void setDoctorate_Field(String doctorate_Field) {
+        this.doctorate_Field = doctorate_Field;
     }
 
-    public String getQualificationLevel() {
-        return qualificationLevel;
+    public String getStart_Year_Date() {
+        return start_Year_Date;
     }
 
-    public void setQualificationLevel(String qualificationLevel) {
-        this.qualificationLevel = qualificationLevel;
+    public void setStart_Year_Date(String start_Year_Date) {
+        this.start_Year_Date = start_Year_Date;
     }
 
-    public String getSchoolName() {
-        return schoolName;
+    public String getEndYear_Date() {
+        return endYear_Date;
     }
 
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
+    public void setEndYear_Date(String endYear_Date) {
+        this.endYear_Date = endYear_Date;
     }
 
-    public String getCollegeName() {
-        return collegeName;
+    public String getCompany_Name() {
+        return company_Name;
     }
 
-    public void setCollegeName(String collegeName) {
-        this.collegeName = collegeName;
-    }
-
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setCompany_Name(String company_Name) {
+        this.company_Name = company_Name;
     }
 
     public String getJobTitle() {
@@ -212,79 +241,35 @@ public class IndividualDataClass {
         this.department = department;
     }
 
-
-    public String getSchoolType() {
-        return schoolType;
+    public List<String> getSkills_List() {
+        return skills_List;
     }
 
-    public void setSchoolType(String schoolType) {
-        this.schoolType = schoolType;
+    public void setSkills_List(List<String> skills_List) {
+        this.skills_List = skills_List;
     }
 
-    public String getUniversityName() {
-        return universityName;
+    public List<String> getInterests_List() {
+        return interests_List;
     }
 
-    public void setUniversityName(String universityName) {
-        this.universityName = universityName;
+    public void setInterests_List(List<String> interests_List) {
+        this.interests_List = interests_List;
     }
 
-    public String getDepSpecialization() {
-        return depSpecialization;
+    public String getImage_URL() {
+        return image_URL;
     }
 
-    public void setDepSpecialization(String depSpecialization) {
-        this.depSpecialization = depSpecialization;
+    public void setImage_URL(String image_URL) {
+        this.image_URL = image_URL;
     }
 
-    public String getGrade() {
-        return grade;
+    public List<String> getExperience() {
+        return experience;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
+    public void setExperience(List<String> experience) {
+        this.experience = experience;
     }
-
-    public String getDiplomaField() {
-        return diplomaField;
-    }
-
-    public void setDiplomaField(String diplomaField) {
-        this.diplomaField = diplomaField;
-    }
-
-    public String getMasterField() {
-        return masterField;
-    }
-
-    public void setMasterField(String masterField) {
-        this.masterField = masterField;
-    }
-
-    public String getDoctorateField() {
-        return doctorateField;
-    }
-
-    public void setDoctorateField(String doctorateField) {
-        this.doctorateField = doctorateField;
-    }
-
-
-    public String getStartYearDate() {
-        return startYearDate;
-    }
-
-    public void setStartYearDate(String startYearDate) {
-        this.startYearDate = startYearDate;
-    }
-
-    public String getEndYearDate() {
-        return endYearDate;
-    }
-
-    public void setEndYearDate(String endYearDate) {
-        this.endYearDate = endYearDate;
-    }
-
-
 }

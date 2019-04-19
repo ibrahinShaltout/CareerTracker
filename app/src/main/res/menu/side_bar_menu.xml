@@ -5,7 +5,8 @@
 
         <item
             android:id="@+id/nav_photos"
-            android:icon="@drawable/track_logo"
+            android:icon="@drawable/ic_arrow_forward_black_24dp"
+
             android:title="Your Tracks" />
         <item
             android:id="@+id/nav_movies"
@@ -14,7 +15,7 @@
 
         <item
             android:id="@+id/nav_notifications"
-            android:icon="@drawable/todolist"
+            android:icon="@drawable/ic_format_list_numbered"
             android:title="To do List" />
         <item
             android:id="@+id/nav_home"
