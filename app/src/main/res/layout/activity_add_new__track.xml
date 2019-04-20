@@ -17,13 +17,12 @@
 
 
 
-            <android.support.v7.widget.AppCompatTextView
+            <SearchView
+                android:id="@+id/simpleSearchView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="30dp"
-                android:gravity="center"
-                android:text="SearchBar" />
+                tools:ignore="MissingConstraints"
+                android:queryHint="Search Here"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view_tracks_Recommendation_screen"

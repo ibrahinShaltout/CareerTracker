@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CorporateProfile.JobOfferActivity"></activity>
+        <activity android:name=".signup.individual.ChooseFieldActivity"></activity>
+        <activity android:name=".CorporateProfile.JobOfferActivity" />
         <activity android:name=".CorporateProfile.EventActivity" />
         <activity android:name=".AcademyProfile.CourseActivity" />
         <activity android:name=".CorporateProfile.CorporateProfileActivity" />

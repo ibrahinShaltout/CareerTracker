@@ -12,9 +12,10 @@
         android:layout_height="wrap_content"
         android:text="Recommended based on your Profile"
         android:layout_margin="10dp"/>
+
     <android.support.v7.widget.RecyclerView
         android:layout_margin="10dp"
-        android:id="@+id/recycler_view_people"
+        android:id="@+id/people_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"

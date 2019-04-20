@@ -54,7 +54,6 @@ public class SignUpIndividualActivity extends AppCompatActivity {
             inputPhoneNumber;
 
     private Button btnSignIn, btnSignUp;
-//    private ProgressBar progressBar;
 
     //Firebase
     private FirebaseAuth auth;

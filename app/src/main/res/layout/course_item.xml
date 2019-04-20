@@ -156,9 +156,7 @@
                                 android:textColor="@color/colorAccent"
                                 android:textSize="15dp" />
                         </LinearLayout>
-
                     </LinearLayout>
-
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

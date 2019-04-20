@@ -17,15 +17,12 @@ import com.example.ibrahimshaltout.test.R;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import com.example.ibrahimshaltout.test.newsfeed.post.CommentActivity;
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostViewHolder>{
 
     private Context trackContext;
     private ArrayList<PostDataClass> posts;
-
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     final String key = database.getReference("Posts").getKey();
-
     public PostAdapter(Context mContext, ArrayList<PostDataClass> posts) {
         this.trackContext = mContext;
         this.posts = posts;

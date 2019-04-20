@@ -17,14 +17,12 @@ import android.widget.MultiAutoCompleteTextView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.ibrahimshaltout.test.MainActivity;
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.CollegeDataClass;
 import com.example.ibrahimshaltout.test.dataclass.CorporateDataClass;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
 import com.example.ibrahimshaltout.test.dataclass.UniversityDataClass;
 import com.example.ibrahimshaltout.test.login.LoginActivity;
-import com.example.ibrahimshaltout.test.signup.YourLocation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,8 +38,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import xyz.hasnat.sweettoast.SweetToast;
 
 public class IndividualCareerinfoActivity extends AppCompatActivity {
 
@@ -223,18 +219,18 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
 //            }
 //        });
 
-        db.child("Corporates").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                fetchCorporateNameData(dataSnapshot);
+    db.child("Corporates").addListenerForSingleValueEvent(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            fetchCorporateNameData(dataSnapshot);
 
-            }
+        }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
+        }
+    });
 
 
         inputSchoolLayout.setVisibility(View.GONE);
@@ -500,7 +496,7 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
                 individualDataClass.setDiploma_Field(fieldOfDiploma);
                 individualDataClass.setMaster_Field(fieldOfMasters);
                 individualDataClass.setDoctorate_Field(fieldOfDoctorate);
-                individualDataClass.setCollege_Name(collegeName);
+                individualDataClass.setCollegeName(collegeName);
                 individualDataClass.setStart_Year_Date(startYear);
                 individualDataClass.setEnd_Year_Date(endYear);
                 individualDataClass.setCompany_Name(companyName);
@@ -514,7 +510,7 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
                 databaseReference.child("schoolName").setValue(individualDataClass.school_Name);
                 databaseReference.child("schoolType").setValue(individualDataClass.school_Type);
                 databaseReference.child("universityName").setValue(individualDataClass.university_Name);
-                databaseReference.child("collegeName").setValue(individualDataClass.college_Name);
+                databaseReference.child("collegeName").setValue(individualDataClass.collegeName);
                 databaseReference.child("depSpecialization").setValue(individualDataClass.dep_Specialization);
                 databaseReference.child("grade").setValue(individualDataClass.grade);
                 databaseReference.child("diplomaField").setValue(individualDataClass.diploma_Field);
