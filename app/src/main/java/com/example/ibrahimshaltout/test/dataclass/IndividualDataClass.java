@@ -1,9 +1,5 @@
 package com.example.ibrahimshaltout.test.dataclass;
 
-import android.widget.ScrollView;
-
-import java.sql.Time;
-import java.util.ArrayList;
 import java.util.List;
 
 public class IndividualDataClass {
@@ -37,7 +33,7 @@ public class IndividualDataClass {
     public String department;
     public String image_URL;
     public List<String> skills_List;
-    public List<String> interests_List;
+    public List<String> interestsList;
     public List<String> experience;
 
 
@@ -249,12 +245,12 @@ public class IndividualDataClass {
         this.skills_List = skills_List;
     }
 
-    public List<String> getInterests_List() {
-        return interests_List;
+    public List<String> getInterestsList() {
+        return interestsList;
     }
 
-    public void setInterests_List(List<String> interests_List) {
-        this.interests_List = interests_List;
+    public void setInterestsList(List<String> interestsList) {
+        this.interestsList = interestsList;
     }
 
     public String getImage_URL() {

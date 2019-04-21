@@ -12,13 +12,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.ibrahimshaltout.test.R;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import com.example.ibrahimshaltout.test.newsfeed.post.CommentActivity;
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostViewHolder>{
+
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostViewHolder> {
 
     private Context trackContext;
     private ArrayList<PostDataClass> posts;
@@ -47,23 +50,70 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
 
         final PostDataClass item = posts.get(position);
 
+
+        if (item.getUser_image_Post() != null) {
+            Picasso.get()
+                    .load(item.getUser_image_Post())
+                    .into(newsFeedViewHolder.imageView);
+        }
+
+        if (item.getUser_Profile_Photo() != null) {
+            Picasso.get()
+                    .load(item.getUser_Profile_Photo())
+                    .into(newsFeedViewHolder.profilePic);
+        }
+
+
         newsFeedViewHolder.desc.setText(item.getPostData());
+        if (item.getPostName() != null) {
+            newsFeedViewHolder.profileName.setText(item.getPostName());
+        }
+
+
+        if (item.getHashTage() != null) {
+            StringBuilder builder = new StringBuilder();
+            for (String details : item.getHashTage()) {
+                builder.append(  "#"+details+ " " );
+            }
+            newsFeedViewHolder.post_hashTags.setText(builder.toString());
+        }
+
         if (item.getPostName() != null) {
             newsFeedViewHolder.profileName.setText(item.getPostName());
         }
         if (item.getTimeAndDate() != null) {
             newsFeedViewHolder.dateAndTime.setText(item.getTimeAndDate());
         }
-        newsFeedViewHolder.number_of_like.setText(item.getNumber_of_likes()+"");
+
+        newsFeedViewHolder.number_of_like.setText(item.getNumber_of_likes() + "");
         newsFeedViewHolder.thumbs_up.setOnClickListener(new View.OnClickListener() {
+            int  mTrashFlag = 0  ;
             @Override
+
             public void onClick(View v) {
-                posts.get(position).setNumber_of_likes(posts.get(position).getNumber_of_likes()+1);
-                newsFeedViewHolder.number_of_like.setText(String.valueOf(posts.get(position).getNumber_of_likes()));
-                int n = posts.get(position).getNumber_of_likes();
-                FirebaseDatabase.getInstance().getReference("Posts").child(item.getPost_ID())
-                        .child("number_of_likes")
-                        .setValue(n);
+
+                if (mTrashFlag == 0)
+                {
+                    mTrashFlag = 1;
+                    newsFeedViewHolder.thumbs_up.setBackgroundColor(0xffff0000);
+                    posts.get(position).setNumber_of_likes(posts.get(position).getNumber_of_likes() + 1);
+                    newsFeedViewHolder.number_of_like.setText(String.valueOf(posts.get(position).getNumber_of_likes()));
+                    int n = posts.get(position).getNumber_of_likes();
+                    FirebaseDatabase.getInstance().getReference("Posts").child(item.getPost_ID())
+                            .child("number_of_likes")
+                            .setValue(n);
+                }
+                else if(mTrashFlag==1)
+                {
+                    mTrashFlag = 0;
+                    newsFeedViewHolder.thumbs_up.setBackgroundColor(0xfffe0000);
+                    posts.get(position).setNumber_of_likes(posts.get(position).getNumber_of_likes() - 1);
+                    newsFeedViewHolder.number_of_like.setText(String.valueOf(posts.get(position).getNumber_of_likes()));
+                    int n = posts.get(position).getNumber_of_likes();
+                    FirebaseDatabase.getInstance().getReference("Posts").child(item.getPost_ID())
+                            .child("number_of_likes")
+                            .setValue(n);
+                }
             }
         });
 //        newsFeedViewHolder.number_of_like.setText(String.valueOf(posts.get(position).getCount()));
@@ -74,17 +124,16 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
 //        newsFeedViewHolder.imageNameTextView.setText(UploadInfo.getImageName());}
         //Loading image from Glide library.
 
-        Glide.with(trackContext).load(item.getImageURL()).into(newsFeedViewHolder.imageView);
+
         newsFeedViewHolder.post_comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(trackContext, CommentActivity.class);
-                intent.putExtra("name",item.getPostName());
-                intent.putExtra("decs",item.getPostData());
-                intent.putExtra("timeAndDate",item.getTimeAndDate());
-                intent.putExtra("postID",item.getPost_ID());
-
-                intent.putExtra("numOfLikes",item.getNumber_of_likes()+"");
+                Intent intent = new Intent(trackContext, CommentActivity.class);
+                intent.putExtra("name", item.getPostName());
+                intent.putExtra("decs", item.getPostData());
+                intent.putExtra("timeAndDate", item.getTimeAndDate());
+                intent.putExtra("postID", item.getPost_ID());
+                intent.putExtra("numOfLikes", item.getNumber_of_likes() + "");
                 trackContext.startActivity(intent);
 
 
@@ -92,6 +141,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
         });
 
     }
+
     @Override
     public int getItemCount() {
         return posts == null ? 0 : posts.size();
@@ -120,8 +170,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
     class NewsFeedPostViewHolder extends RecyclerView.ViewHolder {
         public TextView desc;
         public TextView profileName;
+        public CircleImageView profilePic;
         public TextView dateAndTime;
         public ImageView imageView;
+        public TextView post_hashTags ;
         public TextView number_of_like;
         public ImageButton thumbs_up;
         public Button post_comment;
@@ -130,11 +182,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
             super(view);
             desc = (TextView) view.findViewById(R.id.txtStatusMsgPost);
             profileName = (TextView) view.findViewById(R.id.Profile_name);
-            dateAndTime =(TextView) view.findViewById(R.id.timestamp);
+            profilePic = (CircleImageView) view.findViewById(R.id.profilePic);
+            dateAndTime = (TextView) view.findViewById(R.id.timestamp);
             imageView = (ImageView) view.findViewById(R.id.post_image);
             number_of_like = (TextView) view.findViewById(R.id.Number_Of_Likes);
-            thumbs_up= (ImageButton)view.findViewById(R.id.thumbs_up);
-            post_comment=(Button)view.findViewById(R.id.post_comment1);
+            post_hashTags = (TextView) view.findViewById(R.id.post_hashTags);
+            thumbs_up = (ImageButton) view.findViewById(R.id.thumbs_up);
+            post_comment = (Button) view.findViewById(R.id.post_comment1);
 
         }
     }

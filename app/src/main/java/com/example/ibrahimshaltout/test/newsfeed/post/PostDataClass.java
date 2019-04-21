@@ -1,19 +1,58 @@
 package com.example.ibrahimshaltout.test.newsfeed.post;
 
+import java.util.List;
+
 public class PostDataClass {
 
     private String postData;
     private String postName;
     private String timeAndDate;
     public String imageURL;
-    public String imageName;
     private String user_ID;
     private String post_ID;
+    private String share_for;
+    private String user_image_Post;
+    private String user_Profile_Photo;
     private int number_of_likes;
+    private List<String> HashTage;
 
-    private String comment;
+
+    private String commentHead;
     private String writerID;
     private String writerName;
+
+
+    public String getUser_Profile_Photo() {
+        return user_Profile_Photo;
+    }
+
+    public void setUser_Profile_Photo(String user_Profile_Photo) {
+        this.user_Profile_Photo = user_Profile_Photo;
+    }
+
+    public String getUser_image_Post() {
+        return user_image_Post;
+    }
+
+    public void setUser_image_Post(String user_image_Post) {
+        this.user_image_Post = user_image_Post;
+    }
+
+    public List<String> getHashTage() {
+        return HashTage;
+    }
+
+    public void setHashTage(List<String> hashTage) {
+        this.HashTage = hashTage;
+    }
+
+    public String getShare_for() {
+        return share_for;
+    }
+
+    public void setShare_for(String share_for) {
+        this.share_for = share_for;
+    }
 
     public String getWriterName() {
         return writerName;
@@ -23,12 +62,12 @@ public class PostDataClass {
         this.writerName = writerName;
     }
 
-    public String getComment() {
-        return comment;
+    public String getCommentHead() {
+        return commentHead;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setCommentHead(String commentHead) {
+        this.commentHead = commentHead;
     }
 
     public String getWriterID() {
@@ -63,16 +102,8 @@ public class PostDataClass {
         this.user_ID = user_ID;
     }
 
-    public PostDataClass(){
+    public PostDataClass() {
 
-    }
-
-    public String getImageName() {
-        return imageName;
-    }
-
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
     }
 
 

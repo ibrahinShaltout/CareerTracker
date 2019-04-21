@@ -125,14 +125,14 @@ public class CommentActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String writeComment = write_comment.getText().toString().trim();
-                postDataClass.setComment(writeComment);
+                postDataClass.setCommentHead(writeComment);
                 postDataClass.setWriterID(individualId);
 //                postDataClass.setWriterName(userName);
 
                 FirebaseDatabase.getInstance().getReference("Posts").child(postID).child("Comments").
-                        child(key).child("WriterID").setValue(postDataClass.getWriterID());
+                        child(key).child("writerID").setValue(postDataClass.getWriterID());
                 FirebaseDatabase.getInstance().getReference("Posts").child(postID).child("Comments").
-                        child(key).child("CommentHead").setValue(postDataClass.getComment());
+                        child(key).child("commentHead").setValue(postDataClass.getCommentHead());
 //                FirebaseDatabase.getInstance().getReference("Posts").child(postID).child("Comments").
 //                        child(key).child("WriterName").setValue(postDataClass.getWriterName());
             }

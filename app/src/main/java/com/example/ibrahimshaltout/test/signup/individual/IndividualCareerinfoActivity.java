@@ -17,14 +17,12 @@ import android.widget.MultiAutoCompleteTextView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.ibrahimshaltout.test.MainActivity;
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.CollegeDataClass;
 import com.example.ibrahimshaltout.test.dataclass.CorporateDataClass;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
 import com.example.ibrahimshaltout.test.dataclass.UniversityDataClass;
 import com.example.ibrahimshaltout.test.login.LoginActivity;
-import com.example.ibrahimshaltout.test.signup.YourLocation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,8 +38,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import xyz.hasnat.sweettoast.SweetToast;
 
 public class IndividualCareerinfoActivity extends AppCompatActivity {
 
@@ -506,7 +502,7 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
                 individualDataClass.setCompany_Name(companyName);
                 individualDataClass.setJobTitle(jobTitle);
                 individualDataClass.setDepartment(department);
-                individualDataClass.setInterests_List(listInterests);
+                individualDataClass.setInterestsList(listInterests);
                 individualDataClass.setSkills_List(listSkill);
                 individualDataClass.setExperience(listExperience);
 
@@ -523,7 +519,7 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
                 databaseReference.child("startYearDate").setValue(individualDataClass.start_Year_Date);
                 databaseReference.child("endYearDate").setValue(individualDataClass.end_Year_Date);
                 databaseReference.child("skillsList").setValue(individualDataClass.skills_List);
-                databaseReference.child("interestsList").setValue(individualDataClass.interests_List);
+                databaseReference.child("interestsList").setValue(individualDataClass.interestsList);
                 databaseReference.child("experience").setValue(individualDataClass.experience);
                 databaseReference.child("companyName").setValue(individualDataClass.company_Name);
                 databaseReference.child("jobTitle").setValue(individualDataClass.jobTitle);

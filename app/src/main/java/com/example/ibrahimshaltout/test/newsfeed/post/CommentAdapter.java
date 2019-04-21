@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ibrahimshaltout.test.R;
+import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
 import com.example.ibrahimshaltout.test.newsfeed.post.PostDataClass;
 
 import java.util.ArrayList;
@@ -33,8 +34,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     @Override
     public void onBindViewHolder(@NonNull CommentViewHolder commentViewHolder, int i) {
         PostDataClass item = commentsList.get(i);
-        commentViewHolder.comment.setText(item.getComment());
-//        commentViewHolder.comment_owner.setText(item.getWriterName());
+        IndividualDataClass individualDataClass = new IndividualDataClass();
+        commentViewHolder.comment.setText(item.getCommentHead());
+        commentViewHolder.comment_owner.setText(individualDataClass.getUser_name());
     }
 
     @Override
@@ -43,13 +45,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     }
 
     public class CommentViewHolder extends RecyclerView.ViewHolder {
-//        TextView comment_owner;
+        TextView comment_owner;
         TextView comment;
 
         public CommentViewHolder(@NonNull View itemView) {
             super(itemView);
             comment = (TextView) itemView.findViewById(R.id.comment);
-//            comment_owner = (TextView) itemView.findViewById(R.id.comment_owner);
+            comment_owner = (TextView) itemView.findViewById(R.id.comment_owner);
 
 
         }

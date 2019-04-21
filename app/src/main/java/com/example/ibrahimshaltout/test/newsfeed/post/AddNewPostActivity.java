@@ -3,9 +3,7 @@ package com.example.ibrahimshaltout.test.newsfeed.post;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,11 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.ibrahimshaltout.test.Profile.UserProfileActivity;
+import com.example.ibrahimshaltout.test.MainActivity;
 import com.example.ibrahimshaltout.test.R;
+import com.example.ibrahimshaltout.test.dataclass.FieldDataClass;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,7 +36,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
@@ -51,8 +47,10 @@ import java.io.IOException;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.UUID;
+import java.util.List;
 
 import id.zelory.compressor.Compressor;
 import xyz.hasnat.sweettoast.SweetToast;
@@ -61,6 +59,11 @@ public class AddNewPostActivity extends AppCompatActivity {
 
     private Toolbar toolbarTop;
     private EditText inputPost;
+
+    MultiAutoCompleteTextView add_hashTags;
+    ArrayList hashtagArray = new ArrayList<>();
+
+
     private Button btnAddPost;
     Bitmap thumb_Bitmap = null;
     private String profile_download_url;
@@ -77,6 +80,8 @@ public class AddNewPostActivity extends AppCompatActivity {
     private ImageView new_post_image;
 
     MaterialBetterSpinner materialBetterSpinner;
+    private int spinnerItemSelcected;
+
     private String[] shareForList = {"Anyone", "Same TrackDataClass Participants"};
     ArrayAdapter<String> stringArrayAdapter;
 
@@ -103,10 +108,18 @@ public class AddNewPostActivity extends AppCompatActivity {
         db = FirebaseDatabase.getInstance().getReference();
         post_id = db.push().getKey();
 
+
+        ArrayAdapter<String> hashtagAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, hashtagArray);
+        add_hashTags = (MultiAutoCompleteTextView) findViewById(R.id.add_hashTags);
+        add_hashTags.setThreshold(1);
+        add_hashTags.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        add_hashTags.setAdapter(hashtagAdapter);
+        add_hashTags.setVisibility(View.GONE);
+
         thumb_image_ref = FirebaseStorage.getInstance().getReference().child("thumb_image_Post");
         getUserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Posts").child(post_id);
         getUserDatabaseReference.keepSynced(true); // for offline
-        mProfileImgStorageRef = FirebaseStorage.getInstance().getReference().child("profile_image");
+        mProfileImgStorageRef = FirebaseStorage.getInstance().getReference().child("post_image");
 
 //        // Retrieve data from database
 //        getUserDatabaseReference.addValueEventListener(new ValueEventListener() {
@@ -136,7 +149,6 @@ public class AddNewPostActivity extends AppCompatActivity {
         final String individualId = currentFirebaseUser.getUid();
 
 
-
         toolbarTop = findViewById(R.id.add_new_Post_top_bar);
         toolbarTop.setTitle("New Post");
         toolbarTop.setTitleMarginStart(80);
@@ -149,6 +161,7 @@ public class AddNewPostActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // back button pressed
+                FirebaseDatabase.getInstance().getReference().child("Posts").child(post_id).removeValue();
                 finish();
 
             }
@@ -165,12 +178,86 @@ public class AddNewPostActivity extends AppCompatActivity {
         stringArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, shareForList);
         materialBetterSpinner = (MaterialBetterSpinner) findViewById(R.id.share_For_List);
         materialBetterSpinner.setAdapter(stringArrayAdapter);
-
         materialBetterSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                spinnerItemSelcected = position;
+                if (spinnerItemSelcected == 0) {
+
+                    add_hashTags.setVisibility(View.VISIBLE);
+                } else if (spinnerItemSelcected == 1) {
+
+                    add_hashTags.setVisibility(View.GONE);
+                }
 
             }
+        });
+
+        btnAddPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String arrayHashtag = add_hashTags.getText().toString();
+                final String arrayHashtagSp[] = arrayHashtag.split(",");
+                final List trackHashtagList = new ArrayList<String>(Arrays.asList(arrayHashtagSp));
+
+                FirebaseDatabase.getInstance().getReference().child("Users").child(individualId)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                final String post = inputPost.getText().toString().trim();
+                                DateFormat dateFormat = new SimpleDateFormat(" h:mm aa  dd/MM/YYYY ");
+                                Date date = new Date(System.currentTimeMillis());
+                                String strDate = dateFormat.format(date);
+
+                                IndividualDataClass individualDataClass = dataSnapshot.getValue(IndividualDataClass.class);
+                                postDataClass.setPostName(individualDataClass.user_name);
+                                postDataClass.setUser_Profile_Photo(individualDataClass.getUser_image());
+
+                                if (spinnerItemSelcected == 0) {
+
+                                    postDataClass.setShare_for("Anyone");
+                                    postDataClass.setHashTage(trackHashtagList);
+                                    FirebaseDatabase.getInstance().getReference("Posts").child(post_id).child("HashTage").setValue(trackHashtagList);
+
+
+                                } else if (spinnerItemSelcected == 1) {
+
+                                    postDataClass.setShare_for("Same TrackDataClass Participants");
+                                    postDataClass.setHashTage(individualDataClass.interestsList);
+                                    FirebaseDatabase.getInstance().getReference("Posts").child(post_id).child("HashTage").setValue(postDataClass.getHashTage());
+
+                                }
+
+                                postDataClass.setHashTage(individualDataClass.interestsList);
+                                postDataClass.setPostData(post);
+                                postDataClass.setTimeAndDate(strDate);
+                                postDataClass.setUser_ID(individualId);
+                                postDataClass.setNumber_of_likes(0);
+                                postDataClass.setPost_ID(post_id);
+
+                                FirebaseDatabase.getInstance().getReference("Posts").child(post_id).child("postName").setValue(postDataClass.getPostName());
+                                FirebaseDatabase.getInstance().getReference("Posts").child(post_id).child("postData").setValue(postDataClass.getPostData());
+                                FirebaseDatabase.getInstance().getReference("Posts").child(post_id).child("timeAndDate").setValue(postDataClass.getTimeAndDate());
+                                FirebaseDatabase.getInstance().getReference("Posts").child(post_id).child("number_of_likes").setValue(postDataClass.getNumber_of_likes());
+                                FirebaseDatabase.getInstance().getReference("Posts").child(post_id).child("post_ID").setValue(postDataClass.getPost_ID());
+                                FirebaseDatabase.getInstance().getReference("Posts").child(post_id).child("user_ID").setValue(postDataClass.getUser_ID());
+                                FirebaseDatabase.getInstance().getReference("Posts").child(post_id).child("share_for").setValue(postDataClass.getShare_for());
+                                FirebaseDatabase.getInstance().getReference("Posts").child(post_id).child("user_Profile_Photo").setValue(postDataClass.getUser_Profile_Photo());
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+                Intent i = new Intent(AddNewPostActivity.this, MainActivity.class);
+                startActivity(i);
+
+            }
+
         });
 
 
@@ -186,46 +273,31 @@ public class AddNewPostActivity extends AppCompatActivity {
             }
         });
 
-
-        btnAddPost.setOnClickListener(new View.OnClickListener() {
+        db.child("Fields").child("Fields_List").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-
-                FirebaseDatabase.getInstance().getReference().child("Users").child(individualId)
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                                final String post = inputPost.getText().toString().trim();
-                                DateFormat dateFormat = new SimpleDateFormat(" h:mm aa  dd/MM/YYYY ");
-                                Date date = new Date(System.currentTimeMillis());
-                                String strDate = dateFormat.format(date);
-
-                                IndividualDataClass individualDataClass = dataSnapshot.getValue(IndividualDataClass.class);
-                                postDataClass.setPostName(individualDataClass.user_name);
-                                postDataClass.setPostData(post);
-                                postDataClass.setTimeAndDate(strDate);
-                                postDataClass.setUser_ID(individualId);
-                                postDataClass.setNumber_of_likes(0);
-                                postDataClass.setPost_ID(post_id);
-
-
-                                FirebaseDatabase.getInstance().getReference("Posts").child(post_id).setValue(postDataClass);
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                fetchFieldName(dataSnapshot);
 
             }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
         });
 
 
     }
 
+    private void fetchFieldName(DataSnapshot dataSnapshot) {
+        FieldDataClass fieldDataClass = null;
+        Iterable<DataSnapshot> list = dataSnapshot.getChildren();
+        for (DataSnapshot x : list) {
+            fieldDataClass = x.getValue(FieldDataClass.class);
+            hashtagArray.add(fieldDataClass.getField_Name());
+
+        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -233,12 +305,13 @@ public class AddNewPostActivity extends AppCompatActivity {
          * Library Link- https://github.com/ArthurHub/Android-Image-Cropper
          * */
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == GALLERY_PICK_CODE && resultCode == RESULT_OK && data != null) {
             Uri imageUri = data.getData();
             // start picker to get image for cropping and then use the image in cropping activity
             CropImage.activity()
                     .setGuidelines(CropImageView.Guidelines.ON)
-                    .setAspectRatio(1, 1)
+                    .setAspectRatio(4, 3)
                     .start(this);
         }
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
@@ -253,15 +326,14 @@ public class AddNewPostActivity extends AppCompatActivity {
                 File thumb_filePath_Uri = new File(resultUri.getPath());
 
 
-
                 /**
                  * compress image using compressor library
                  * link - https://github.com/zetbaitsu/Compressor
                  * */
                 try {
                     thumb_Bitmap = new Compressor(this)
-                            .setMaxWidth(200)
-                            .setMaxHeight(200)
+                            .setMaxWidth(390)
+                            .setMaxHeight(250)
                             .setQuality(45)
                             .compressToBitmap(thumb_filePath_Uri);
                 } catch (IOException e) {
@@ -320,6 +392,12 @@ public class AddNewPostActivity extends AppCompatActivity {
                                         HashMap<String, Object> update_user_data = new HashMap<>();
                                         update_user_data.put("user_image_Post", profile_download_url);
                                         update_user_data.put("user_thumb_image", profile_thumb_download_url);
+
+
+                                        Picasso.get()
+                                                .load(profile_download_url)
+                                                .into(new_post_image);
+
 
                                         getUserDatabaseReference.updateChildren(new HashMap<String, Object>(update_user_data))
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
