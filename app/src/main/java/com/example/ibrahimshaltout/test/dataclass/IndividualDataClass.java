@@ -13,6 +13,9 @@ public class IndividualDataClass {
     private String user_status;
     private String user_thumb_image;
 
+
+
+
     public String getInterestedField() {
         return interestedField;
     }
@@ -42,6 +45,26 @@ public class IndividualDataClass {
     public String jobTitle;
     public String department;
     public String image_URL;
+    public String taskName;
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
+    public String getTaskDesc() {
+        return taskDesc;
+    }
+
+    public void setTaskDesc(String taskDesc) {
+        this.taskDesc = taskDesc;
+    }
+
+    public String taskDesc;
+
 
     public String getUserBio() {
         return userBio;
@@ -56,7 +79,25 @@ public class IndividualDataClass {
     public List<String> skills_List;
     public List<String> interestsList;
     public List<String> experience;
+String userCountry;
 
+    public String getUserCountry() {
+        return userCountry;
+    }
+
+    public void setUserCountry(String userCountry) {
+        this.userCountry = userCountry;
+    }
+
+    public String getUserCity() {
+        return userCity;
+    }
+
+    public void setUserCity(String userCity) {
+        this.userCity = userCity;
+    }
+
+    String userCity;
 
     public String getUser_name() {
         return user_name;

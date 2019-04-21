@@ -64,8 +64,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 
         // appbar / toolbar
         toolbar = view.findViewById(R.id.search_appbar);
-        toolbar.setTitle("what do you need to search for ?");
-
+//        toolbar.setTitle("Search Here");
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,16 +132,20 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         tracks_recyclerView.setAdapter(trackAdapter);
     }
     private void getTracksData() {
-        db.child("Tracks").addListenerForSingleValueEvent(new ValueEventListener() {
+        db.child("Tracks").child("Computer and Technology").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 parseTracksData(dataSnapshot);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
+
     }
+
     private void setTracksData(ArrayList<TrackDataClass> listOfTracks) {
         trackDataClassess.addAll(listOfTracks);
         trackAdapter.notifyDataSetChanged();
@@ -155,6 +158,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         }
         setTracksData(listOfTracks);
     }
+
     private void showHideTracks(View rootView) {
 
         showHide = rootView.findViewById(R.id.button_hide_show_search);

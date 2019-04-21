@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".signup.individual.ChooseFieldActivity"></activity>
+        <activity android:name=".ToDoList.AddTaskActivity"></activity>
+        <activity android:name=".ToDoList.ToDoListActivity" />
+        <activity android:name=".signup.individual.ChooseFieldActivity" />
         <activity android:name=".CorporateProfile.JobOfferActivity" />
         <activity android:name=".CorporateProfile.EventActivity" />
         <activity android:name=".AcademyProfile.CourseActivity" />

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.ibrahimshaltout.test.MainActivity;
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.CountriesListClass;
+import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
 import com.example.ibrahimshaltout.test.signup.individual.IndividuaGeneralinfoActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +24,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.firebase.database.GenericTypeIndicator;
@@ -37,8 +40,8 @@ public class YourLocation extends AppCompatActivity {
     String location;
 
 
-    AutoCompleteTextView locationCountriesSpinner;
-    ArrayAdapter<String> arrayAdapterCountries;
+    AutoCompleteTextView locationCountriesSpinner,locationSpinnerCity;
+    ArrayAdapter<String> arrayAdapterCountries,arrayAdapterCities;
     private int spinnerItemSelcectedCountries;
     private Button btnCountinueLocation;
     private FirebaseAuth auth;
@@ -46,6 +49,7 @@ public class YourLocation extends AppCompatActivity {
 
     CountriesListClass countriesListClass = new CountriesListClass();
     List countries = countriesListClass.Countries();
+    List cities = Arrays.asList(new String[]{"city1"});
 
     TextView textview;
 
@@ -56,39 +60,39 @@ public class YourLocation extends AppCompatActivity {
 
 
         // check if GPS enabled
-        GPSTracker gpsTracker = new GPSTracker(this);
-
-        if (gpsTracker.getIsGPSTrackingEnabled()) {
-            String stringLatitude = String.valueOf(gpsTracker.latitude);
-            textview = (TextView) findViewById(R.id.fieldLatitude);
-            textview.setText(stringLatitude);
-
-            String stringLongitude = String.valueOf(gpsTracker.longitude);
-            textview = (TextView) findViewById(R.id.fieldLongitude);
-            textview.setText(stringLongitude);
-
-            String country = gpsTracker.getCountryName(this);
-            textview = (TextView) findViewById(R.id.fieldCountry);
-            textview.setText(country);
-
-            String city = gpsTracker.getLocality(this);
-            textview = (TextView) findViewById(R.id.fieldCity);
-            textview.setText(city);
-
-            String postalCode = gpsTracker.getPostalCode(this);
-            textview = (TextView) findViewById(R.id.fieldPostalCode);
-            textview.setText(postalCode);
-
-            String addressLine = gpsTracker.getAddressLine(this);
-            textview = (TextView) findViewById(R.id.fieldAddressLine);
-            textview.setText(addressLine);
-        } else {
-            // can't get location
-            // GPS or Network is not enabled
-            // Ask user to enable GPS/network in settings
-            gpsTracker.showSettingsAlert();
-        }
-
+//        GPSTracker gpsTracker = new GPSTracker(this);
+//
+//        if (gpsTracker.getIsGPSTrackingEnabled()) {
+//            String stringLatitude = String.valueOf(gpsTracker.latitude);
+//            textview = (TextView) findViewById(R.id.fieldLatitude);
+//            textview.setText(stringLatitude);
+//
+//            String stringLongitude = String.valueOf(gpsTracker.longitude);
+//            textview = (TextView) findViewById(R.id.fieldLongitude);
+//            textview.setText(stringLongitude);
+//
+//            String country = gpsTracker.getCountryName(this);
+//            textview = (TextView) findViewById(R.id.fieldCountry);
+//            textview.setText(country);
+//
+//            String city = gpsTracker.getLocality(this);
+//            textview = (TextView) findViewById(R.id.fieldCity);
+//            textview.setText(city);
+//
+//            String postalCode = gpsTracker.getPostalCode(this);
+//            textview = (TextView) findViewById(R.id.fieldPostalCode);
+//            textview.setText(postalCode);
+//
+//            String addressLine = gpsTracker.getAddressLine(this);
+//            textview = (TextView) findViewById(R.id.fieldAddressLine);
+//            textview.setText(addressLine);
+//        } else {
+//            // can't get location
+//            // GPS or Network is not enabled
+//            // Ask user to enable GPS/network in settings
+//            gpsTracker.showSettingsAlert();
+//        }
+//
 
         mAuth = FirebaseAuth.getInstance();
         user_UId = mAuth.getCurrentUser().getUid();
@@ -114,10 +118,15 @@ public class YourLocation extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         btnCountinueLocation = (Button) findViewById(R.id.countinue_location_button);
-        arrayAdapterCountries = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, countries);
 
+        arrayAdapterCities = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, cities);
+        locationSpinnerCity = (AutoCompleteTextView) findViewById(R.id.locationSpinnerCity);
+        locationSpinnerCity.setAdapter(arrayAdapterCities);
+
+        arrayAdapterCountries = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, countries);
         locationCountriesSpinner = (AutoCompleteTextView) findViewById(R.id.locationSpinnerCountry);
         locationCountriesSpinner.setAdapter(arrayAdapterCountries);
+
         locationCountriesSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -129,9 +138,18 @@ public class YourLocation extends AppCompatActivity {
         btnCountinueLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                IndividualDataClass individualDataClass=new IndividualDataClass();
                 String individualId = auth.getUid();
-                String location = locationCountriesSpinner.getText().toString();
-                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("location").setValue(location);
+                String country = locationCountriesSpinner.getText().toString();
+                String city = locationSpinnerCity.getText().toString();
+
+                individualDataClass.setUserCountry(country);
+                individualDataClass.setUserCity(city);
+
+                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("location").child("userCountry")
+                        .setValue(individualDataClass.getUserCountry());
+                FirebaseDatabase.getInstance().getReference("Users").child(individualId).child("location").child("userCity")
+                        .setValue(individualDataClass.getUserCity());
                 Intent intent = new Intent(YourLocation.this, IndividuaGeneralinfoActivity.class);
                 startActivity(intent);
                 finish();

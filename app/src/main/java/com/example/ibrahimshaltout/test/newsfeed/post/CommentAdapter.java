@@ -37,7 +37,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     @Override
     public void onBindViewHolder(@NonNull CommentViewHolder commentViewHolder, int i) {
         PostDataClass item = commentsList.get(i);
-        IndividualDataClass individualDataClass = new IndividualDataClass();
         commentViewHolder.comment.setText(item.getCommentHead());
         commentViewHolder.comment_owner.setText(item.getWriterName());
         if(item.getUser_Profile_Photo()!=null)

@@ -43,13 +43,13 @@
                 android:textColorHint="@color/colorAccent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
+
                 <AutoCompleteTextView
                     android:id="@+id/locationSpinnerCountry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Country"
                     android:completionThreshold="1"
-                    />
+                    android:hint="Country" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -61,6 +61,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
                 <AutoCompleteTextView
+                    android:id="@+id/locationSpinnerCity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="City"
