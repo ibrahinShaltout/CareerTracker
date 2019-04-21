@@ -71,7 +71,6 @@ public class NewsFeedFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-
         db = FirebaseDatabase.getInstance().getReference();
         initViewsPosts(v);
         getPostsData();

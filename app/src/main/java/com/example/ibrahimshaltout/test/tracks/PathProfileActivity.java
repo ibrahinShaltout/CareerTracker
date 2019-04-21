@@ -119,5 +119,6 @@ public class PathProfileActivity extends AppCompatActivity {
 
     private void startActivitiesMethod() {
         startActivity(new Intent(this, CurrentTrackProfileActivity.class));
+        finish();
     }
 }

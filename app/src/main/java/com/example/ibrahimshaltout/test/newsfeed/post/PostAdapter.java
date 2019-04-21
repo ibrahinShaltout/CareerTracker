@@ -28,6 +28,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
 
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     final String key = database.getReference("Posts").getKey();
+    StringBuilder builder = new StringBuilder();
 
     public PostAdapter(Context mContext, ArrayList<PostDataClass> posts) {
         this.trackContext = mContext;
@@ -71,7 +72,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
 
 
         if (item.getHashTage() != null) {
-            StringBuilder builder = new StringBuilder();
+
             for (String details : item.getHashTage()) {
                 builder.append(  "#"+details+ " " );
             }
@@ -133,7 +134,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
                 intent.putExtra("decs", item.getPostData());
                 intent.putExtra("timeAndDate", item.getTimeAndDate());
                 intent.putExtra("postID", item.getPost_ID());
+                intent.putExtra("postUserProfile", item.getUser_Profile_Photo());
                 intent.putExtra("numOfLikes", item.getNumber_of_likes() + "");
+
+
+                intent.putExtra("imageView", item.getUser_image_Post());
+                intent.putExtra("post_hashTags", builder.toString());
                 trackContext.startActivity(intent);
 
 
@@ -177,6 +183,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.NewsFeedPostVi
         public TextView number_of_like;
         public ImageButton thumbs_up;
         public Button post_comment;
+
 
         NewsFeedPostViewHolder(View view) {
             super(view);

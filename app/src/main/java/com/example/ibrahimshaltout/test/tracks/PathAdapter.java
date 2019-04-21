@@ -1,6 +1,5 @@
 package com.example.ibrahimshaltout.test.tracks;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -9,10 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.PathDataClass;
-
 import java.util.ArrayList;
 
 public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathsViewHolder> {
@@ -40,7 +37,7 @@ public class PathAdapter extends RecyclerView.Adapter<PathAdapter.PathsViewHolde
         pathsViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(pathContext , PathProfileActivity.class);
+                Intent intent = new Intent(pathContext, PathProfileActivity.class);
                 pathContext.startActivity(intent);
             }
         });

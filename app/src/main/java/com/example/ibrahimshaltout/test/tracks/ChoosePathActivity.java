@@ -45,8 +45,8 @@ public class ChoosePathActivity extends AppCompatActivity {
         RecyclerView_Paths.setAdapter(pathAdapter);
 
         pathDataClasses.add(new PathDataClass());
-        pathDataClasses.add(new PathDataClass());
-        pathDataClasses.add(new PathDataClass());
+
+
 
         pathAdapter.notifyDataSetChanged();
 

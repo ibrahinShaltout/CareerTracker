@@ -32,15 +32,15 @@ public class IntroActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<String> t = new GenericTypeIndicator<String>() {
                 };
-                location = dataSnapshot.getValue(t);
-
-                if (location != null) {
+//                location = dataSnapshot.getValue(t);
+//
+//                if (location != null) {
                     startActivity(new Intent(IntroActivity.this, MainActivity.class));
                     finish();
-                } else {
-                    startActivity(new Intent(IntroActivity.this, YourLocation.class));
-                    finish();
-                }
+//                } else {
+//                    startActivity(new Intent(IntroActivity.this, YourLocation.class));
+//                    finish();
+//                }
             }
 
             @Override

@@ -32,8 +32,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.example.ibrahimshaltout.test.newsfeed.post.CommentAdapter;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CommentActivity extends AppCompatActivity {
 
@@ -50,20 +53,27 @@ public class CommentActivity extends AppCompatActivity {
     StorageReference storageReference;
     DatabaseReference db;
 
-    TextView Profile_name_show, txtStatusMsgPost_show, Number_Of_Likes_show, timestamp_show;
+    TextView Profile_name_show, txtStatusMsgPost_show, Number_Of_Likes_show, timestamp_show, post_hashTags_post;
     EditText write_comment;
-    ImageView add_comment;
+    ImageView add_comment, post_image_show;
+    CircleImageView profile_pic_show;
     RecyclerView commentsListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
+
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         String decs = intent.getStringExtra("decs");
         String timeAndDate = intent.getStringExtra("timeAndDate");
+        String postUserProfile = intent.getStringExtra("postUserProfile");
         String numOfLikes = intent.getStringExtra("numOfLikes");
+
+        String imageView = intent.getStringExtra("imageView");
+        String post_hashTags = intent.getStringExtra("post_hashTags");
+
         final String postID = intent.getStringExtra("postID");
 
 
@@ -78,6 +88,9 @@ public class CommentActivity extends AppCompatActivity {
 
 
         Profile_name_show = findViewById(R.id.Profile_name_show);
+        post_image_show = findViewById(R.id.post_image_show);
+        post_hashTags_post = findViewById(R.id.post_hashTags_post);
+        profile_pic_show = findViewById(R.id.profile_pic_show);
         txtStatusMsgPost_show = findViewById(R.id.txtStatusMsgPost_show);
         timestamp_show = findViewById(R.id.timestamp_show);
         Number_Of_Likes_show = findViewById(R.id.Number_Of_Likes_show);
@@ -89,6 +102,21 @@ public class CommentActivity extends AppCompatActivity {
         txtStatusMsgPost_show.setText(decs);
         timestamp_show.setText(timeAndDate);
         Number_Of_Likes_show.setText(numOfLikes);
+
+        post_hashTags_post.setText(post_hashTags);
+
+
+        if (postUserProfile != null) {
+            Picasso.get()
+                    .load(postUserProfile)
+                    .into(profile_pic_show);
+        }
+
+        if (imageView != null) {
+            Picasso.get()
+                    .load(imageView)
+                    .into(post_image_show);
+        }
 
         commentAdapter = new CommentAdapter(this, listOfComment);
 
@@ -135,10 +163,10 @@ public class CommentActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
+
         add_comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String writeComment = write_comment.getText().toString().trim();
                 postDataClass.setCommentHead(writeComment);
                 postDataClass.setWriterID(individualId);
@@ -153,6 +181,9 @@ public class CommentActivity extends AppCompatActivity {
                         child(key).child("writerName").setValue(postDataClass.getWriterName());
                 FirebaseDatabase.getInstance().getReference("Posts").child(postID).child("Comments").
                         child(key).child("user_Profile_Photo").setValue(postDataClass.getUser_Profile_Photo());
+
+                startActivity(getIntent());
+
             }
         });
     }

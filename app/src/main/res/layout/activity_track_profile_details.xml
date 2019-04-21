@@ -100,7 +100,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text=" notice : this track require specific collage"
+                                android:layout_marginBottom="5dp"
+                                android:text="Note: Here is a detailed description about the colleges, fields and specializations that relate to the track."
                                 android:textSize="13dp"
                                 android:textStyle="bold" />
 
@@ -131,6 +132,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="25dp"
+                                android:layout_marginBottom="10dp"
                                 android:text="https://www.Science.com/"
                                 android:textSize="10dp"
                                 android:textStyle="bold" />
@@ -209,13 +211,14 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Overview: These are the available courses that are most relevant to the software testing track."
+                                android:layout_marginBottom="5dp"
+                                android:text="Note: These are the available paths that are most relevant to the track."
                                 android:textSize="13dp"
                                 android:textStyle="bold" />
 
                             <android.support.v7.widget.RecyclerView
-                                android:layout_width="wrap_content"
                                 android:id="@+id/RecyclerView_Paths"
+                                android:layout_width="wrap_content"
 
                                 android:layout_height="wrap_content">
 
@@ -298,7 +301,8 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Details: We are delighted to announce our first meetup and start our future with this kickoff event."
+                                android:layout_marginBottom="5dp"
+                                android:text="Note: Here are the most relevant chances that help in the track progress such as: jobs, events, internships..."
                                 android:textSize="13dp"
                                 android:textStyle="bold" />
 
@@ -382,8 +386,9 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="NOTE: This is the general description of software tester and its duties."
+                                android:text="NOTE: This is the general description of the job and its duties that relates to the chosen track."
                                 android:textSize="13dp"
+                                android:layout_marginBottom="5dp"
                                 android:textStyle="bold" />
 
                             <android.support.v7.widget.RecyclerView

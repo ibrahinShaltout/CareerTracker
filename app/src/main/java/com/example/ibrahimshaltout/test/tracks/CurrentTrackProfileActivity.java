@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.ibrahimshaltout.test.MainActivity;
 import com.example.ibrahimshaltout.test.R;
 
 public class CurrentTrackProfileActivity extends AppCompatActivity {
@@ -43,21 +44,21 @@ public class CurrentTrackProfileActivity extends AppCompatActivity {
         toolbarTop.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CurrentTrackProfileActivity.this, TracksFragment.class));
+                startActivity(new Intent(CurrentTrackProfileActivity.this, MainActivity.class));
                 finish();
             }
         });
 
-        note = (TextView) findViewById(R.id.note);
-        note.setVisibility(View.VISIBLE);
+//        note = (TextView) findViewById(R.id.note);
+//        note.setVisibility(View.VISIBLE);
 
-        note.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                note.setVisibility(View.GONE);
-
-            }
-        });
+//        note.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                note.setVisibility(View.GONE);
+//
+//            }
+//        });
 
 
 //        linearLayout1.setVisibility(View.GONE);

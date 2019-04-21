@@ -11,19 +11,23 @@
         android:layout_height="match_parent">
 
 
-        <TextView
-            android:id="@+id/note"
-            android:elevation="2dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="You can now stat track "
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="30dp"
-            android:background="@color/white"
-            />
+        <!--<TextView-->
+            <!--android:id="@+id/note"-->
+            <!--android:elevation="2dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:text="You can now stat track "-->
+            <!--android:layout_gravity="center"-->
+            <!--android:gravity="center"-->
+            <!--android:textSize="30dp"-->
+            <!--android:background="@color/white"-->
+            <!--/>-->
+        <include
+            android:id="@+id/Current_Track_profile_Screen"
+            layout="@layout/tool_bar_in_screen" />
 
     <ScrollView
+        android:layout_marginTop="56dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -32,9 +36,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include
-                android:id="@+id/Current_Track_profile_Screen"
-                layout="@layout/tool_bar_in_screen" />
+
 
 
             <FrameLayout
@@ -252,17 +254,7 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="-What is an “interpreted” language?- What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -375,18 +367,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -497,18 +479,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -619,18 +591,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -840,17 +802,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="-What is an “interpreted” language?- What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -963,18 +916,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -1085,18 +1028,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -1207,18 +1140,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -1425,17 +1348,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="-What is an “interpreted” language?- What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -1548,18 +1462,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -1670,18 +1574,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -1792,18 +1686,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
+                                    android:text="-What is an “interpreted” language?\n- What is IRB? \n - What are Objects?\n- What are Methods?\n- What are Classes?\n- What are Blocks?\n- What is an Array?\n- What is an Iterator?\n- What are hashes?\n- What is a library? \n- What is a gem?"
+
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="100"
@@ -1818,15 +1702,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <Button
-                android:id="@+id/track_Start"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/colorPrimary"
-                android:text="Start Track"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
+
 
         </LinearLayout>
     </ScrollView>
