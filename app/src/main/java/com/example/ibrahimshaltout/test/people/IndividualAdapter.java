@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -47,9 +48,11 @@ public class IndividualAdapter extends RecyclerView.Adapter<IndividualAdapter.Pe
         } else {
             peopleViewHolder.people_bio.setText(item.getUserBio());
         }
-        if (item.getImage_URL() != null) {
-            Glide.with(peopleContext).load(item.getImage_URL()).into(peopleViewHolder.people_image);
-        }
+        if (item.getUser_image() != null) {
+            Picasso.get()
+                    .load(item.getUser_image())
+                    .into(peopleViewHolder.people_image);        }
+
     }
 
     @Override
