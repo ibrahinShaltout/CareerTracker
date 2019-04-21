@@ -57,7 +57,7 @@ The result of the search will be viewed in a list view depending on what criteri
     <string name="action_logout">Logout</string>
     <string name="action_mark_all_read">Mark All as Read</string>
     <string name="privacy_policy">Privacy Policy</string>
-    <string name="bio_profile"><![CDATA[I\'m a student at the faculty of computer science ]]></string>
+    <string name="bio_profile"><![CDATA[ Hello Iam New here ]]></string>
     <string name="bio_profile2"><![CDATA[I\'m a student at the faculty of computer science .. I\'m looking forward to gaining more experience./]]></string>
     <string name="bio_profile3"><![CDATA[I\'m looking forward to gaining more experience.about computer software testing , system analysis & project management .]]></string>
     <string name="bio_profile4"><![CDATA[I\'m looking forward to gaining more experience.]]></string>

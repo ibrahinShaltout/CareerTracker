@@ -45,6 +45,17 @@
                                 <PersistentState>
                                   <option name="children">
                                     <map>
+                                      <entry key="backgroundImage">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="scalingPercent" value="80" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                       <entry key="foregroundImage">
                                         <value>
                                           <PersistentState>
@@ -60,10 +71,10 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundLayerName" value="ic_launcher_to_do_list" />
-                                      <entry key="foregroundImage" value="C:\Users\oglitgit7\Desktop\todolist.png" />
-                                      <entry key="foregroundLayerName" value="ic_to_do_list" />
-                                      <entry key="outputName" value="to_do_list" />
+                                      <entry key="backgroundLayerName" value="ic_launcher_organization_icon" />
+                                      <entry key="foregroundImage" value="C:\Users\oglitgit7\Downloads\58114976_1001861976689594_3178904736870957056_n.jpg" />
+                                      <entry key="foregroundLayerName" value="organization_icon" />
+                                      <entry key="outputName" value="organization" />
                                     </map>
                                   </option>
                                 </PersistentState>

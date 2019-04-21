@@ -71,7 +71,6 @@ public class AddNewPostActivity extends AppCompatActivity {
     private String profile_thumb_download_url;
     private DatabaseReference getUserDatabaseReference;
 
-
     private final static int GALLERY_PICK_CODE = 1;
     private ProgressDialog progressDialog;
     private FirebaseAuth mAuth;

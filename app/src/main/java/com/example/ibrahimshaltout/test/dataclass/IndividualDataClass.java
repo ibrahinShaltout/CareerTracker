@@ -13,13 +13,23 @@ public class IndividualDataClass {
     private String user_status;
     private String user_thumb_image;
 
+    public String getInterestedField() {
+        return interestedField;
+    }
+
+    public void setInterestedField(String interestedField) {
+        this.interestedField = interestedField;
+    }
+
+    public String interestedField;
+
     public String user_email;
     public String user_phone;
     public String qualification_Level;
     public String school_Name;
     public String school_Type;
     public String university_Name;
-    public String college_Name;
+    public String collegeName;
     public String dep_Specialization;
     public String grade;
     public String diploma_Field;
@@ -32,6 +42,17 @@ public class IndividualDataClass {
     public String jobTitle;
     public String department;
     public String image_URL;
+
+    public String getUserBio() {
+        return userBio;
+    }
+
+    public void setUserBio(String userBio) {
+        this.userBio = userBio;
+    }
+
+    public String userBio;
+
     public List<String> skills_List;
     public List<String> interestsList;
     public List<String> experience;
@@ -149,12 +170,12 @@ public class IndividualDataClass {
         this.university_Name = university_Name;
     }
 
-    public String getCollege_Name() {
-        return college_Name;
+    public String getCollegeName() {
+        return collegeName;
     }
 
-    public void setCollege_Name(String college_Name) {
-        this.college_Name = college_Name;
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
     }
 
     public String getDep_Specialization() {

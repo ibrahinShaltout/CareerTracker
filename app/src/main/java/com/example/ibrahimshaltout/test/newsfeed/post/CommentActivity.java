@@ -43,6 +43,7 @@ public class CommentActivity extends AppCompatActivity {
     ArrayList<PostDataClass> listOfComment = new ArrayList<>();
 
     String userName;
+    String userProfilePic;
 
     FirebaseStorage storage;
     FirebaseDatabase database;
@@ -100,6 +101,7 @@ public class CommentActivity extends AppCompatActivity {
         db.child("Posts").child(postID).child("Comments").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 parseCommentsData(dataSnapshot);
             }
 
@@ -108,18 +110,31 @@ public class CommentActivity extends AppCompatActivity {
 
             }
         });
-//        db.child("Users").child(individualId).child("fullName").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                GenericTypeIndicator<String> t = new GenericTypeIndicator<String>() {
-//                };
-//                userName = dataSnapshot.getValue(t);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//            }
-//        });
+
+        db.child("Users").child(individualId).child("user_name").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                GenericTypeIndicator<String> t = new GenericTypeIndicator<String>() {
+                };
+                userName = dataSnapshot.getValue(t);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+        db.child("Users").child(individualId).child("user_image").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                GenericTypeIndicator<String> t = new GenericTypeIndicator<String>() {
+                };
+                userProfilePic = dataSnapshot.getValue(t);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
         add_comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,14 +142,17 @@ public class CommentActivity extends AppCompatActivity {
                 String writeComment = write_comment.getText().toString().trim();
                 postDataClass.setCommentHead(writeComment);
                 postDataClass.setWriterID(individualId);
-//                postDataClass.setWriterName(userName);
+                postDataClass.setWriterName(userName);
+                postDataClass.setUser_Profile_Photo(userProfilePic);
 
                 FirebaseDatabase.getInstance().getReference("Posts").child(postID).child("Comments").
                         child(key).child("writerID").setValue(postDataClass.getWriterID());
                 FirebaseDatabase.getInstance().getReference("Posts").child(postID).child("Comments").
                         child(key).child("commentHead").setValue(postDataClass.getCommentHead());
-//                FirebaseDatabase.getInstance().getReference("Posts").child(postID).child("Comments").
-//                        child(key).child("WriterName").setValue(postDataClass.getWriterName());
+                FirebaseDatabase.getInstance().getReference("Posts").child(postID).child("Comments").
+                        child(key).child("writerName").setValue(postDataClass.getWriterName());
+                FirebaseDatabase.getInstance().getReference("Posts").child(postID).child("Comments").
+                        child(key).child("user_Profile_Photo").setValue(postDataClass.getUser_Profile_Photo());
             }
         });
     }

@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.example.ibrahimshaltout.test.R;
 import com.example.ibrahimshaltout.test.dataclass.IndividualDataClass;
 import com.example.ibrahimshaltout.test.newsfeed.post.AddNewPostActivity;
@@ -51,11 +52,6 @@ public class NewsFeedFragment extends Fragment implements View.OnClickListener {
     DatabaseReference db;
     // Creating List of ImageUploadInfo class.
     ArrayList<PostDataClass> postDataClassesImage = new ArrayList<>();
-
-
-
-
-
 
     public NewsFeedFragment() {
         // Required empty public constructor
@@ -115,7 +111,6 @@ public class NewsFeedFragment extends Fragment implements View.OnClickListener {
             }
         });
     }
-
 
 
     private void showHideTracks(View rootView) {
@@ -182,7 +177,7 @@ public class NewsFeedFragment extends Fragment implements View.OnClickListener {
         tracks_recyclerView = rootView.findViewById(R.id.recycler_view_tracks);
         trackAdapter = new TrackAdapterRecommendation(getActivity(), trackDataClassess);
         RecyclerView.LayoutManager trackLayoutManager = new LinearLayoutManager(getActivity(),
-        LinearLayoutManager.HORIZONTAL, false);
+                LinearLayoutManager.HORIZONTAL, false);
         tracks_recyclerView.setLayoutManager(trackLayoutManager);
         tracks_recyclerView.setNestedScrollingEnabled(true);
         tracks_recyclerView.setHasFixedSize(true);
@@ -195,6 +190,7 @@ public class NewsFeedFragment extends Fragment implements View.OnClickListener {
 //        postRecyclerViewImageAdapter.notifyDataSetChanged();
 
     }
+
     @Override
     public void onClick(View v) {
 
