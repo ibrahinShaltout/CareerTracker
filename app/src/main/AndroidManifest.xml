@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ToDoList.AddTaskActivity"></activity>
+
+        <activity android:name=".ToDoList.AddTaskActivity" />
         <activity android:name=".ToDoList.ToDoListActivity" />
         <activity android:name=".signup.individual.ChooseFieldActivity" />
         <activity android:name=".CorporateProfile.JobOfferActivity" />
@@ -30,32 +31,10 @@
         <activity android:name=".FriendsActivity" />
         <activity android:name=".messages.ChatActivity" />
         <activity android:name=".tracks.CurrentTrackProfileActivity" />
-        <activity android:name=".tracks.PathProfileActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
+        <activity android:name=".tracks.PathProfileActivity" />
         <activity android:name=".tracks.ChoosePathActivity" />
-        <activity android:name=".tracks.TrackProfileDetailsActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity android:name=".tracks.TrackProfileActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
+        <activity android:name=".tracks.TrackProfileDetailsActivity" />
+        <activity android:name=".tracks.TrackProfileActivity" />
         <activity android:name=".tracks.AddNewTrackActivity" />
         <activity android:name=".newsfeed.post.AddNewPostActivity" />
         <activity android:name=".notification.NotificationActivity" />
@@ -64,6 +43,13 @@
         <activity android:name=".menu_bar.PrivacyPolicy" />
         <activity android:name=".menu_bar.AboutUs" />
         <activity android:name=".newsfeed.post.CommentActivity" />
+        <activity android:name=".login.ResetPasswordActivity" />
+        <activity android:name=".signup.SignupAsActivity" />
+        <activity android:name=".signup.individual.SignUpIndividualActivity" />
+        <activity android:name=".signup.VerifyEmail" />
+        <activity android:name=".signup.YourLocation" />
+        <activity android:name=".signup.individual.IndividuaGeneralinfoActivity" />
+        <activity android:name=".signup.individual.IndividualCareerinfoActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -74,36 +60,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.ResetPasswordActivity" />
-        <activity android:name=".signup.SignupAsActivity" />
-        <activity android:name=".signup.individual.SignUpIndividualActivity" />
-        <activity android:name=".signup.VerifyEmail">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity android:name=".signup.YourLocation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".signup.individual.IndividuaGeneralinfoActivity" />
-        <activity android:name=".signup.individual.IndividualCareerinfoActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity> <!-- Firebase Notifications -->
-        <!-- Cropping image library -->
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
@@ -119,5 +75,4 @@
             </intent-filter>
         </service>
     </application>
-
 </manifest>
