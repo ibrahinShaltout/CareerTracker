@@ -79,6 +79,10 @@ public class CommentActivity extends AppCompatActivity {
 
         FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         final String individualId = currentFirebaseUser.getUid();
+//        final String individualId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
