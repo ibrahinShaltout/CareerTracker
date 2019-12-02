@@ -11,21 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:layout_margin="20dp"
         android:orientation="vertical">
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose a Category"
             android:textSize="20dp"
+            android:layout_marginBottom="20dp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"
             android:textAlignment="center"/>
         <Button
 
             android:id="@+id/individual"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:background="@mipmap/individual22"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="@mipmap/people_icon_signup"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimary" />
         <android.support.v7.widget.AppCompatTextView
@@ -37,12 +39,14 @@
             android:textColor="@color/colorPrimary"
             android:layout_marginBottom="25dp"
             android:textAlignment="center"/>
+
         <Button
             android:id="@+id/organization"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_marginTop="-20dp"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:background="@mipmap/organization"
+
+            android:background="@mipmap/org_icon_signup"
             android:textColor="@color/colorPrimary" />
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"

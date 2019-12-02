@@ -10,9 +10,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <include
+    <!--<include-->
+        <!--android:id="@+id/message_top_bar"-->
+        <!--layout="@layout/tool_bar_in_screen" />-->
+
+    <android.support.v7.widget.Toolbar
+
         android:id="@+id/message_top_bar"
-        layout="@layout/tool_bar_in_screen" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
 
     <SearchView
         android:id="@+id/simpleSearchView"

@@ -128,7 +128,7 @@ public class AddNewPostActivity extends AppCompatActivity {
 //                final String image = dataSnapshot.child("user_image_Post").getValue().toString();
 //                String thumbImage = dataSnapshot.child("user_thumb_image_Post").getValue().toString();
 //
-//                if (!image.equals("default_image")) { // default image condition for new user
+//                if (!image.equals("default_image")) { // defau1lt image condition for new user
 //                    Picasso.get()
 //                            .load(image)
 //                            .networkPolicy(NetworkPolicy.OFFLINE) // for offline

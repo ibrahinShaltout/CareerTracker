@@ -16,7 +16,6 @@ public class PostDataClass {
     private int number_of_likes;
     private List<String> HashTage;
 
-
     private String commentHead;
     private String writerID;
     private String writerName;
@@ -105,8 +104,6 @@ public class PostDataClass {
     public PostDataClass() {
 
     }
-
-
 
     public String getImageURL() {
         return imageURL;

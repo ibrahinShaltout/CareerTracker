@@ -101,6 +101,25 @@ public class SignUpIndividualActivity extends AppCompatActivity {
                 final String phoneNumber = inputPhoneNumber.getText().toString().trim();
                 final String verified = "false";
 
+                if (TextUtils.isEmpty(user_name)) {
+                    inputFullName.setError("You need to enter first name ");
+                    return;
+                } else {
+                    inputFullName.setError(null);
+                }
+                if (TextUtils.isEmpty(phoneNumber)) {
+                    inputPhoneNumber.setError("You need to enter phone number");
+                    return;
+                } else {
+                    inputPhoneNumber.setError(null);
+                }
+                if (password.length() < 6) {
+                    inputPassword.setError("Password is less than 6 characters");
+                    return;
+                } else {
+                    inputPassword.setError(null);
+                }
+
                 if (TextUtils.isEmpty(email)) {
                     inputEmail.setError("You need to enter an Email");
                     return;
@@ -113,25 +132,6 @@ public class SignUpIndividualActivity extends AppCompatActivity {
                 } else {
                     inputPassword.setError(null);
                 }
-//
-//                if (TextUtils.isEmpty(fullName)) {
-//                    inputFullName.setError("You need to enter first name ");
-//                    return;
-//                } else {
-//                    inputFullName.setError(null);
-//                }
-//                if (TextUtils.isEmpty(phoneNumber)) {
-//                    inputPhoneNumber.setError("You need to enter phone number");
-//                    return;
-//                } else {
-//                    inputPhoneNumber.setError(null);
-//                }
-//                if (password.length() < 6) {
-//                    inputPassword.setError("Password is less than 6 characters");
-//                    return;
-//                } else {
-//                    inputPassword.setError(null);
-//                }
 
 //                progressBar.setVisibility(View.VISIBLE);
                 //create user
@@ -209,23 +209,23 @@ public class SignUpIndividualActivity extends AppCompatActivity {
 //                                                                                                auth.signOut();
 
                                                                                                 Intent mainIntent = new Intent(SignUpIndividualActivity.this, YourLocation.class);
-                                                                                                mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                                                                mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
                                                                                                 startActivity(mainIntent);
                                                                                                 finish();
 
-                                                                                                SweetToast.info(SignUpIndividualActivity.this, "Please check your email & verify.");
+//                                                                                                SweetToast.info(SignUpIndividualActivity.this, "Please check your email & verify.");
 
                                                                                             }
                                                                                         });
                                                                                     }
-                                                                                }, 8000);
+                                                                                }, 3000);
                                                                             } else {
                                                                                 auth.signOut();
                                                                             }
                                                                         }
                                                                     });
                                                         }
-                                                        Toast.makeText(SignUpIndividualActivity.this, "registration_success", Toast.LENGTH_LONG).show();
+//                                                        Toast.makeText(SignUpIndividualActivity.this, "registration_success", Toast.LENGTH_LONG).show();
                                                     }
                                                 }
                                             });

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Career Tracker</string>
+    <string name="app_name">CareerTracker</string>
     <string name="title_shop">Shop</string>
     <string name="title_gifts">Gifts</string>
     <string name="title_cart">Cart</string>
@@ -58,7 +58,7 @@ The result of the search will be viewed in a list view depending on what criteri
     <string name="action_mark_all_read">Mark All as Read</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="bio_profile"><![CDATA[ Hello Iam New here ]]></string>
-    <string name="bio_profile2"><![CDATA[I\'m a student at the faculty of computer science .. I\'m looking forward to gaining more experience./]]></string>
+    <string name="bio_profile2"><![CDATA[I\'m loo" Definition - What does Android mean?  Android is a mobile operating system (OS) first developed by a Silicon Valley company by the name of Android Inc. A collaboration spearheaded by Google in 2007 through the Open Handset Alliance (OHA) gave Android an edge in delivering a complete software set, which includes the main OS, middleware and specific mobile application, or app."king forward to gaining more experience.]]></string>
     <string name="bio_profile3"><![CDATA[I\'m looking forward to gaining more experience.about computer software testing , system analysis & project management .]]></string>
     <string name="bio_profile4"><![CDATA[I\'m looking forward to gaining more experience.]]></string>
     <string name="bio_profile5"><![CDATA[Android Developer Responsibilities

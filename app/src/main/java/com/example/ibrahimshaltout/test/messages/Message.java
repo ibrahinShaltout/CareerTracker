@@ -7,7 +7,7 @@ public class Message {
     private boolean seen;
     private String from;
 
-    // default constructor
+    // defau1lt constructor
     public Message() {
     }
 

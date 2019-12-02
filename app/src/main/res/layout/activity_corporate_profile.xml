@@ -24,6 +24,7 @@
         android:layout_width="415dp"
         android:layout_height="170dp"
         android:scaleType="centerCrop"
+        android:paddingBottom="50dp"
         android:src="@mipmap/ic_cover_photo_corporate" />
     <ScrollView
         android:layout_width="match_parent"
@@ -68,7 +69,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Corporate Name"
+                        android:text="Memaar Al Morshedy"
                         android:textColor="@color/colorAccent"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -133,7 +134,7 @@
                                         android:layout_gravity="center"
                                         android:layout_marginBottom="10dp"
                                         android:gravity="center"
-                                        android:text="@string/bio_profile3"
+                                        android:text="In 1983, Mohamed Morshedy established Memaar Al Morshedy with a clear business strategy to penetrate the real estate development industry. Mr. Morshedy recruited a strong team of like-minded inspired architects and engineers that would become known later as Degla for Real Estate Developments, the pillar of Memaar Al Morshedy."
                                         android:textColor="@color/colorAccent"
                                         android:textSize="10dp" />
                                 </LinearLayout>
@@ -175,7 +176,7 @@
                         card_view:contentPadding="2dp">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
@@ -184,9 +185,10 @@
                             <Button
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@null"
+                                android:background="@color/colorPrimary"
                                 android:text="Follow"
-                                android:textColor="@color/colorAccent" />
+
+                                android:textColor="@color/white" />
                         </LinearLayout>
                     </android.support.v7.widget.CardView>
                 </LinearLayout>
@@ -276,7 +278,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_gravity="center"
                                                 android:layout_marginLeft="5dp"
-                                                android:text="  "
+                                                android:text=" In 1983 "
                                                 android:textColor="@color/colorAccent"
                                                 android:textSize="15dp" />
                                         </LinearLayout>
@@ -300,7 +302,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_gravity="center"
                                                 android:layout_marginLeft="5dp"
-                                                android:text="   "
+                                                android:text=" Real Estate  "
                                                 android:textColor="@color/colorAccent"
                                                 android:textSize="15dp" />
                                         </LinearLayout>
@@ -325,7 +327,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_gravity="center"
                                                 android:layout_marginLeft="5dp"
-                                                android:text="   "
+                                                android:text=" Nasr City "
                                                 android:textColor="@color/colorAccent"
                                                 android:textSize="15dp" />
                                         </LinearLayout>
@@ -350,35 +352,37 @@
                                                 android:layout_height="match_parent"
                                                 android:layout_gravity="center"
                                                 android:layout_marginLeft="5dp"
-                                                android:text="    "
+                                                android:text="- Faisal_El Monofeya-El Menya
+
+   "
                                                 android:textColor="@color/colorAccent"
                                                 android:textSize="15dp" />
                                         </LinearLayout>
 
-                                        <LinearLayout
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="horizontal">
+                                        <!--<LinearLayout-->
+                                            <!--android:layout_width="wrap_content"-->
+                                            <!--android:layout_height="wrap_content"-->
+                                            <!--android:orientation="horizontal">-->
 
-                                            <TextView
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_gravity="center"
-                                                android:layout_marginLeft="5dp"
-                                                android:text=" Type : "
-                                                android:textColor="@color/colorAccent"
-                                                android:textSize="15dp" />
+                                            <!--<TextView-->
+                                                <!--android:layout_width="match_parent"-->
+                                                <!--android:layout_height="wrap_content"-->
+                                                <!--android:layout_gravity="center"-->
+                                                <!--android:layout_marginLeft="5dp"-->
+                                                <!--android:text=" Type : "-->
+                                                <!--android:textColor="@color/colorAccent"-->
+                                                <!--android:textSize="15dp" />-->
 
-                                            <TextView
-                                                android:id="@+id/uni_profile_type"
-                                                android:layout_width="match_parent"
-                                                android:layout_height="wrap_content"
-                                                android:layout_gravity="center"
-                                                android:layout_marginLeft="5dp"
-                                                android:text="   "
-                                                android:textColor="@color/colorAccent"
-                                                android:textSize="15dp" />
-                                        </LinearLayout>
+                                            <!--<TextView-->
+                                                <!--android:id="@+id/uni_profile_type"-->
+                                                <!--android:layout_width="match_parent"-->
+                                                <!--android:layout_height="wrap_content"-->
+                                                <!--android:layout_gravity="center"-->
+                                                <!--android:layout_marginLeft="5dp"-->
+                                                <!--android:text="   "-->
+                                                <!--android:textColor="@color/colorAccent"-->
+                                                <!--android:textSize="15dp" />-->
+                                        <!--</LinearLayout>-->
 
                                     </LinearLayout>
 
@@ -439,9 +443,9 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:layout_gravity="center"
-                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginLeft="15dp"
                                         android:gravity="center_vertical"
-                                        android:text=""
+                                        android:text="Real Estate"
                                         android:textColor="@color/colorAccent"
                                         android:textSize="15dp" />
                                 </LinearLayout>
@@ -530,7 +534,7 @@
                                                 android:layout_gravity="center"
                                                 android:layout_marginLeft="5dp"
                                                 android:gravity="center_vertical"
-                                                android:text=" "
+                                                android:text="19086 "
                                                 android:textColor="@color/colorAccent"
                                                 android:textSize="15dp" />
                                         </LinearLayout>
@@ -556,7 +560,7 @@
                                                 android:layout_gravity="center"
                                                 android:layout_marginLeft="5dp"
                                                 android:gravity="center_vertical"
-                                                android:text=" "
+                                                android:text="https://morshedy.com "
                                                 android:textColor="@color/colorAccent"
                                                 android:textSize="15dp" />
                                         </LinearLayout>
@@ -581,7 +585,7 @@
                                                 android:layout_gravity="center"
                                                 android:layout_marginLeft="5dp"
                                                 android:gravity="center_vertical"
-                                                android:text=" "
+                                                android:text="Egypt"
                                                 android:textColor="@color/colorAccent"
                                                 android:textSize="15dp" />
                                         </LinearLayout>

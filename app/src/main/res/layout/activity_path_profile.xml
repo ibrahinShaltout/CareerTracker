@@ -20,6 +20,7 @@
                 layout="@layout/tool_bar_in_screen" />
 
 
+            <!--title-->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -42,14 +43,13 @@
                 <!--android:background="@drawable/menu_icon_up_down_24dp" />-->
             </FrameLayout>
 
-
-            <!--xcvxcvx-->
-
+            <!--Java-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <!--line-->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -73,64 +73,85 @@
 
                 </LinearLayout>
 
+                <!--java content-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/main_station_one"
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="Java"
-                        android:textSize="25dp"
-                        android:textStyle="bold" />
-
-                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
-                        card_view:cardBackgroundColor="@color/track_color"
-                        card_view:cardCornerRadius="4dp"
-                        card_view:cardElevation="4dp"
-                        card_view:cardUseCompatPadding="true">
+                        android:orientation="horizontal">
 
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/main_station_one"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Java"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/buttom_JAva_1"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_menu_up"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_JAva_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                            android:layout_marginRight="40dp"
+                            card_view:cardBackgroundColor="@color/track_color"
+                            card_view:cardCornerRadius="4dp"
+                            card_view:cardElevation="4dp"
+                            card_view:cardUseCompatPadding="true">
 
-
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="OverView :"
-                                android:textSize="13dp"
-                                android:textStyle="bold" />
+                                android:orientation="vertical"
+                                android:padding="10dp">
 
-                            <com.borjabravo.readmoretextview.ReadMoreTextView
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
 
-                                android:padding="10dp"
-                                android:paddingBottom="5dp"
-                                android:text="Java is a programming language that produces software for multiple platforms. When a programmer writes a Java application, the compiled code (known as bytecode) runs on most operating systems (OS), including Windows, Linux and Mac OS. Java derives much of its syntax from the C and C++ programming languages."
-                                app:trimCollapsedText="Show less"
-                                app:trimExpandedText="Show more"
-                                app:trimLength="150"
-                                app:trimMode="trimModeLength" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="OverView :"
+                                    android:textSize="13dp"
+                                    android:textStyle="bold" />
 
-                        </LinearLayout>
+                                <com.borjabravo.readmoretextview.ReadMoreTextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
 
-                    </android.support.v7.widget.CardView>
+                                    android:padding="10dp"
+                                    android:paddingBottom="5dp"
+                                    android:text="Java is a programming language that produces software for multiple platforms. When a programmer writes a Java application, the compiled code (known as bytecode) runs on most operating systems (OS), including Windows, Linux and Mac OS. Java derives much of its syntax from the C and C++ programming languages."
+                                    app:trimCollapsedText="Show less"
+                                    app:trimExpandedText="Show more"
+                                    app:trimLength="150"
+                                    app:trimMode="trimModeLength" />
 
+                            </LinearLayout>
+
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
 
+            <!--jave stations-->
             <LinearLayout
                 android:id="@+id/linear1"
                 android:layout_width="match_parent"
@@ -173,88 +194,107 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Station A "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
 
-                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            card_view:cardBackgroundColor="@color/track_color"
-                            card_view:cardCornerRadius="4dp"
-                            card_view:cardElevation="4dp"
-                            card_view:cardUseCompatPadding="true">
+                            android:orientation="horizontal">
 
-                            <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Station A "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+
+                            <Button
+                                android:id="@+id/buttom_a1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_menu_up"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear_a1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_marginRight="40dp"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardUseCompatPadding="true">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-                                    android:text="For beginners "
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="OverView :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5dp"
+                                        android:text="For beginners "
+                                        android:textSize="15dp"
+                                        android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="Take your first step towards a career in software development with this introduction to Java—one of the most in-demand programming languages and the foundation of the Android operating system. Designed for beginners, this Specialization will teach you core programming concepts and equip you to write programs to solve complex problems. In addition, you will gain the foundational skills a software engineer needs to solve real-world problems, from designing algorithms to testing and debugging your programs."
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="200"
-                                    app:trimMode="trimModeLength" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Java Programming Basics :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
+
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="Taking this course will provide you with a basic foundation in Java syntax, which is the first step towards becoming a successful Java developer. You’ll learn how computers make decisions and how Java keeps track of information through variables and data types. You’ll learn to create conditional statements, functions, and loops to process information and solve problems. You’ll even learn to use IntelliJ, a Java IDE (Integrated Development Environment) that professional developers use, to build, compile, and debug your code. These are foundational programming skills, and mastering them is a must for all aspiring programmers. This course is the first in our Java Programming course series. After you complete this course, you'll be ready to take Object Oriented Programming in Java."
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="550"
+                                        app:trimMode="trimModeLength" />
 
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Learning Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Learning Outcomes :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="-What is an “interpreted” language?- What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="•	 Read and understand Java-based software code of medium-to-high complexity.
+\n•	Use standard and third party Java's API’s when writing applications.
+\n•	Understand the basic principles of creating Java applications with graphical user interface (GUI).
+\n•	Create rich user-interface applications using modern API’s such as JAVAFX.
+\n•	Understand the fundamental concepts of computer science: structure of the computational process, algorithms and complexity of computation.
+\n•	Understand the basic approaches to the design of software applications.
+\n•	Apply the above to design, implement, appropriately document and test a Java application of medium complexity, consisting of multiple classes.
 "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="550"
+                                        app:trimMode="trimModeLength" />
 
-                            </LinearLayout>
+                                </LinearLayout>
 
-                        </android.support.v7.widget.CardView>
-
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -295,90 +335,140 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Station B "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
 
-                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            card_view:cardBackgroundColor="@color/track_color"
-                            card_view:cardCornerRadius="4dp"
-                            card_view:cardElevation="4dp"
-                            card_view:cardUseCompatPadding="true">
+                            android:orientation="horizontal">
 
-                            <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Station B "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/buttom_b1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_menu_up"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear_b1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_marginRight="40dp"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardUseCompatPadding="true">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                    android:text="For Intermediate  "
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5dp"
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="OverView :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                        android:text="For Intermediate  "
+                                        android:textSize="15dp"
+                                        android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="Welcome to the intermediate Java tutorials! These Java programming tutorials assume that you know the material in the beginner's section, and that you're ready to learn about the more specific aspects of Java, such as object-orientation.Read more: https://www.java-made-easy.com/java-tutorials.html#ixzz5l4US1m00
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Object Oriented Programming – Java OOPs :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
+
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="Object Oriented programming is a programming style which is associated with the concepts like class, object, Inheritance, Encapsulation, Abstraction, Polymorphism. Most popular programming languages like Java, C++, C#, Ruby, etc. follow an object-oriented programming paradigm. As Java being the most sought-after skill, we will talk about object-oriented programming concepts in Java. An object-based application in Java is based on declaring classes, creating objects from them and interacting between these objects. I have discussed Java Classes and Objects which is also a part of object-oriented programming concepts, in my previous blog. "
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="200"
+                                        app:trimMode="trimModeLength" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Learning Outcomes :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
+
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="•	Codes basic programs in Java programming language.
+\n•	Prints to the screen in Java language.
+\n•	Makes relational operations in Java.
+\n•	Constructs loops in Java.
+\n•	Defines arrays in Java and uses them.
+\n•	Uses objects and classes.
+\n•	Declares objects and classes.
+\n•	Distinguishes classes and objects.
+\n•	Declares and uses variables.
+\n•	Declares and uses methods and properties.
+\n•	Lists the object-oriented programming concepts.
+\n•	Explains and uses encapsulation.
+\n•	Explains and uses inheritance.
+\n•	Explains and uses polymorphism.
+\n•	Names special functions.
+\n•	Distinguishes constructors, default constuctors, interfaces, abstract classes and abstract methods.
+\n•	Recognizes operator overloading functions.
+\n•	Identifies base and derived classes.
+\n•	Codes object-oriented programs.
+\n•	Implements constructors, default constuctors, interfaces, abstract classes and abstract methods.
+\n•	Overloads operators.
+\n•	Inherits a class from another class.
+\n•	Writes a complete program using object-oriented programming concepts.
+\n•	Explains and handles exceptions.
+\n•	Describes exceptions.
+\n•	Throws exceptions
+\n•	Catches exceptions.
+\n•	Writes multithreaded Java programs.
+\n•	Develops task classes by implementing the Runnable interface.
+\n•	Creates threads to run tasks using the Thread class.
+\n•	Controls threads using the methods in the Thread class.
+\n•	Executes tasks in a thread pool.
+\n•	Understands the concepts of database and database management systems.
+\n•	Understands the relational data model: relational data structures, constraints, and languages.
+\n•	Uses SQL to create and drop tables and to retrieve and modify data.
+\n•	Loads a driver, connects to a database, executes statements, and processes result sets using JDBC.
+\n•	Uses generic classes and methods.
+\n•	Declares generic classes.
+\n•	Uses generic classes.
+\n•	Declares generic methods.
+\n•	Uses generic methods.
 "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="200"
-                                    app:trimMode="trimModeLength" />
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="100"
+                                        app:trimMode="trimModeLength" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Learning Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                </LinearLayout>
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
-
-                            </LinearLayout>
-
-                        </android.support.v7.widget.CardView>
-
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -419,88 +509,249 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Station C "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
-                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            card_view:cardBackgroundColor="@color/track_color"
-                            card_view:cardCornerRadius="4dp"
-                            card_view:cardElevation="4dp"
-                            card_view:cardUseCompatPadding="true">
+                            android:orientation="horizontal">
 
-                            <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Station C "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/buttom_c1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_menu_up"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear_c1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_marginRight="40dp"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardUseCompatPadding="true">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-                                    android:text="For beginners "
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="OverView :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5dp"
+                                        android:text="For Advanced "
+                                        android:textSize="15dp"
+                                        android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text=" In this course you will learn to create solution to real-world problems in the Java Programming Language. This course covers most essential aspects of Core Java.Right at the beginning of the course, you will be taught how to use the Eclipse IDE for writing Java code. This will help you make very rapid progress in your endeavor to learn Java.All tutorials are practical sessions where complete insight is provided into each topic being covered. Practical examples of how the various concepts are used to create solutions to real-world problems are included in the course. "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="200"
-                                    app:trimMode="trimModeLength" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=" Advanced Java Programming  :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Learning Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="An Advanced Java Tutorial aimed towards the Developer Who Already has Learned the Fundamentals of Java Programming.
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
+In this Advanced Java Programming training course, expert content provider Infinite Skills builds on the beginners Java course, and goes deeper into programming topics that help you to understand these more advanced Java concepts. Designed for the more experienced Java developer, you should have a good working knowledge of the Java programming language before going through this tutorial.
+
+Some of the advanced topics that you will cover in this Advanced Java Tutorialincludes; generic programming, sequential and associative data structures, classic data structures, sorting and searching, exception handling, database programming with JDBC, networking programming GUI development using Swing and an overview of Multithreading. You will also explore Java Applets, web applications (Servlets), advanced input and output classes, more advanced strings, regular expressions, Java graphics, and finally, closing off with a look at using Eclipse.
+
+By the conclusion of this training course, you will have a clear understanding of each of the topics of Advanced Java Programming, which will allow you to go more in-depth with the concepts of your choice. Working files are included to allow you to learn the concepts using the same files that the author does throughout this computer based training course."
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="200"
+                                        app:trimMode="trimModeLength" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Learning Outcomes :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
+
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="1. Course Introduction
+\n•Course Objectives
+\n•Course Overview
+\n•Using the Workbook
+\n•Suggested References
+\n
+\n2. Processing XML with Java – JAXP
+\n•The Java API for XML Processing
+\n•Introduction to SAX Parsing
+\n•SAXParser and JAXP
+\n•SAX Event Methods
+\n•Introduction to DOM
+\n•Parsing DOM with JAXP
+\n•The DOM API
+\n•Validation
+\n•Transformation
+\n
+\n3. Introduction to Threads
+\n•Non-Threaded Applications
+\n•Threaded Applications
+\n•Creating Threads
+\n•Thread States
+\n•Runnable Threads
+\n•Coordinating Threads
+\n•Interrupting Threads
+\n•Runnable Interface
+\n•ThreadGroups
+
+\n4. Thread Synchronization and Concurrency
+\n•Race Conditions
+\n•Synchronized Methods
+\n•Deadlocks
+\n•Synchronized Blocks
+\n•Synchronized Collections
+\n•Thread-Aware Collections
+\n•Thread Communication — wait()
+\n•Thread Communication — notify()
+\n•Executor
+\n•Callable
+
+\n5. Advanced I/O - Object Serialization
+\n•What is Serialization?
+\n•Serializable Objects
+\n•Writing an Object
+\n•Reading an Object
+\n•Handling Exceptions
+\n•Customizing Serialization
+\n•Controlling Serialization
+\n•Versioning
+\n
+\n6. Advanced I/O – New I/O
+\n•The java.nio package
+\n•Buffers and Channels
+\n•Buffer Implementations
+\n•Buffer Methods
+\n•ByteBuffer Methods
+\n•FileChannel
+\n•File Locking
+\n•MappedByteBuffer
+\n•Transferring Data between Channels
+\n•Character Sets
+\n•Advanced Java
+\n•Programming
+\n•Java for Advanced Programmers Rev 5.2.1
+\n
+\n7. Reflection
+\n•Introduction to Reflection
+\n•The Class Class
+\n•The reflect Package
+\n•Constructors
+\n•Fields
+\n•Methods
+\n•Exception Handling and Reflection
+\n•JavaBeans
+\n•Dynamic Programming
+\n
+\n8. Networking with Sockets
+\n•Clients and Servers
+\n•Ports, Addresses and Protocols
+\n•The Socket Class
+\n•Communication Using I/O
+\n•Servers
+\n•The ServerSocket Class
+\n•Concurrent Servers
+\n•The URL Class
+\n•The URLConnection Class
+\n
+\n9. Remote Method Invocation
+\n•Distributed Applications
+\n•Stubs
+\n•Steps to Create a Remote Object
+\n•An RMI Client
+\n•An RMI Server
+\n•RMI Classes and Interfaces
+\n•Class Distribution
+\n•Parameter Passing and Serialization
+\n
+\n10. Java Naming and Directory Interface (JNDI)
+\n•Naming and Directory Services
+\n•Namespaces and Contexts
+\n•Naming Operations
+\n•Bindings
+\n•Attributes
+\n•Directory Operations
+\n•DNS Lookups with JNDI
+\n•JNDI in Java EE
+\n
+\n11. Java Performance Tuning
+\n•Is Java Slow?
+\n•Don't Optimize Until You Profile
+\n•HotSpot Virtual Machine
+\n•Garbage Collection Concepts
+\n•Garbage Collection Generations
+\n•Garbage Collection Algorithms
+\n•Object Creation
+\n•String, StringBuffer, and StringBuilder
+\n•Synchronized
+\n•Inline methods
+\n•Tuning Collections
+
+\n12. Appendix A – Encryption with the javax.crypto Package
+\n•Cryptography Concepts
+\n•Encryption Keys
+\n•Cipher Algorithms
+\n•Modes and Padding Schemes
+\n•The Cipher Class
+\n•Encrypting and Decrypting Data
+\n•Cipher Output Stream
+\n•vCipher Input Stream
+\n•Encryption using Password Ciphers
+\n•Exchanging Encrypted Keys
+\n•Sealed Objects
+\n
+\n13. Appendix B - Native Methods
+\n•Overview of Java Native Methods and JNI
+\n•How to Create and Use Native Methods
+\n•Native Method Declaration
+\n•Using javah
+\n•Creating the Implementation Code
+\n•Compilation
+\n•Distribution
+\n•Using the Native Methods
+\n•JNI
+\n•Passing Arguments
+\n•Calling Java Methods in Native Code
+\n•JNI Signatures
 "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="100"
+                                        app:trimMode="trimModeLength" />
 
-                            </LinearLayout>
+                                </LinearLayout>
 
-                        </android.support.v7.widget.CardView>
-
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -527,7 +778,6 @@
                             android:layout_height="25dp"
                             android:layout_gravity="top|center"
                             android:layout_marginTop="10dp"
-
                             android:background="@drawable/circul_number"
                             android:gravity="center"
                             android:text="D"
@@ -541,88 +791,127 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Final Station "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
-                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            card_view:cardBackgroundColor="@color/track_color"
-                            card_view:cardCornerRadius="4dp"
-                            card_view:cardElevation="4dp"
-                            card_view:cardUseCompatPadding="true">
+                            android:orientation="horizontal">
 
-                            <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Final Station "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/buttom_D1"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_menu_up"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear_D1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_marginRight="40dp"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardUseCompatPadding="true">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-                                    android:text="course outcomes"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="OverView :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5dp"
+                                        android:text="Online Exam Project in Java"
+                                        android:textSize="15dp"
+                                        android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text=" In this course you will learn to create solution to real-world problems in the Java Programming Language. This course covers most essential aspects of Core Java.Right at the beginning of the course, you will be taught how to use the Eclipse IDE for writing Java code. This will help you make very rapid progress in your endeavor to learn Java.All tutorials are practical sessions where complete insight is provided into each topic being covered. Practical examples of how the various concepts are used to create solutions to real-world problems are included in the course. "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="200"
-                                    app:trimMode="trimModeLength" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Description :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Stations Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
-
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="The Online Exam Project is developed in Java, it is divided into two main parts.They are
+\n•	Users
+\n•	Administration
+\nUsers:
+\nThis module is mainly concentrated on handling the examination activities. The module begins by offering entry to already registered users or even fresh users can also register the moment they desire to attempt the Examination. This is achieved by the Login form and Sign Up.These are designed in a very interactive form.
+After registering, a candidate will be supervised by the rules and regulations of the examination. i.e. the instructions to be followed for facing the examination be given, namely duration of exam, Number of questions, marks for each Question, Maximum marks,etc.,
+The next moment, the candidate be allowed to select the choice of subject of examination. The candidate is given the question paper of the selected Subject. The paper should be answered by checking the check boxes or Radio Buttons depending upon the question.
+The evaluation of the paper will be carried for the question that is answered in the meantime. The total marks obtained will be displayed and the percentage will be calculated for the total number of questions.
+Administration:
+The administration module consists of maintaining components of the examination. The components namely
+\n•	Subject of Examination
+\n•	Questions of Subject.
+\nThe Subject of examination can be accessed for alteration. i.e. Addition of a Subject, Updation of a subject, Deletion of a Subject and Listing of the Subject of Examination.
+The Questions of examination can also be accessed and altered by performing the following operations.i.e
+•	Addition of Questions
+•	Updation of Questions
+•	Deletion of Questions
+\nIn the Administration, the system is efficiently maintained by deleting the users who already completed the examination. This is carried out for a period to period.
+The system is mainly coded by viewing the user from all angles so that no problems are arisen  in using the system
 "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="200"
+                                        app:trimMode="trimModeLength" />
 
-                            </LinearLayout>
+                                    <!--<TextView-->
+                                    <!--android:layout_width="wrap_content"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:text="Stations Outcomes :"-->
+                                    <!--android:textSize="13dp"-->
+                                    <!--android:textStyle="bold" />-->
 
-                        </android.support.v7.widget.CardView>
+                                    <!--<com.borjabravo.readmoretextview.ReadMoreTextView-->
+                                    <!--android:layout_width="fill_parent"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:padding="10dp"-->
+                                    <!--android:paddingBottom="5dp"-->
+                                    <!--android:text="    -What is an “interpreted” language?-->
+                                    <!-- - What is IRB?-->
+                                    <!-- - What are Objects?-->
+                                    <!-- - What are Methods?-->
+                                    <!-- - What are Classes?-->
+                                    <!-- - What are Blocks?-->
+                                    <!-- - What is an Array?-->
+                                    <!-- - What is an Iterator?-->
+                                    <!-- - What are hashes?-->
+                                    <!-- - What is a library?-->
+                                    <!-- - What is a gem?-->
+                                    <!--"-->
+                                    <!--app:trimCollapsedText="Show less"-->
+                                    <!--app:trimExpandedText="Show more"-->
+                                    <!--app:trimLength="100"-->
+                                    <!--app:trimMode="trimModeLength" />-->
 
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -630,8 +919,7 @@
             </LinearLayout>
 
 
-            <!--xcvxcvx-->
-
+            <!--Android-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -666,55 +954,77 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/main_station_two"
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="Android"
-                        android:textSize="25dp"
-                        android:textStyle="bold" />
-
-                    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
-                        card_view:cardBackgroundColor="@color/track_color"
-                        card_view:cardCornerRadius="4dp"
-                        card_view:cardElevation="4dp"
-                        card_view:cardUseCompatPadding="true">
+                        android:orientation="horizontal">
 
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/main_station_two"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Android"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+
+
+                        <Button
+                            android:id="@+id/buttom_Android_2"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_menu_up"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_Android_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="10dp">
+                            android:layout_marginRight="40dp"
+                            card_view:cardBackgroundColor="@color/track_color"
+                            card_view:cardCornerRadius="4dp"
+                            card_view:cardElevation="4dp"
+                            card_view:cardUseCompatPadding="true">
 
-
-                            <TextView
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="OverView :"
-                                android:textSize="13dp"
-                                android:textStyle="bold" />
+                                android:orientation="vertical"
+                                android:padding="10dp">
 
-                            <com.borjabravo.readmoretextview.ReadMoreTextView
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
 
-                                android:padding="10dp"
-                                android:paddingBottom="5dp"
-                                android:text="Java is a programming language that produces software for multiple platforms. When a programmer writes a Java application, the compiled code (known as bytecode) runs on most operating systems (OS), including Windows, Linux and Mac OS. Java derives much of its syntax from the C and C++ programming languages."
-                                app:trimCollapsedText="Show less"
-                                app:trimExpandedText="Show more"
-                                app:trimLength="150"
-                                app:trimMode="trimModeLength" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="OverView :"
+                                    android:textSize="13dp"
+                                    android:textStyle="bold" />
 
-                        </LinearLayout>
+                                <com.borjabravo.readmoretextview.ReadMoreTextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
 
-                    </android.support.v7.widget.CardView>
+                                    android:padding="10dp"
+                                    android:paddingBottom="5dp"
+                                    android:text="Java is a programming language that produces software for multiple platforms. When a programmer writes a Java application, the compiled code (known as bytecode) runs on most operating systems (OS), including Windows, Linux and Mac OS. Java derives much of its syntax from the C and C++ programming languages."
+                                    app:trimCollapsedText="Show less"
+                                    app:trimExpandedText="Show more"
+                                    app:trimLength="150"
+                                    app:trimMode="trimModeLength" />
 
+                            </LinearLayout>
+
+                        </android.support.v7.widget.CardView>
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
@@ -747,7 +1057,6 @@
                             android:layout_height="25dp"
                             android:layout_gravity="top|center"
                             android:layout_marginTop="10dp"
-
                             android:background="@drawable/circul_number"
                             android:gravity="center"
                             android:text="A"
@@ -761,88 +1070,113 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Station A "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
-                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            card_view:cardBackgroundColor="@color/track_color"
-                            card_view:cardCornerRadius="4dp"
-                            card_view:cardElevation="4dp"
-                            card_view:cardUseCompatPadding="true">
+                            android:orientation="horizontal">
 
-                            <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Station A "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/buttom_a2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_menu_up"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear_a2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_marginRight="40dp"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardUseCompatPadding="true">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-                                    android:text="For beginners "
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="OverView :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5dp"
+                                        android:text="For beginners "
+                                        android:textSize="15dp"
+                                        android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="Take your first step towards a career in software development with this introduction to Java—one of the most in-demand programming languages and the foundation of the Android operating system. Designed for beginners, this Specialization will teach you core programming concepts and equip you to write programs to solve complex problems. In addition, you will gain the foundational skills a software engineer needs to solve real-world problems, from designing algorithms to testing and debugging your programs."
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="200"
-                                    app:trimMode="trimModeLength" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Android Development for Beginners"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
+
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="This course is part of the Android Basics Nanodegree by Google.
+
+Learn the basics of Android and Java programming, and take the first step on your journey to becoming an Android developer!
+
+This course is designed for students who are new to programming, and want to learn how to build Android apps. You don’t need any programming experience to take this course. If you’ve been using a smartphone to surf the web and chat with friends, then you’re our perfect target student!
+
+Learning anything new can be tough. We will walk you through the process of making Android apps, but to get the most out of this course, you must bring your enthusiasm for learning, and budget time on your calendar to learn with us.
+
+By the end of the course, you’ll build two simple (but powerful) apps that you can share with your friends. We also hope that you will learn enough through this course to decide how best to continue your journey as an Android app developer, if you're interested in pursuing such a path.\n"
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="200"
+                                        app:trimMode="trimModeLength" />
 
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Learning Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Learning Outcomes :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="-What is an “interpreted” language?- What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="-Android Basics: User Input
+
+\n-Android Basics: Multiple App Screens
+
+\n-Android Basics: Networking
+
+\n-Android Basics: Data Storage\n
 "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="100"
+                                        app:trimMode="trimModeLength" />
 
-                            </LinearLayout>
+                                </LinearLayout>
 
-                        </android.support.v7.widget.CardView>
-
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -883,90 +1217,136 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Station B "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
-                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            card_view:cardBackgroundColor="@color/track_color"
-                            card_view:cardCornerRadius="4dp"
-                            card_view:cardElevation="4dp"
-                            card_view:cardUseCompatPadding="true">
+                            android:orientation="horizontal">
 
-                            <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Station B "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+
+                            <Button
+                                android:id="@+id/buttom_b2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_menu_up"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/linear_b2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_marginRight="40dp"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardUseCompatPadding="true">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                    android:text="For Intermediate  "
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5dp"
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="OverView :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                        android:text="For Intermediate  "
+                                        android:textSize="15dp"
+                                        android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="Welcome to the intermediate Java tutorials! These Java programming tutorials assume that you know the material in the beginner's section, and that you're ready to learn about the more specific aspects of Java, such as object-orientation.Read more: https://www.java-made-easy.com/java-tutorials.html#ixzz5l4US1m00
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Intermediate Android :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
+
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="In this track you’ll dive deeper into the world of Android. You'll see how to create crisp, beautiful animations as well as how to properly test an app, how to use Google Play Services, and even how to massively simplify networking by using Retrofit and RxJava! Here Is Everything You Will Learn In This Complete Course:
+
+    How to create android applications from scratch!
+    We will learn how we could use Java to make android applications.
+    We will learn what tools are required to develop android applications.
+    We will also learn about Android Studio, AVD to run apps on pc. Then we move on to learn how to make user interface for our application by using multiple widgets. Also we go through how we could add properties to widgets.
+
+We then study the different types of layouts used to design the user interface for
+our application. we go through the methods used for handling events such as a touch.
+we also learn how to handle multiple events. Understanding fragments and their use is the
+next which we study in this course, we also learn how to use create fragments to merge multiple activities on a single screen. We have an overview about gestures and the techniques to handle them
+
+To go through the basic concepts we develop a basic workout android applications which suggests workouts depending on the option selected by the user, this gives you an idea about how android apps work.Moving along we learn how to add animations and transitions to our app, so as to make it more attractive to the end user. We then move on to intents and from there we go on to study about threads and their usage in developing android applications. Next part includes concepts such as intent,services and list views.we study about them in depth as well.
+
+We then move to the most important part of saving the data in database using SQLite.
+We will then learn and understand the basic database queries such as adding and deleting data from database. After we are done with database we then move on to multimedia in which we study how to apply filters and styles to our image.
+
+Last but not the least we have a basic introduction to game development by studying the
+game development platform Libgdx, here we study the basic structure of a game.
+Also we learn how to animate characters while developing games for android. We also go through the sound effects while developing games using Libgdx. \n"
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="200"
+                                        app:trimMode="trimModeLength" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Learning Outcomes :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
+
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="  \n- Developing Android Apps
+\n-Common Design Patterns for Android
+\n-How to Master Android: What Developers Can Learn from 21 Apps
+\n-MVC vs. MVP vs. MVVM on Android
+\n-Modern Android: Ditching Activities and Fragments
+\n-RxAndroid Tutorial
+\n-A Deep Dive into Android View Constructors
+\n-Understanding Android Core: Looper, Handler, and HandlerThread
+\n-Measure, Layout, Draw, Repeat: Custom Views and ViewGroups
+\n-Understand Android Activity’s Launch Modes
+\n-How to Distribute Your Own Android Library
+\n-The Essential Google Play Store App Pre-Release Checklist
+\n-Android Architecture Blueprints
+\n-How to Deploy Android Instant Apps: Web Apps Take on Native Apps
+\n-The Best Productivity Tools for Android Developers
+\n-Use Android Studio Like a Pro
+\n
 "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="200"
-                                    app:trimMode="trimModeLength" />
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="100"
+                                        app:trimMode="trimModeLength" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Learning Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                </LinearLayout>
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
-
-                            </LinearLayout>
-
-                        </android.support.v7.widget.CardView>
-
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -1007,88 +1387,131 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Station C "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
-                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            card_view:cardBackgroundColor="@color/track_color"
-                            card_view:cardCornerRadius="4dp"
-                            card_view:cardElevation="4dp"
-                            card_view:cardUseCompatPadding="true">
+                            android:orientation="horizontal">
 
-                            <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Station C "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/buttom_c2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_menu_up"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear_c2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_marginRight="40dp"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardUseCompatPadding="true">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-                                    android:text="For beginners "
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="OverView :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5dp"
+                                        android:text="For Advanced "
+                                        android:textSize="15dp"
+                                        android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text=" In this course you will learn to create solution to real-world problems in the Java Programming Language. This course covers most essential aspects of Core Java.Right at the beginning of the course, you will be taught how to use the Eclipse IDE for writing Java code. This will help you make very rapid progress in your endeavor to learn Java.All tutorials are practical sessions where complete insight is provided into each topic being covered. Practical examples of how the various concepts are used to create solutions to real-world problems are included in the course. "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="200"
-                                    app:trimMode="trimModeLength" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Advanced Android: :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Learning Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="Welcome to the Advanced Android Development course, created by the Google Developers Training team. Take this course to learn how to add advanced functionality to your Android apps.
+To learn about other Android training created by the Google Developers Training team, visit Google Developers Training: Android.
+Tip: To view all the codelabs in the course, visit the Advanced Android landing page.
+This course provides a series of codelabs that teach you how to add advanced features like fragments, accessibility and local language support, custom views, animations, and geo capabilities to your apps.
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
+We recommend you take the codelabs in sequence, but it is not a requirement. Each of the lessons is independent of previous lessons in the course (although all lessons assume you know the basics of building Android apps). For example, you can learn how to create custom views without having learned how to use sensors.
+\n"
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="150"
+                                        app:trimMode="trimModeLength" />
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Learning Outcomes :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
+
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="
+  •	 Fragments
+\n•	 Fragment communication
+\n•	 App widgets
+\n•	 Sensor data
+\n•	 Sensor-based orientation
+\n•	 Part A: Profile GPU Rendering tool
+\n•	 Part B: Debug GPU Overdraw and Layout Inspector tools
+\n•	 Memory Profiler tool
+\n•	 Add language support
+\n•	 Use locale to format data
+\n•	 Explore accessibility in Android
+\n•	 Create accessible apps
+\n•	 Device location
+\n•	 Places API
+\n•    Google Maps
+\n•	 Part A: Customize View subclasses
+\n•	 Part B: Custom view from scratch
+\n•	 Part A: Create Canvas objects
+\n•	 Part B: Draw on Canvas objects
+\n•	 Part C: Apply clipping to Canvas objects
+\n•	 SurfaceView objects
+\n•	 Property animations
+\n•	 Play video in a VideoView\n
+
+
+
 "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="100"
+                                        app:trimMode="trimModeLength" />
 
-                            </LinearLayout>
+                                </LinearLayout>
 
-                        </android.support.v7.widget.CardView>
-
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -1129,88 +1552,82 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Final Station "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
-                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            card_view:cardBackgroundColor="@color/track_color"
-                            card_view:cardCornerRadius="4dp"
-                            card_view:cardElevation="4dp"
-                            card_view:cardUseCompatPadding="true">
+                            android:orientation="horizontal">
 
-                            <LinearLayout
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:text="Final Station "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/buttom_d2"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/ic_menu_up"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear_d2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_marginRight="40dp"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardUseCompatPadding="true">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-                                    android:text="For beginners "
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="OverView :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="5dp"
+                                        android:text="Create Project "
+                                        android:textSize="15dp"
+                                        android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text=" In this course you will learn to create solution to real-world problems in the Java Programming Language. This course covers most essential aspects of Core Java.Right at the beginning of the course, you will be taught how to use the Eclipse IDE for writing Java code. This will help you make very rapid progress in your endeavor to learn Java.All tutorials are practical sessions where complete insight is provided into each topic being covered. Practical examples of how the various concepts are used to create solutions to real-world problems are included in the course. "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="200"
-                                    app:trimMode="trimModeLength" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Project Sunshine :"
+                                        android:textSize="13dp"
+                                        android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Stations Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
+                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:paddingBottom="5dp"
+                                        android:text="Build a cloud-connected Android app, and learn the tools, principles, and best practices of mobile and Android development that you'll apply to your own projects. "
+                                        app:trimCollapsedText="Show less"
+                                        app:trimExpandedText="Show more"
+                                        app:trimLength="200"
+                                        app:trimMode="trimModeLength" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
 
-                            </LinearLayout>
 
-                        </android.support.v7.widget.CardView>
 
+                                </LinearLayout>
+
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -1251,15 +1668,35 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/main_station_three"
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="Firebase"
                         android:textSize="25dp"
                         android:textStyle="bold" />
+
+
+                        <Button
+                            android:id="@+id/buttom_Firebase_3"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_menu_up"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_Firebase_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
@@ -1276,21 +1713,19 @@
                             android:orientation="vertical"
                             android:padding="10dp">
 
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="OverView :"
+                                android:text="Firebase :"
                                 android:textSize="13dp"
                                 android:textStyle="bold" />
 
                             <com.borjabravo.readmoretextview.ReadMoreTextView
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
-
                                 android:padding="10dp"
                                 android:paddingBottom="5dp"
-                                android:text="Java is a programming language that produces software for multiple platforms. When a programmer writes a Java application, the compiled code (known as bytecode) runs on most operating systems (OS), including Windows, Linux and Mac OS. Java derives much of its syntax from the C and C++ programming languages."
+                                android:text="Firebase is a real-time NoSQL Backend as a Service. Owned and supported by Google, it supports anything from small, quick demos, to large enterprise-scale applications. This course focuses not just on how to use Firebase, but the more important topic of correctly modeling your data to make the most of the service. In this course, you will build a full application, starting from a simple relational data model and slowly migrating into a full NoSQL-optimized design, while learning all of the features of Firebase, and how to effectively leverage them.\n"
                                 app:trimCollapsedText="Show less"
                                 app:trimExpandedText="Show more"
                                 app:trimLength="150"
@@ -1299,7 +1734,7 @@
                         </LinearLayout>
 
                     </android.support.v7.widget.CardView>
-
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
@@ -1346,6 +1781,11 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1354,128 +1794,22 @@
                             android:textSize="15dp"
                             android:textStyle="bold" />
 
-                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            card_view:cardBackgroundColor="@color/track_color"
-                            card_view:cardCornerRadius="4dp"
-                            card_view:cardElevation="4dp"
-                            card_view:cardUseCompatPadding="true">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-                                    android:text="For beginners "
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="OverView :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
-
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="Take your first step towards a career in software development with this introduction to Java—one of the most in-demand programming languages and the foundation of the Android operating system. Designed for beginners, this Specialization will teach you core programming concepts and equip you to write programs to solve complex problems. In addition, you will gain the foundational skills a software engineer needs to solve real-world problems, from designing algorithms to testing and debugging your programs."
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="200"
-                                    app:trimMode="trimModeLength" />
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Learning Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
-
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="-What is an “interpreted” language?- What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
-
-                            </LinearLayout>
-
-                        </android.support.v7.widget.CardView>
-
+                        <Button
+                            android:id="@+id/buttom_a3"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_menu_up"
+                            android:gravity="center" />
                     </LinearLayout>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <FrameLayout
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:orientation="vertical">
-
-                        <View
-                            android:layout_width="2dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:background="@color/colorAccent" />
-
-                        <TextView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="top|center"
-                            android:layout_marginTop="10dp"
-
-                            android:background="@drawable/circul_number"
-                            android:gravity="center"
-                            android:text="B"
-                            android:textColor="@color/colorAccent" />
-
-
-                    </FrameLayout>
-
                     <LinearLayout
+                        android:id="@+id/linear_a3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Station B "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
                         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1491,14 +1825,13 @@
                                 android:orientation="vertical"
                                 android:padding="10dp">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-
-                                    android:text="For Intermediate  "
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginBottom="5dp"-->
+                                <!--android:text="For beginners "-->
+                                <!--android:textSize="15dp"-->
+                                <!--android:textStyle="bold" />-->
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -1512,8 +1845,16 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="Welcome to the intermediate Java tutorials! These Java programming tutorials assume that you know the material in the beginner's section, and that you're ready to learn about the more specific aspects of Java, such as object-orientation.Read more: https://www.java-made-easy.com/java-tutorials.html#ixzz5l4US1m00
-"
+                                    android:text="Firebase is a mobile and web app development platform that provides developers with a plethora of tools and services to help them develop high-quality apps, grow their user base, and earn more profit.
+A Brief History
+
+Back in 2011, before Firebase was Firebase, it was a startup called Envolve. As Envolve, it provided developers with an API that enabled the integration of online chat functionality into their website.
+
+What’s interesting is that people used Envolve to pass application data that was more than just chat messages. Developers were using Envolve to sync application data such as a game state in real time across their users.
+
+This led the founders of Envolve, James Tamplin and Andrew Lee, to separate the chat system and the real-time architecture. In April 2012, Firebase was created as a separate company that provided Backend-as-a-Service with real-time functionality.
+
+After it was acquired by Google in 2014, Firebase rapidly evolved into the multifunctional behemoth of a mobile and web platform that it is today.\n"
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="200"
@@ -1531,17 +1872,28 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
+                                    android:text="
+-Develop  test your app
+\n•	Realtime Database
+\n•	Auth
+\n•	Test Lab
+\n•	Crashlytics
+\n•	Cloud Functions
+\n•	Firestore
+\n•	Cloud Storage
+\n•	Performance Monitoring
+\n•	Crash Reporting
+\n•	Hosting
+\n-Grow- Engage your audience
+\n•	Firebase Analytics
+\n•	Invites
+\n•	Cloud Messaging
+\n•	Predictions
+\n•	AdMob
+\n•	Dynamic Links
+\n•	Adwords
+\n•	Remote Config
+\n•	App Indexing
 "
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
@@ -1551,132 +1903,11 @@
                             </LinearLayout>
 
                         </android.support.v7.widget.CardView>
-
+                    </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <FrameLayout
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:orientation="vertical">
-
-                        <View
-                            android:layout_width="2dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:background="@color/colorAccent" />
-
-                        <TextView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_gravity="top|center"
-                            android:layout_marginTop="10dp"
-
-                            android:background="@drawable/circul_number"
-                            android:gravity="center"
-                            android:text="C"
-                            android:textColor="@color/colorAccent" />
-
-
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Station C "
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
-
-                        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="40dp"
-                            card_view:cardBackgroundColor="@color/track_color"
-                            card_view:cardCornerRadius="4dp"
-                            card_view:cardElevation="4dp"
-                            card_view:cardUseCompatPadding="true">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-                                    android:text="For beginners "
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="OverView :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
-
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text=" In this course you will learn to create solution to real-world problems in the Java Programming Language. This course covers most essential aspects of Core Java.Right at the beginning of the course, you will be taught how to use the Eclipse IDE for writing Java code. This will help you make very rapid progress in your endeavor to learn Java.All tutorials are practical sessions where complete insight is provided into each topic being covered. Practical examples of how the various concepts are used to create solutions to real-world problems are included in the course. "
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="200"
-                                    app:trimMode="trimModeLength" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Learning Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
-
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
-
-                            </LinearLayout>
-
-                        </android.support.v7.widget.CardView>
-
-                    </LinearLayout>
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1714,6 +1945,11 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -1721,6 +1957,21 @@
                             android:text="Final Station "
                             android:textSize="15dp"
                             android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/buttom_d3"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_menu_up"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_d3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                             android:layout_width="match_parent"
@@ -1741,14 +1992,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginBottom="5dp"
-                                    android:text="For beginners "
+                                    android:text="Create Firebase project "
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="OverView :"
+                                    android:text="Description :"
                                     android:textSize="13dp"
                                     android:textStyle="bold" />
 
@@ -1757,49 +2008,54 @@
                                     android:layout_height="wrap_content"
                                     android:padding="10dp"
                                     android:paddingBottom="5dp"
-                                    android:text=" In this course you will learn to create solution to real-world problems in the Java Programming Language. This course covers most essential aspects of Core Java.Right at the beginning of the course, you will be taught how to use the Eclipse IDE for writing Java code. This will help you make very rapid progress in your endeavor to learn Java.All tutorials are practical sessions where complete insight is provided into each topic being covered. Practical examples of how the various concepts are used to create solutions to real-world problems are included in the course. "
+                                    android:text="In this course,you’ll learn how to use Firebase. Firebase is app development platform that provides developers a variety of tools and a scalable infrastructure to build high quality apps.
+
+We’ll begin by showing you how easy it is to read and write almost any data to Firebase. After that, we’ll teach you how to allow users to login, have data associated with them and send them notifications. You’ll learn how to use Firebase’s Security and Rules language to secure and add permissions to your data.
+
+Firebase Remote Config gives you the ability to tune and customize your app without having to publish a new version. Finally we’ll give you a brief overview of Firebase Analytics so you can collect data from the start.
+
+Got extra time this weekend? As a bonus, you will write your own Cloud Function for Firebase that makes chat more fun by adding emojis to FriendlyChat conversations. Cloud Functions for Firebase integrates the Firebase platform by letting you write code that responds to events and invokes functionality exposed by other Firebase features.
+
+By the end of this course you will have an Android application that can store and share data between different users in real time as well as authenticate and authorize those users."
                                     app:trimCollapsedText="Show less"
                                     app:trimExpandedText="Show more"
                                     app:trimLength="200"
                                     app:trimMode="trimModeLength" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Stations Outcomes :"
-                                    android:textSize="13dp"
-                                    android:textStyle="bold" />
 
-                                <com.borjabravo.readmoretextview.ReadMoreTextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="wrap_content"
-                                    android:padding="10dp"
-                                    android:paddingBottom="5dp"
-                                    android:text="    -What is an “interpreted” language?
-   - What is IRB?
-   - What are Objects?
-   - What are Methods?
-   - What are Classes?
-   - What are Blocks?
-   - What is an Array?
-   - What is an Iterator?
-   - What are hashes?
-   - What is a library?
-   - What is a gem?
-"
-                                    app:trimCollapsedText="Show less"
-                                    app:trimExpandedText="Show more"
-                                    app:trimLength="100"
-                                    app:trimMode="trimModeLength" />
+
+                                <!--<com.borjabravo.readmoretextview.ReadMoreTextView-->
+                                    <!--android:layout_width="fill_parent"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:padding="10dp"-->
+                                    <!--android:paddingBottom="5dp"-->
+                                    <!--android:text="    -What is an “interpreted” language?-->
+                                       <!-- - What is IRB?-->
+                                       <!-- - What are Objects?-->
+                                       <!-- - What are Methods?-->
+                                       <!-- - What are Classes?-->
+                                       <!-- - What are Blocks?-->
+                                       <!-- - What is an Array?-->
+                                       <!-- - What is an Iterator?-->
+                                       <!-- - What are hashes?-->
+                                       <!-- - What is a library?-->
+                                       <!-- - What is a gem?-->
+                                    <!--"-->
+                                    <!--app:trimCollapsedText="Show less"-->
+                                    <!--app:trimExpandedText="Show more"-->
+                                    <!--app:trimLength="100"-->
+                                    <!--app:trimMode="trimModeLength" />-->
 
                             </LinearLayout>
 
                         </android.support.v7.widget.CardView>
-
+                    </LinearLayout>
                     </LinearLayout>
 
                 </LinearLayout>
+
             </LinearLayout>
+
 
             <Button
                 android:id="@+id/track_Start"

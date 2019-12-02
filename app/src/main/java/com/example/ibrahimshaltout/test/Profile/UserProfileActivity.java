@@ -51,7 +51,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
     Toolbar toolbarTop;
     TextView profile_university, profile_college, profile_spec, profile_grade, profile_skill, profile_interest,
-            profile_mobile, profile_email, profile_name;
+             profile_mobile, profile_email, profile_name;
     ImageButton edit_profile_btn;
     String profileUniversityName;
     String profileCollegeName;
@@ -123,7 +123,7 @@ public class UserProfileActivity extends AppCompatActivity {
                 final String image = dataSnapshot.child("user_image").getValue().toString();
                 String thumbImage = dataSnapshot.child("user_thumb_image").getValue().toString();
 
-                if (!image.equals("default_image")) { // default image condition for new user
+                if (!image.equals("default_image")) { // defau1lt image condition for new user
                     Picasso.get()
                             .load(image)
                             .networkPolicy(NetworkPolicy.OFFLINE) // for offline

@@ -23,14 +23,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end">
 
-            <ImageButton
-                android:id="@+id/post_save"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/save_icon" />
         </FrameLayout>
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -44,7 +39,8 @@
                 app:civ_border_width="2dp" />
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_marginLeft="55dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="@dimen/feed_item_profile_info_padd">
@@ -66,8 +62,14 @@
                     android:textSize="10dp" />
             </LinearLayout>
 
+            <ImageButton
+                android:layout_gravity="end"
+                android:id="@+id/post_save"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/save_icon" />
 
-        </LinearLayout>
+        </FrameLayout>
 
         <TextView
             android:id="@+id/txtStatusMsgPost"
@@ -97,12 +99,21 @@
             android:scaleType="centerCrop"
             android:src="@drawable/cover" />
 
+        <View
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:background="@color/colorAccent" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:orientation="horizontal">
+
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -120,8 +131,8 @@
 
                 <ImageButton
                     android:id="@+id/thumbs_up"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/like_icon" />
@@ -151,8 +162,8 @@
 
                 <ImageButton
                     android:id="@+id/post_comment1"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/comment_icon" />
 
@@ -180,8 +191,8 @@
                 android:padding="10dp">
 
                 <ImageButton
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:background="@drawable/share_icon" />

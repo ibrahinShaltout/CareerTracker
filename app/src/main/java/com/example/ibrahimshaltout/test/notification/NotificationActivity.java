@@ -82,8 +82,8 @@ public class NotificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notification);
 
         toolbarTop = findViewById(R.id.notification_top_bar);
-        setSupportActionBar(toolbarTop);
-        toolbarTop.setTitle("Message");
+
+        toolbarTop.setTitle("Notification");
         toolbarTop.setTitleMarginStart(80);
 
         // add back arrow to main_tool_bar
@@ -103,7 +103,7 @@ public class NotificationActivity extends AppCompatActivity {
         host.addTab(spec);
 
         //Tab 2
-        spec = host.newTabSpec("TrackDataClass").setContent(R.id.notification_tab2).setIndicator("TrackDataClass");
+        spec = host.newTabSpec("TrackDataClass").setContent(R.id.notification_tab2).setIndicator("Tracks");
         host.addTab(spec);
 
         //Tab 3
@@ -111,7 +111,7 @@ public class NotificationActivity extends AppCompatActivity {
         host.addTab(spec);
 
         //Tab 3
-        spec = host.newTabSpec("App Team").setContent(R.id.notification_tab4).setIndicator("AppTeam");
+        spec = host.newTabSpec("App Team").setContent(R.id.notification_tab4).setIndicator("App Team");
         host.addTab(spec);
 
 
@@ -183,7 +183,7 @@ public class NotificationActivity extends AppCompatActivity {
                                         holder.name.setText(userName);
                                         holder.status.setText(user_status);
 
-                                        if (!userThumbPhoto.equals("default_image")) { // default image condition for new user
+                                        if (!userThumbPhoto.equals("default_image")) { // defau1lt image condition for new user
                                             Picasso.get()
                                                     .load(userThumbPhoto)
                                                     .networkPolicy(NetworkPolicy.OFFLINE) // for Offline
@@ -340,7 +340,7 @@ public class NotificationActivity extends AppCompatActivity {
                                         holder.name.setText(userName);
                                         holder.status.setText(user_status);
 
-                                        if (!userThumbPhoto.equals("default_image")) { // default image condition for new user
+                                        if (!userThumbPhoto.equals("default_image")) { // defau1lt image condition for new user
                                             Picasso.get()
                                                     .load(userThumbPhoto)
                                                     .networkPolicy(NetworkPolicy.OFFLINE) // for Offline

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_view"
+    android:id="@+id/card_view_current_path"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card_view:cardBackgroundColor="@color/track_color"
@@ -22,12 +23,6 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Android Track"
-                android:textSize="20dp"
-                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -39,31 +34,39 @@
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@mipmap/ic_launcher_round"
+                android:background="@drawable/ic_android_black_24dp"
                 android:baseline="15dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="vertical">
 
-
                 <TextView
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
-                    android:text="I'm a student at computer science .. "
-                    android:textSize="15dp"
+                    android:paddingLeft="25dp"
+                    android:text="Android Track"
+                    android:textSize="25dp"
                     android:textStyle="bold" />
+                <!--<TextView-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="I'm a student at computer science .. "-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/people_bio"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="@dimen/feed_item_status_pad_left_right"
-                    android:paddingBottom="5dp"
-                    android:text="@string/bio_profile3" />
+                <!--<TextView-->
+                <!--android:id="@+id/people_bio"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="15dp"-->
+                <!--android:paddingRight="@dimen/feed_item_status_pad_left_right"-->
+                <!--android:paddingBottom="5dp"-->
+                <!--android:text="@string/bio_profile3" />-->
 
             </LinearLayout>
 
@@ -73,6 +76,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -92,7 +96,5 @@
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
-
-
 </android.support.v7.widget.CardView>
 

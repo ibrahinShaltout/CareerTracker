@@ -78,6 +78,169 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
             "Ronald Reagan", "George H. W. Bush", "Bill Clinton", "George W. Bush", "Barack Obama"};
     String[] experienceArray = {"Dwight D. Eisenhower", "John F. Kennedy", "Lyndon B. Johnson", "Richard Nixon", "Gerald Ford", "Jimmy Carter",
             "Ronald Reagan", "George H. W. Bush", "Bill Clinton", "George W. Bush", "Barack Obama"};
+    String[] Universities = {"Military Technical College" ,
+            " Minia University" ,
+            " Minufiya University" ,
+            "Port Said University" ,
+            "Sadat Academy for Management Sciences" ,
+            "Sohag University",
+            " South Valley University" ,
+            "Suez Canal University" ,
+            "Suez University" ,
+            " Tanta University" ,
+            "University of Sadat City",
+            "University of Science and Technology at Zewail City" ,
+            "Zagazig University",
+            "Ahram Canadian University",
+            "Alamein University",
+            "Alexandria Higher Institute of Engineering and Technology",
+            "American University in Cairo",
+            "Arab Academy for Science, Technology and Maritime Transport",
+            "Arab Open University",
+            " British University in Egypt ",
+            " Cairo Higher Institute for Engineering, Computer Science & Management ",
+            " Cairo Private Technology Institute ",
+            " Canadian International College ",
+            " Egyptian Chinese University " ,
+            " Egyptian e-Learning University " ,
+            " Egyptian Russian University " ,
+            " El Asher University ",
+            " El Shorouk Academy " ,
+            " Future University in Egypt " ,
+            " German University in Cairo ",
+            " Heliopolis University ",
+            " Higher Technological Institute ",
+            " International Academy for Engineering & Media Sciences ",
+            " Misr Higher Institute For Engineering And Technology in Mansoura ",
+            " Misr International University ",
+            " Misr University for Science and Technology ",
+            " Modern Academy For Engineering & Technology ",
+            " Modern Academy In Maadi ",
+            " Modern Sciences and Arts University ",
+            "Modern University for Technology and Information",
+            "MTI University" ,
+            "Nahda University" ,
+            "Nile University",
+            "October 6 University (O6U)" ,
+            "Science Valley Academy",
+            "Sinai University",
+            "Thebes Academy",
+            "French University of Egypt",
+            "Badr University in Cairo",
+            "New Cairo Academy",
+            "Akhbar elyom academy",
+            "New Giza University",
+    };
+    String[] College = {" The Higher Institute of Cooperative & Managerial Studies",
+            " Institute of Postgraduate Childhood",
+            " Institute of Environmental Studies and Research",
+            " Faculty of Women for Arts, Science and Education.",
+            " Faculty of Specific Education",
+            " Faculty of Agriculture",
+            " Faculty of Science ",
+            " Faculty of Engineering ",
+            " Faculty of Pharmacy ",
+            "  Faculty of Nursing",
+            " Faculty of Medicine ",
+            " Faculty of Law" ,
+            " Faculty of linguistics " ,
+            " Faculty of Dentistry" ,
+            " Faculty of Education ",
+            " Faculty of Computer and Information Science " ,
+            " Faculty of Commerce " ,
+            " Faculty of Arts"
+
+    };
+    String[] Specialization  = {" Acoustic Engineering",
+            " Aeronautical / Aerospace / Astronautical Engineering",
+            " Agriculture Engineering",
+            " Automobiles engineering",
+            " Biochemical Engineering" ,
+            " Biomedical Engineering" ,
+            " Chemical Engineering" ,
+            " Civil engineering",
+            " Computers engineering/ Software engineering/ Information Technology " ,
+            " Mining engineering" ,
+            " Textile engineering",
+            " Ocean engineering ",
+            " Marine engineering/ Naval architecture ",
+            " Metallurgical engineering",
+            " Industrial/ Production engineering ",
+            " Petroleum engineering",
+            " Polymer engineering ",
+            " Systems engineering ",
+            " Nuclear engineering",
+            " Electronics engineering/ Electronics and Tele-Communication",
+            " Electrical engineering",
+            " Geomatic Engineering",
+            " Environment engineering",
+            " Mechatronics Engineering" ,
+            " Instrumentation engineering " ,
+            " Mechanical engineering",
+            "Computer Science"
+
+    };
+
+    String[] skills  = {
+            " Data Analysis",
+            " Copywriting",
+            " Foreign Languages",
+            " Accounting",
+            " Computer Languages",
+            " Mathematics" ,
+            " Graphic Design" ,
+            " Planning / Event Planning" ,
+            " SEO / SEM Marketing",
+            " SEO / SEM Marketing" ,
+            " Bookkeeping" ,
+            " Communication",
+            " Ability to Work Under Pressure",
+            " Decision Making",
+            " Time Management",
+            " Self-motivation",
+            " Conflict Resolution",
+            " Leadership",
+            " Adaptability",
+            " Teamwork",
+            " Creativity",
+            " Analytical",
+            " Adaptable (work in changing environment)",
+            " Adaptable (work in changing environment)",
+            " Quick Learner" ,
+            " Able to Build Relationships" ,
+            " Loyal and Discreet (maintain confidentiality)" ,
+            " Flexible",
+            " Responsible",
+            " Able to Operate Under Pressure",
+            " Efficient",
+            " Detail-oriented",
+            " Computer and Internet Skills",
+            " Written and Verbal Communication" ,
+            " Organizational Skills" ,
+            " Multi-tasking" ,
+            " Time Management",
+            " Problem Solving" ,
+            " Negotiation and Conflict Resolution" ,
+            " Decisiveness"
+    };
+
+    String[] Fields  = {
+            " Computers and Technology.",
+            " Health Care and Allied Health.",
+            " Education and Social Services.",
+            " Arts and Communications.",
+            " Health Care and Allied Health.",
+            " Trades and Transportation.",
+            " Management, Business, and Finance.",
+            " Science.",
+            " Architecture and Civil Engineering.",
+            " Hospitality, Tourism, and the Service Industry",
+            " Law and Law Enforcement"
+
+    };
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +278,7 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
         inputExperienceLayout = (TextInputLayout) findViewById(R.id.Layout_experience);
 
 
-        ArrayAdapter<String> skillsadapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, skillsArray);
+        ArrayAdapter<String> skillsadapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, skills);
         inputskills = (MultiAutoCompleteTextView) findViewById(R.id.skills_talents);
         inputskills.setThreshold(1);
         inputskills.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
@@ -126,7 +289,7 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
         inputExperience.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         inputExperience.setAdapter(experienceadapter);
 
-        ArrayAdapter<String> Interestsadapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, interestsArray);
+        ArrayAdapter<String> Interestsadapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, Fields);
         inputinterest = (MultiAutoCompleteTextView) findViewById(R.id.interests);
         inputinterest.setThreshold(1);
         inputinterest.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
@@ -137,7 +300,7 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
         school_type_name.setThreshold(1);
         school_type_name.setAdapter(schoolNameAdapter);
 
-        ArrayAdapter<String> uniNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, uniNameDataSnapShot);
+        ArrayAdapter<String> uniNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, Universities);
         university_name = (AutoCompleteTextView) findViewById(R.id.university_name);
         university_name.setThreshold(1);
         university_name.setAdapter(uniNameAdapter);
@@ -155,12 +318,12 @@ public class IndividualCareerinfoActivity extends AppCompatActivity {
 //        });
 
 
-        ArrayAdapter<String> collegeNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, clgNameDataSnapShot);
+        ArrayAdapter<String> collegeNameAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, College);
         college_name = (AutoCompleteTextView) findViewById(R.id.college_name);
         college_name.setThreshold(1);
         college_name.setAdapter(collegeNameAdapter);
 
-        ArrayAdapter<String> specAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, uniDepDataSnapShot);
+        ArrayAdapter<String> specAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, Specialization);
         specialization_name = (AutoCompleteTextView) findViewById(R.id.specialization_name);
         specialization_name.setThreshold(1);
         specialization_name.setAdapter(specAdapter);

@@ -28,7 +28,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <LinearLayout
+                <android.support.v4.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"> <LinearLayout
                     android:id="@+id/track_tab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -40,10 +42,301 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
+                    <android.support.v7.widget.CardView
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_margin="5dp"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/track_color"
+                        card_view:cardCornerRadius="4dp"
+                        card_view:cardElevation="4dp"
+                        card_view:contentPadding="15dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:layout_width="40dp"
+                                android:layout_height="35dp"
+                                android:background="@drawable/web_icon"
+                                android:baseline="15dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="25dp"
+                                    android:text="Web Development"
+                                    android:textSize="25dp"
+                                    android:textStyle="bold" />
+                                <!--<TextView-->
+                                <!--android:layout_gravity="center"-->
+                                <!--android:layout_width="fill_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="I'm a student at computer science .. "-->
+                                <!--android:textSize="15dp"-->
+                                <!--android:textStyle="bold" />-->
+
+                                <!--<TextView-->
+                                <!--android:id="@+id/people_bio"-->
+                                <!--android:layout_width="fill_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:paddingLeft="15dp"-->
+                                <!--android:paddingRight="@dimen/feed_item_status_pad_left_right"-->
+                                <!--android:paddingBottom="5dp"-->
+                                <!--android:text="@string/bio_profile3" />-->
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/feed_item_status_pad_left_right"
+                                android:text="Achieved: 60%"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="60dp"
+                                android:text="Start Date: 10/3/2019"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+                    <android.support.v7.widget.CardView
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        card_view:cardBackgroundColor="@color/track_color"
+                        card_view:cardCornerRadius="4dp"
+                        card_view:cardElevation="4dp"
+                        card_view:contentPadding="15dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:orientation="horizontal">
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <android.support.v7.widget.AppCompatImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/testing_icon2"
+                                    android:baseline="15dp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingLeft="25dp"
+                                        android:text="Automation Testing"
+
+                                        android:textSize="25dp"
+                                        android:textStyle="bold" />
+                                    <!--<TextView-->
+                                    <!--android:layout_gravity="center"-->
+                                    <!--android:layout_width="fill_parent"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:text="I'm a student at computer science .. "-->
+                                    <!--android:textSize="15dp"-->
+                                    <!--android:textStyle="bold" />-->
+
+                                    <!--<TextView-->
+                                    <!--android:id="@+id/people_bio"-->
+                                    <!--android:layout_width="fill_parent"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:paddingLeft="15dp"-->
+                                    <!--android:paddingRight="@dimen/feed_item_status_pad_left_right"-->
+                                    <!--android:paddingBottom="5dp"-->
+                                    <!--android:text="@string/bio_profile3" />-->
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="@dimen/feed_item_status_pad_left_right"
+                                    android:text="Achieved: 45%"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="60dp"
+                                    android:text="Start Date: 23/6/2018"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+                    <android.support.v7.widget.CardView
+                        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/card_view_path1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        card_view:cardBackgroundColor="@color/track_color"
+                        card_view:cardCornerRadius="4dp"
+                        android:layout_margin="5dp"
+                        card_view:cardElevation="4dp"
+                        card_view:contentPadding="15dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:orientation="horizontal">
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <android.support.v7.widget.AppCompatImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/se_iconn"
+                                     />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingLeft="25dp"
+                                        android:text="Software Engineering"
+
+                                        android:textSize="25dp"
+                                        android:textStyle="bold" />
+                                    <!--<TextView-->
+                                    <!--android:layout_gravity="center"-->
+                                    <!--android:layout_width="fill_parent"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:text="I'm a student at computer science .. "-->
+                                    <!--android:textSize="15dp"-->
+                                    <!--android:textStyle="bold" />-->
+
+                                    <!--<TextView-->
+                                    <!--android:id="@+id/people_bio"-->
+                                    <!--android:layout_width="fill_parent"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:paddingLeft="15dp"-->
+                                    <!--android:paddingRight="@dimen/feed_item_status_pad_left_right"-->
+                                    <!--android:paddingBottom="5dp"-->
+                                    <!--android:text="@string/bio_profile3" />-->
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="@dimen/feed_item_status_pad_left_right"
+                                    android:text="Achieved: 50%"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="60dp"
+                                    android:text="Start Date: 26/3/2018"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
 
 
 
                 </LinearLayout>
+                </android.support.v4.widget.NestedScrollView>
 
                 <LinearLayout
                     android:id="@+id/track_tab2"

@@ -53,8 +53,8 @@ public class MessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_message);
 
         toolbarTop = findViewById(R.id.message_top_bar);
-        setSupportActionBar(toolbarTop);
-        toolbarTop.setTitle("Message");
+
+        toolbarTop.setTitle("Messages");
         toolbarTop.setTitleMarginStart(80);
 
         // add back arrow to main_tool_bar
@@ -105,7 +105,7 @@ public class MessageActivity extends AppCompatActivity {
                             final String userPresence = dataSnapshot.child("active_now").getValue().toString();
                             final String userThumbPhoto = dataSnapshot.child("user_thumb_image").getValue().toString();
 
-                            if (!userThumbPhoto.equals("default_image")) { // default image condition for new user
+                            if (!userThumbPhoto.equals("default_image")) { // defau1lt image condition for new user
                                 Picasso.get()
                                         .load(userThumbPhoto)
                                         .networkPolicy(NetworkPolicy.OFFLINE) // for Offline
@@ -185,7 +185,7 @@ public class MessageActivity extends AppCompatActivity {
             @NonNull
             @Override
             public ChatsVH onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.all_single_profile_display, viewGroup, false);
+                    View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.all_single_profile_display, viewGroup, false);
                 return new ChatsVH(view);
             }
         };

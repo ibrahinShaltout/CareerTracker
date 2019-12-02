@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".tracks.CoursesActivity">
+
+    <include
+        android:id="@+id/course_Screen_toolbar"
+        layout="@layout/tool_bar_in_screen" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:text="Free Courses :- "
+                android:textSize="30dp"
+
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/track_color"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true">
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:id="@+id/name_of_track"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Android TrackDataClass"-->
+                <!--android:textSize="20dp"-->
+                <!--android:textStyle="bold" />-->
+
+                <!--</LinearLayout>-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:paddingLeft="15dp"
+                                android:text="Java Tutorial for Complete Beginners "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end|bottom">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="15dp"
+                                    android:background="@color/colorPrimary"
+                                    android:gravity="bottom"
+                                    android:padding="5dp"
+                                    android:text="certified"
+                                    android:textColor="@color/white"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold" />
+
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="@dimen/feed_item_status_pad_left_right"
+                            android:paddingBottom="5dp"
+                            android:text="Learn to program in the Java programming language. This course assumes no prior programming knowledge, just a desire to learn to program. " />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoLink="web"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="@dimen/feed_item_status_pad_left_right"
+                            android:paddingBottom="5dp"
+
+                            android:text="https://www.udemy.com/java-tutorial/" />
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|bottom">
+
+                            <Button
+                                android:id="@+id/startProgress"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_gravity="end"
+                                android:background="@color/colorPrimary"
+                                android:layout_marginTop="5dp"
+                                android:textColor="@color/white"
+                                android:text="Start"
+                                android:textSize="10dp"
+                                android:textStyle="bold" />
+
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="@dimen/feed_item_status_pad_left_right"-->
+                <!--android:text="Achieved: 30%"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="end"-->
+                <!--android:gravity="end"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:text=" 20/5/2018"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
+                <!--</LinearLayout>-->
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/track_color"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true">
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:id="@+id/name_of_track"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Android TrackDataClass"-->
+                <!--android:textSize="20dp"-->
+                <!--android:textStyle="bold" />-->
+
+                <!--</LinearLayout>-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:paddingLeft="15dp"
+                                android:text="Java Courses edX"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end|bottom">
+
+                                <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_gravity="end"-->
+                                <!--android:layout_marginTop="5dp"-->
+                                <!--android:layout_marginRight="15dp"-->
+                                <!--android:background="@color/colorPrimary"-->
+                                <!--android:gravity="bottom"-->
+                                <!--android:padding="5dp"-->
+                                <!--android:text="certified"-->
+                                <!--android:textColor="@color/white"-->
+                                <!--android:textSize="10dp"-->
+                                <!--android:textStyle="bold" />-->
+
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="@dimen/feed_item_status_pad_left_right"
+                            android:paddingBottom="5dp"
+                            android:text="Take free online Java courses. Learn from Microsoft and other top institutions from around the world on edX. Join today." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoLink="web"
+                            android:paddingStart="15dp"
+                            android:paddingBottom="5dp"
+                            android:text="https://www.edx.org/learn/java" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="end"
+                            android:background="@color/colorPrimary"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/white"
+                            android:text="In Progress"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="@dimen/feed_item_status_pad_left_right"-->
+                <!--android:text="Achieved: 30%"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="end"-->
+                <!--android:gravity="end"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:text=" 20/5/2018"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
+                <!--</LinearLayout>-->
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/track_color"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true">
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:id="@+id/name_of_track"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Android TrackDataClass"-->
+                <!--android:textSize="20dp"-->
+                <!--android:textStyle="bold" />-->
+
+                <!--</LinearLayout>-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:paddingLeft="15dp"
+                                android:text="Java Tutorial for Beginners "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end|bottom">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="15dp"
+                                    android:background="@color/colorPrimary"
+                                    android:gravity="bottom"
+                                    android:padding="5dp"
+                                    android:text="certified"
+                                    android:textColor="@color/white"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold" />
+
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="@dimen/feed_item_status_pad_left_right"
+                            android:paddingBottom="5dp"
+                            android:text="SoloLearn's Learn Java is a comprehensive guide to one of the most popular programming languages in the world. And here's a big bonus: Learn Java is FREE!" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoLink="web"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="@dimen/feed_item_status_pad_left_right"
+                            android:paddingBottom="5dp"
+
+                            android:text="https://www.sololearn.com/Course/java/" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="end"
+                            android:background="@color/colorPrimary"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/white"
+                            android:text="Start"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="@dimen/feed_item_status_pad_left_right"-->
+                <!--android:text="Achieved: 30%"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="end"-->
+                <!--android:gravity="end"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:text=" 20/5/2018"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
+                <!--</LinearLayout>-->
+            </android.support.v7.widget.CardView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="15dp"
+                android:text="Paid Courses :-"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardBackgroundColor="@color/track_color"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true">
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:id="@+id/name_of_track"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Android TrackDataClass"-->
+                <!--android:textSize="20dp"-->
+                <!--android:textStyle="bold" />-->
+
+                <!--</LinearLayout>-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:paddingLeft="15dp"
+                                android:text="Paths Java "
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end|bottom">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginRight="15dp"
+                                    android:background="@color/colorPrimary"
+                                    android:gravity="bottom"
+                                    android:padding="5dp"
+                                    android:text="certified"
+                                    android:textColor="@color/white"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold" />
+
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="@dimen/feed_item_status_pad_left_right"
+                            android:paddingBottom="5dp"
+                            android:text="These introductory Java courses will teach you the basics of the language and how to effectively work with Java in the EE context. Some of the concepts you will master in this section include control flow in Java, object orientation, exception handling and even generics. By the end of these Java courses you will have the skillset to work on your own Java application." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoLink="web"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="@dimen/feed_item_status_pad_left_right"
+                            android:paddingBottom="5dp"
+                            android:text="https://www.pluralsight.com/paths/java" />
+                        <Button
+
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="end"
+                            android:background="@color/colorPrimary"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/white"
+                            android:text="Start"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="@dimen/feed_item_status_pad_left_right"-->
+                <!--android:text="Achieved: 30%"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="end"-->
+                <!--android:gravity="end"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:text=" 20/5/2018"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
+                <!--</LinearLayout>-->
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                card_view:cardBackgroundColor="@color/track_color"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="4dp"
+                card_view:cardUseCompatPadding="true">
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="10dp"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:id="@+id/name_of_track"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Android TrackDataClass"-->
+                <!--android:textSize="20dp"-->
+                <!--android:textStyle="bold" />-->
+
+                <!--</LinearLayout>-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:paddingLeft="15dp"
+                                android:text="Java Training and Tutorials"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end|bottom">
+
+                                <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_gravity="end"-->
+                                <!--android:layout_marginTop="5dp"-->
+                                <!--android:layout_marginRight="15dp"-->
+                                <!--android:background="@color/colorPrimary"-->
+                                <!--android:gravity="bottom"-->
+                                <!--android:padding="5dp"-->
+                                <!--android:text="certified"-->
+                                <!--android:textColor="@color/white"-->
+                                <!--android:textSize="10dp"-->
+                                <!--android:textStyle="bold" />-->
+
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="@dimen/feed_item_status_pad_left_right"
+                            android:paddingBottom="5dp"
+                            android:text="Our Java tutorials explain how to program in Java, with specifics like how to use JDBC to integrate MySQL databases. Learn Java code tips for advanced class structures, the Reflection API, managing files and directories, and more." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoLink="web"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="@dimen/feed_item_status_pad_left_right"
+                            android:paddingBottom="5dp"
+                            android:text="https://www.lynda.com/Java-training-tutorials/" />
+
+                        <Button
+
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="end"
+                            android:background="@color/colorPrimary"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/white"
+                            android:text="Start"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingLeft="@dimen/feed_item_status_pad_left_right"-->
+                <!--android:text="Achieved: 30%"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="end"-->
+                <!--android:gravity="end"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:text=" 20/5/2018"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textStyle="bold" />-->
+                <!--</LinearLayout>-->
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -285,7 +285,7 @@
                     android:id="@+id/interests"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Interests" />
+                    android:hint="Current Field Interests" />
             </android.support.design.widget.TextInputLayout>
 
 

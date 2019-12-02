@@ -8,28 +8,43 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/main_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".tracks.CoursesActivity"/>
+        <activity android:name=".tracks.Courses2Activity"/>
         <activity android:name=".ToDoList.AddTaskActivity" />
         <activity android:name=".ToDoList.ToDoListActivity" />
         <activity android:name=".signup.individual.ChooseFieldActivity" />
         <activity android:name=".CorporateProfile.JobOfferActivity" />
         <activity android:name=".CorporateProfile.EventActivity" />
-        <activity android:name=".AcademyProfile.CourseActivity" />
-        <activity android:name=".CorporateProfile.CorporateProfileActivity" />
-        <activity android:name=".AcademyProfile.AcademyProfileActivity" />
-        <activity android:name=".UniversityProfile.UniversityProfileActivity" />
+        <activity android:name=".AcademyProfile.CourseActivity" >
+
+
+        </activity>
+        <activity android:name=".CorporateProfile.CorporateProfileActivity" >
+
+        </activity>
+        <activity android:name=".AcademyProfile.AcademyProfileActivity">
+
+        </activity>
+        <activity android:name=".UniversityProfile.UniversityProfileActivity">
+       </activity>
         <activity android:name=".IntroActivity" />
         <activity android:name=".OtherProfileActivity" />
         <activity android:name=".messages.StatusUpdateActivity" />
         <activity android:name=".search.SearchActivity" />
         <activity android:name=".FriendsActivity" />
         <activity android:name=".messages.ChatActivity" />
-        <activity android:name=".tracks.CurrentTrackProfileActivity" />
+        <activity android:name=".tracks.CurrentTrackProfileActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
         <activity android:name=".tracks.PathProfileActivity" />
         <activity android:name=".tracks.ChoosePathActivity" />
         <activity android:name=".tracks.TrackProfileDetailsActivity" />
@@ -48,13 +63,22 @@
         <activity android:name=".signup.VerifyEmail" />
         <activity android:name=".signup.YourLocation" />
         <activity android:name=".signup.individual.IndividuaGeneralinfoActivity" />
-        <activity android:name=".signup.individual.IndividualCareerinfoActivity" />
+        <activity android:name=".signup.individual.IndividualCareerinfoActivity" >
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
+        </activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".login.LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -74,4 +98,5 @@
             </intent-filter>
         </service>
     </application>
+
 </manifest>

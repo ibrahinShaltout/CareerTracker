@@ -81,7 +81,6 @@
                         android:textStyle="bold" />
 
                     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/card_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="40dp"
@@ -109,17 +108,76 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="15dp"
-                                android:text="- Engineering : computer Engineering"
+                                android:text="College field:"
+                                android:textSize="13dp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:text="Computer and technology"
                                 android:textSize="13dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:text="Specialization description:"
+                                android:textSize="13dp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="25dp"
-                                android:text="https://www.Engineering.com/"
+                                android:autoLink="web"
+                                android:text="https://www.collegechoice.net/computers-technology/"
                                 android:textSize="10dp"
 
                                 android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:text="College specialization:"
+                                android:textSize="13dp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:text="- Engineering : computer Engineering"
+                                android:textSize="13dp" />
+
+                            <com.borjabravo.readmoretextview.ReadMoreTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:text="  (Computer engineering): Computer engineers work with hardware and software, ensuring that the two are seamlessly integrated and functioning properly. Computer engineers focus on innovation—making computing systems safer, faster and more powerful. At the career level, there are two main avenues: hardware and software engineering. Hardware engineers focus their skills on computer systems and components, designing microprocessors, circuit boards, routers and other embedded devices. On the software side, these engineers create, test and debug programs and applications that run on computers, mobile devices and more. Just as there are countless apps, software programs and computers that function for specific tasks, there are just as many career options for those who wish to enter the computer engineering profession. From robotics to wireless networks, and operating systems to aircraft design, there is a specialization for any interest. Example employers for computer engineers include research laboratories, technology manufacturers, semiconductor companies, and digital consulting firms."
+                                android:textSize="13dp"
+                                app:trimCollapsedText="Show less"
+                                app:trimExpandedText="Show more"
+                                app:trimLength="250"
+                                app:trimMode="trimModeLength" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:autoLink="web"
+                                android:text="https://www.learnhowtobecome.org/computer-engineer/"
+                                android:textSize="10dp"
+
+                                android:textStyle="bold" />
+
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -128,20 +186,35 @@
                                 android:text="- Science  computer Science"
                                 android:textSize="13dp" />
 
+
+                            <com.borjabravo.readmoretextview.ReadMoreTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:text="(Computer and information science): Information science is primarily concerned with gathering, storing, disseminating, sharing and protecting any and all forms of information. It is a broad field, covering a myriad of different areas but is often referenced alongside computer science because of the incredibly useful nature of computers and computer programs in helping those studying and doing research in the field – particularly in helping to analysis data and in spotting patterns too broad for a human to intuitively perceive. While information science is sometimes confused with information theory, the two have vastly different subject matter. Information theory focuses on one particular mathematical concept of information while information science is focused on all aspects of the processes and techniques of information.
+Computer science, in contrast, is less focused on information and its different states, but more, in a very broad sense, on the use of computers – both in theory and practice – to design and implement algorithms in order to aid the processing of information during the different states described above. It has strong foundations in the field of mathematics, as the very first recognized practitioners of the field were renowned mathematicians such as Alan Turing.
+"
+                                android:textSize="13dp"
+                                app:trimCollapsedText="Show less"
+                                app:trimExpandedText="Show more"
+                                app:trimLength="250"
+                                app:trimMode="trimModeLength" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginBottom="10dp"
-                                android:text="https://www.Science.com/"
+                                android:autoLink="web"
+                                android:text="https://undergrad.cs.umd.edu/what-computer-science"
                                 android:textSize="10dp"
                                 android:textStyle="bold" />
 
-                            <android.support.v7.widget.RecyclerView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
+                            <!--<android.support.v7.widget.RecyclerView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content">-->
 
-                            </android.support.v7.widget.RecyclerView>
+                            <!--</android.support.v7.widget.RecyclerView>-->
 
                         </LinearLayout>
 
@@ -225,6 +298,214 @@
                             </android.support.v7.widget.RecyclerView>
 
 
+                            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardUseCompatPadding="true"
+                                card_view:contentPadding="15dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="10dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Option B"
+                                            android:textSize="20dp"
+                                            android:textStyle="bold" />
+
+                                    </LinearLayout>
+
+                                    <FrameLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:orientation="horizontal">
+
+
+                                        <FrameLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_gravity=""
+                                                android:orientation="horizontal">
+
+                                                <View
+                                                    android:layout_width="85dp"
+                                                    android:layout_height="5dp"
+                                                    android:layout_marginTop="20dp"
+                                                    android:layout_marginEnd="10dp"
+                                                    android:background="@color/colorAccent"
+                                                    android:elevation="0dp" />
+
+                                                <View
+                                                    android:layout_width="85dp"
+                                                    android:layout_height="5dp"
+                                                    android:layout_marginTop="20dp"
+                                                    android:layout_marginEnd="10dp"
+                                                    android:background="@color/colorAccent"
+                                                    android:elevation="0dp" />
+
+                                                <View
+                                                    android:layout_width="85dp"
+                                                    android:layout_height="5dp"
+                                                    android:layout_marginTop="20dp"
+                                                    android:layout_marginEnd="10dp"
+                                                    android:background="@color/colorAccent"
+                                                    android:elevation="0dp" />
+
+                                                <View
+                                                    android:layout_width="85dp"
+                                                    android:layout_height="5dp"
+                                                    android:layout_marginTop="20dp"
+                                                    android:layout_marginEnd="10dp"
+                                                    android:background="@color/colorAccent"
+                                                    android:elevation="0dp" />
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="start"
+
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="40dp"
+                                                    android:layout_height="40dp"
+                                                    android:background="@drawable/circul_number"
+                                                    android:baseline="15dp"
+                                                    android:gravity="center"
+                                                    android:text="1"
+                                                    android:textSize="20dp" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="5dp"
+                                                    android:paddingLeft="@dimen/feed_item_status_pad_left_right"
+                                                    android:text="Java"
+                                                    android:textSize="15dp"
+                                                    android:textStyle="bold" />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:gravity="center"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="40dp"
+                                                    android:layout_height="40dp"
+                                                    android:background="@drawable/circul_number"
+                                                    android:baseline="15dp"
+                                                    android:gravity="center"
+                                                    android:text="2"
+                                                    android:textSize="20dp" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="5dp"
+                                                    android:paddingLeft="@dimen/feed_item_status_pad_left_right"
+                                                    android:text="Kotlin"
+                                                    android:textSize="15dp"
+                                                    android:textStyle="bold" />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="end"
+                                                android:gravity="end"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="40dp"
+                                                    android:layout_height="40dp"
+                                                    android:background="@drawable/circul_number"
+                                                    android:baseline="15dp"
+                                                    android:gravity="center"
+                                                    android:text="3"
+                                                    android:textSize="20dp" />
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="5dp"
+                                                    android:paddingLeft="@dimen/feed_item_status_pad_left_right"
+                                                    android:text="Firebase"
+                                                    android:textSize="15dp"
+                                                    android:textStyle="bold" />
+                                            </LinearLayout>
+
+
+                                            <!--<TextView-->
+                                            <!--android:layout_width="fill_parent"-->
+                                            <!--android:layout_height="wrap_content"-->
+                                            <!--android:paddingLeft="15dp"-->
+                                            <!--android:text="I'm a student at computer science .. "-->
+                                            <!--android:textSize="15dp"-->
+                                            <!--android:textStyle="bold" />-->
+
+                                            <!--<TextView-->
+                                            <!--android:id="@+id/txtStatusMsg"-->
+                                            <!--android:layout_width="fill_parent"-->
+                                            <!--android:layout_height="wrap_content"-->
+                                            <!--android:paddingLeft="15dp"-->
+                                            <!--android:paddingRight="@dimen/feed_item_status_pad_left_right"-->
+                                            <!--android:paddingBottom="5dp"-->
+                                            <!--android:text="@string/bio_profile3" />-->
+                                        </FrameLayout>
+
+
+                                    </FrameLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+
+                                        <!--<TextView-->
+                                        <!--android:layout_width="wrap_content"-->
+                                        <!--android:layout_height="wrap_content"-->
+                                        <!--android:paddingLeft="60dp"-->
+                                        <!--android:text="Start Date: 20/5/2018"-->
+                                        <!--android:textSize="15dp"-->
+                                        <!--android:textStyle="bold" />-->
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <!--<TextView-->
+                                <!--android:id="@+id/textView3"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="&#xA;                &lt;LinearLayout" />-->
+
+
+                            </android.support.v7.widget.CardView>
+
+
                             <!--<TextView-->
                             <!--android:layout_width="wrap_content"-->
                             <!--android:layout_height="wrap_content"-->
@@ -306,9 +587,190 @@
                                 android:textSize="13dp"
                                 android:textStyle="bold" />
 
-                            <android.support.v7.widget.RecyclerView
+                            <android.support.v7.widget.CardView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="3dp"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardMaxElevation="6dp"
+                                card_view:contentPadding="2dp"
+                                tools:ignore="MissingConstraints">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:orientation="vertical">
+
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Event : "
+                                                        android:textColor="@color/colorAccent"
+
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text="RiseUp Summit 2018 "
+                                                        android:textColor="@color/colorAccent"
+                                                        android:textSize="13dp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="top"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Description : "
+                                                        android:textColor="@color/colorAccent"
+
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+                                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:layout_marginRight="3dp"
+                                                        android:text="We’re bringing together the world’s top speakers on technology, creativity, and investment. From the most influential investors, CEOs, and entrepreneurs, to the leading techies and creatives of the 21st century, the Summit stages will feature global industry and thought leaders here to share their expertise with the region.
+
+At the Summit, we gather all the relevant stakeholders in our region’s ecosystem. Do you need customers for your product? Developers for your App? Partners for your startup? Suppliers for your product? Or are you just looking to immerse yourself in the wisdom of industry gurus and critically acclaimed entrepreneurs? Either way, join the crowd.
+
+3 days of action-packed entrepreneur and business stories, once a year, with an audience across the globe, the impact causes ripples months after we’re done. "
+                                                        android:textSize="13dp"
+                                                        app:trimCollapsedText="Show less"
+                                                        app:trimExpandedText="Show more"
+                                                        app:trimLength="100"
+                                                        app:trimMode="trimModeLength" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Location : "
+                                                        android:textColor="@color/colorAccent"
+
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text="   GREEk Campus "
+                                                        android:textColor="@color/colorAccent"
+                                                        android:textSize="13dp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Hosted by : "
+                                                        android:textColor="@color/colorAccent"
+
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:autoLink="web"
+                                                        android:text=" www.riseupsummit.com   "
+
+                                                        android:textColor="@color/colorAccent"
+                                                        android:textSize="13dp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="top"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Date : "
+                                                        android:textColor="@color/colorAccent"
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" December 7 to 9 (Friday to Sunday).  "
+                                                        android:textColor="@color/colorAccent"
+                                                        android:textSize="13dp" />
+                                                </LinearLayout>
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+
+
+                            <!--<android.support.v7.widget.RecyclerView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>-->
 
 
                             <!--<TextView-->
@@ -386,15 +848,206 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
                                 android:text="NOTE: This is the general description of the job and its duties that relates to the chosen track."
                                 android:textSize="13dp"
-                                android:layout_marginBottom="5dp"
                                 android:textStyle="bold" />
 
-                            <android.support.v7.widget.RecyclerView
+                            <android.support.v7.widget.CardView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginRight="3dp"
+                                card_view:cardBackgroundColor="@color/track_color"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="4dp"
+                                card_view:cardMaxElevation="6dp"
+                                card_view:contentPadding="2dp"
+                                tools:ignore="MissingConstraints">
 
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:gravity="center"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:orientation="vertical">
+
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text="Job Title : "
+                                                        android:textColor="@color/colorAccent"
+
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text="Android Developer "
+                                                        android:textColor="@color/colorAccent"
+                                                        android:textSize="13dp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="top"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Description : "
+                                                        android:textColor="@color/colorAccent"
+
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+                                                    <com.borjabravo.readmoretextview.ReadMoreTextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:layout_marginRight="3dp"
+                                                        android:text="An Android Developer just understands the project’s specifications defined by the organization and then turn it into a tangible application. The app can be published and submitted to the Google Play Store. Any Android app has following three phases:
+\n•	Design Phase
+\n•	Development Phase
+\n•	Submission Process
+\n
+\nToday a number of mobile app developers are handling both designing and app coding phases along with the submission process. Such developers are known as “full stack” developers who can handle all of the Android app development phases. Apart from full stack developers sometimes the organizations also hire the programmers and developers for their app development team. As per current market trend the UX (User Experience) and UI (User Interface) design are the two most required skills for any Android developer. Mainly Android app Developer job description and responsibilities include following tasks:
+\n•	Building and Designing advanced Android applications for Android platform
+\n•	Cross-functional team collaboration to design, define and ship new features
+\n•	To use and work with outside APIs and data sources
+\n•	To perform unit test to ensure usability, robustness, edge cases and general reliability
+\n•	To work and make sure improved application performance and bug fixing
+\n•	Continuous evaluation, discovery and implementation of new technologies to maximize the efficiency of development.
+
+"
+                                                        android:textSize="13dp"
+                                                        app:trimCollapsedText="Show less"
+                                                        app:trimExpandedText="Show more"
+                                                        app:trimLength="100"
+                                                        app:trimMode="trimModeLength" />
+
+
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Company  : "
+                                                        android:textColor="@color/colorAccent"
+
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Events "
+                                                        android:textColor="@color/colorAccent"
+                                                        android:textSize="13dp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Location  : "
+                                                        android:textColor="@color/colorAccent"
+
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Heliopolis, Cairo "
+                                                        android:textColor="@color/colorAccent"
+                                                        android:textSize="13dp" />
+                                                </LinearLayout>
+
+
+                                                <LinearLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Industry  : "
+                                                        android:textColor="@color/colorAccent"
+
+                                                        android:textSize="13dp"
+                                                        android:textStyle="bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center"
+                                                        android:layout_marginLeft="5dp"
+                                                        android:text=" Information Technology Services"
+                                                        android:textColor="@color/colorAccent"
+                                                        android:textSize="13dp" />
+                                                </LinearLayout>
+
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </android.support.v7.widget.CardView>
+
+                            <!--<android.support.v7.widget.RecyclerView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>-->
 
                             <!--<TextView-->
                             <!--android:layout_width="wrap_content"-->

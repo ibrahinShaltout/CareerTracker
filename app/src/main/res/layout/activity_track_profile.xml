@@ -39,15 +39,21 @@
                     android:background="@drawable/menu_icon_up_down_24dp" />
             </FrameLayout>
 
-            <android.support.v7.widget.AppCompatImageView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="150dp"
+                android:allowBackup="true"
+                android:background="@drawable/android_facebook_cover"
+                android:hardwareAccelerated="false"
+                android:icon="@mipmap/ic_launcher"
+                android:label="@string/app_name"
+                android:largeHeap="true"
                 android:padding="2dp"
-                android:background="@mipmap/android_photo" />
+                android:supportsRtl="true"
+                android:theme="@style/AppTheme" />
 
 
-            <android.support.v7.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,42 +63,60 @@
                 card_view:cardUseCompatPadding="true">
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    android:layout_margin="10dp"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Android Developer"
-                    android:textSize="15dp"
-                    android:textStyle="bold"/>
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Android is a mobile operating system developed by Google. It is based on a modified version of the Linux kernel and other open source software, and is designed primarily for touchscreen mobile devices such as smartphones and tablets. In addition, "
-                    android:textSize="13dp"
-                    android:padding="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="Android Developer"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="  In addition, Google has further developed Android TV for televisions, Android Auto for cars, and Wear OS for wrist watches, each with a specialized user interface. Variants of Android are also used on game consoles, digital cameras, PCs and other electronics. "
-                    android:textSize="13dp"
-                    android:padding="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Description: "
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="https://www.android.com/"
-                    android:textSize="10dp"
-                    android:textStyle="bold"
-                    android:padding="10dp"/>
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Android is an operating system. That is, it’s software that connects hardware to software and provides general services. But more than that, it’s a mobile specific operating system: an OS designed to work on mobile (read: handheld, wearable, carry-able) devices. Note that the term “Android” also is used to refer to the “platform”,   So “Android Development” technically means developing applications that run on the specific OS, it also gets generalized to refer to developing any kind of software that interacts with the platform."
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Detailed description:"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Is the process by which new applications are created for devices running the Android operating system. Google states that Android apps can be written using Kotlin, Java, and C++languages using the Android software development kit (SDK), while using other languages is also possible.All non-JVM languages, such as Go, JavaScript, C, C++ or assembly, need the help of JVM language code, which may be supplied by tools, likely with restricted API support. Some languages/programming tools allow cross-platform app support, i.e. for both Android and iOS. Third party tools, development environments and language support have also continued to evolve and expand since the initial SDK was released in 2008. In addition, with major business entities like Walmart, Amazon, Bank of America etc. eyeing to engage and sell through mobiles, mobile application development is witnessing a transformation.
+                    The Android software development kit (SDK) includes a comprehensive set of development tools. These include a debugger, libraries, a handset emulator based on QEMU, documentation, sample code, and tutorials
+                    "
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:autoLink="web"
+                        android:padding="10dp"
+                        android:text="https://www.android.com/"
+                        android:textSize="10dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
@@ -101,7 +125,7 @@
                 android:id="@+id/track_More_Details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:background="@color/colorPrimary"
                 android:text="More Details"
                 android:textColor="@color/white"
@@ -111,8 +135,8 @@
     </ScrollView>
 
     <!--<TextView-->
-        <!--android:id="@+id/textView2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="&#xA;                    android:layout_width=&quot;wrap_content&quot;" />-->
+    <!--android:id="@+id/textView2"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="&#xA;                    android:layout_width=&quot;wrap_content&quot;" />-->
 </FrameLayout>

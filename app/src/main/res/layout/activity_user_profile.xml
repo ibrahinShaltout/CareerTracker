@@ -567,12 +567,20 @@
                                             android:textSize="15dp" />
 
                                         <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginLeft="5dp"
+                                            android:text="Very Good"
+                                            android:textColor="@color/colorAccent"
+                                            android:textSize="15dp" />
+                                        <TextView
                                             android:id="@+id/profile_grade"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
                                             android:layout_marginLeft="5dp"
-                                            android:text="   "
+                                            android:text="Very Good"
                                             android:textColor="@color/colorAccent"
                                             android:textSize="15dp" />
                                     </LinearLayout>
@@ -643,6 +651,18 @@
                                     android:layout_height="57dp"
                                     android:layout_margin="5dp"
                                     android:src="@drawable/ic_skills_24dp" />
+
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="5dp"
+                                    android:gravity="center_vertical"
+                                    android:text=" [Communication , Interpersonal Skills\n
+                        ,Problem-Solving ]"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="15dp" />
 
                                 <TextView
                                     android:id="@+id/profile_skill"
@@ -721,7 +741,16 @@
                                     android:layout_height="57dp"
                                     android:layout_margin="5dp"
                                     android:src="@drawable/ic_interests_24dp" />
-
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="5dp"
+                                    android:gravity="center_vertical"
+                                    android:text=" [Sports , Socializing , Computer  ,Reading\n
+                        ,Club Memberships ]"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="15dp" />
                                 <TextView
                                     android:id="@+id/profile_interest"
                                     android:layout_width="match_parent"
